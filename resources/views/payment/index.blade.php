@@ -359,93 +359,98 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-12 ms-0 h-100 me-0">
-                            <div class="row pt-3 pe-4 pb-0 ps-0 h-100 shadow rounded-3 me-0">
-                                <div class="row">
-                                    <h3 class="h3 col col-lg-10 col-md-9 col-sm-8 col-7 text-start fw-bold">Total Damage</h3>
-                                    <div class="dropdown col col-lg-2 col-md-3 col-sm-4 col-5 p-0 h-50">
-                                        {{-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" id="storageWarehouseFilter" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa-regular fa-calendar" style="color: #27374d;"></i>
-                                            Select Year
-                                        </button> --}}
-                                        <ul class="dropdown-menu dropdown-menu" aria-labelledby="storageWarehouseFilter">
-                                            <li><a class="dropdown-item active" href="#">2023</a></li>
-                                            <li><a class="dropdown-item" href="#">2022</a></li>
-                                            <li><a class="dropdown-item" href="#">2021</a></li>
-                                            <li><a class="dropdown-item" href="#">2020</a></li>
-                                            <li><a class="dropdown-item" href="#">2019</a></li>
-                                            <li><a class="dropdown-item" href="#">Last 5 Year</a></li>
-                                        </ul>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-12 pe-4 pb-1 h-100">
+                            <div class="row shadow rounded-3 h-100 px-3">
+                                <div class="row pt-3 px-1 pe-3 w-100">
+                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-6 col-7 text-start fw-bold">Total Damage</h3>
+                                    <div class="col col-lg-5 col-md-5 col-sm-6 col-5 p-0">
+                                        <select id="liftInLiftOffFilter" class="form-select" aria-label="Default select example">
+                                            <option selected>Select Year</option>
+                                            <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
+                                            <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
+                                            <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
+                                            <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
+                                            <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
+                                            <option value="5year">Last 5 Year</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="graph-container row m-0 text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
+                                <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
                                     <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
                                         <thead class="align-middle text-center">
                                             <tr>
-                                                <th scope="col">Owner</th>
-                                                <th scope="col">Total (hari)</th>
+                                                <th scope="col">No Container</th>
+                                                <th scope="col">Lama Plugging</th>
                                             </tr>
                                         </thead>
                                         <tbody class="">
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">HKLO9070</td>
+                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
 
                                         </tbody>
@@ -454,172 +459,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
-                        <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
-                            <thead class="align-middle text-center">
-                                <tr>
-                                    <th scope="col">Owner</th>
-                                    <th scope="col">Total (hari)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="">
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div> --}}
                 </div>
-                {{-- <div id="storageWarehouse-right" class="col-lg-5 col-md-12 col-sm-12 px-4 col-12 h-100 shadow rounded-3">
-                    <div class="row pt-3 px-1 pe-3">
-                        <h3 class="h3 col col-lg-10 col-md-9 col-sm-8 col-7 text-start fw-bold">Total Damage</h3>
-                        <div class="dropdown col col-lg-2 col-md-3 col-sm-4 col-5 p-0 h-50">
-                            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" id="storageWarehouseFilter" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-regular fa-calendar" style="color: #27374d;"></i>
-                                Select Year
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu" aria-labelledby="storageWarehouseFilter">
-                                <li><a class="dropdown-item active" href="#">2023</a></li>
-                                <li><a class="dropdown-item" href="#">2022</a></li>
-                                <li><a class="dropdown-item" href="#">2021</a></li>
-                                <li><a class="dropdown-item" href="#">2020</a></li>
-                                <li><a class="dropdown-item" href="#">2019</a></li>
-                                <li><a class="dropdown-item" href="#">Last 5 Year</a></li>
-                              </ul>
-                        </div>
-                    </div>
-                    <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
-                        <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
-                            <thead class="align-middle text-center">
-                                <tr>
-                                    <th scope="col">Owner</th>
-                                    <th scope="col">Total (hari)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="">
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">PT Suka Maju</td>
-                                    <td class="text-center">7</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div> --}}
             </div>
         </section>
         {{-- Sesi Storage Warehouse Ends --}}
@@ -631,7 +471,7 @@
         </div>
         <section id="trucking" class="mb-4" style="width: 100%">
             <div class="row p-2 sub-menu h-100">
-                <div id="trucking-left" class="col col-lg-3 col-md-12 col-sm-12 col-12 ps-2 container" >
+                <div id="trucking-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
                             <div class="row w-100 m-0">
@@ -654,7 +494,7 @@
                                 <path d="M35.7194 36.6259H31.8441C31.5872 36.6259 31.3407 36.7279 31.159 36.9096C30.9774 37.0913 30.8753 37.3377 30.8753 37.5947C30.8753 37.8516 30.9774 38.0981 31.159 38.2797C31.3407 38.4614 31.5872 38.5635 31.8441 38.5635H35.7194C35.9763 38.5635 36.2228 38.4614 36.4045 38.2797C36.5861 38.0981 36.6882 37.8516 36.6882 37.5947C36.6882 37.3377 36.5861 37.0913 36.4045 36.9096C36.2228 36.7279 35.9763 36.6259 35.7194 36.6259ZM39.5947 26.9376H38.4515C38.2516 26.3723 37.8817 25.8826 37.3926 25.5357C36.9035 25.1888 36.319 25.0017 35.7194 25H33.7818C33.1821 25.0017 32.5977 25.1888 32.1085 25.5357C31.6194 25.8826 31.2496 26.3723 31.0497 26.9376H29.9065C29.1356 26.9376 28.3964 27.2439 27.8513 27.7889C27.3062 28.334 27 29.0733 27 29.8441V41.47C27 42.2408 27.3062 42.9801 27.8513 43.5252C28.3964 44.0702 29.1356 44.3764 29.9065 44.3764H39.5947C40.3655 44.3764 41.1048 44.0702 41.6499 43.5252C42.1949 42.9801 42.5012 42.2408 42.5012 41.47V29.8441C42.5012 29.0733 42.1949 28.334 41.6499 27.7889C41.1048 27.2439 40.3655 26.9376 39.5947 26.9376ZM32.8129 27.9065C32.8129 27.6495 32.915 27.4031 33.0967 27.2214C33.2784 27.0397 33.5248 26.9376 33.7818 26.9376H35.7194C35.9763 26.9376 36.2228 27.0397 36.4045 27.2214C36.5861 27.4031 36.6882 27.6495 36.6882 27.9065V28.8753H32.8129V27.9065ZM40.5635 41.47C40.5635 41.7269 40.4614 41.9733 40.2797 42.155C40.0981 42.3367 39.8516 42.4388 39.5947 42.4388H29.9065C29.6495 42.4388 29.4031 42.3367 29.2214 42.155C29.0397 41.9733 28.9376 41.7269 28.9376 41.47V29.8441C28.9376 29.5872 29.0397 29.3407 29.2214 29.159C29.4031 28.9774 29.6495 28.8753 29.9065 28.8753H30.8753V29.8441C30.8753 30.1011 30.9774 30.3475 31.159 30.5292C31.3407 30.7109 31.5872 30.8129 31.8441 30.8129H37.657C37.914 30.8129 38.1604 30.7109 38.3421 30.5292C38.5238 30.3475 38.6259 30.1011 38.6259 29.8441V28.8753H39.5947C39.8516 28.8753 40.0981 28.9774 40.2797 29.159C40.4614 29.3407 40.5635 29.5872 40.5635 29.8441V41.47ZM37.657 32.7506H31.8441C31.5872 32.7506 31.3407 32.8526 31.159 33.0343C30.9774 33.216 30.8753 33.4625 30.8753 33.7194C30.8753 33.9763 30.9774 34.2228 31.159 34.4045C31.3407 34.5861 31.5872 34.6882 31.8441 34.6882H37.657C37.914 34.6882 38.1604 34.5861 38.3421 34.4045C38.5238 34.2228 38.6259 33.9763 38.6259 33.7194C38.6259 33.4625 38.5238 33.216 38.3421 33.0343C38.1604 32.8526 37.914 32.7506 37.657 32.7506Z" fill="#039BE5"/>
                                 <path d="M35 52.4584C44.3888 52.4584 52 44.8471 52 35.4584C52 26.0695 44.3888 18.4584 35 18.4584C25.6112 18.4584 18 26.0695 18 35.4584C18 44.8471 25.6112 52.4584 35 52.4584Z" stroke="#039BE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <p class="card-text m-0">Total Order</p>
                                 <h2 class="h2">398</h2>
                             </div>
@@ -683,7 +523,7 @@
 
                     </div>
                 </div>
-                <div id="trucking-right" class="col-lg-9 col-md-12 col-sm-12 col-12 h-100 shadow rounded-3">
+                <div id="trucking-right" class="col-lg-95 col-md-12 col-sm-12 col-12 h-100 shadow rounded-3">
                     <div class="row pt-3 px-1 pe-3">
                         <h3 class="h3 col col-lg-10 col-md-9 col-sm-8 col-7 text-start fw-bold">Total Damage</h3>
                         <div class="dropdown col col-lg-2 col-md-3 col-sm-4 col-5 p-0 h-50">
@@ -837,7 +677,18 @@
                         <div id="pluggingMonitoringTable" class="col col-lg-6 col-md-12 col-sm-12 col-12 pe-4 pb-1 h-100">
                             <div class="row shadow rounded-3 h-100 px-3">
                                 <div class="row pt-3 px-1 pe-3">
-                                    <h3 class="h3 col-12 text-start fw-bold">Total Damage</h3>
+                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-6 col-7 text-start fw-bold">Total Damage</h3>
+                                    <div class="col col-lg-5 col-md-5 col-sm-6 col-5 p-0">
+                                        <select id="liftInLiftOffFilter" class="form-select" aria-label="Default select example">
+                                            <option selected>Select Year</option>
+                                            <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
+                                            <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
+                                            <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
+                                            <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
+                                            <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
+                                            <option value="5year">Last 5 Year</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
                                     <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
