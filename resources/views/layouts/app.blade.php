@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
     @include('components.head')
 <body>
     {{-- Sidebar --}}
     <div class="main-container d-flex">
         <div class="sidebar bg-primaryDark col-lg-2 col-md-35 col-sm-6 col-8" id="side_nav">
-            <div style="position: fixed" class="sidebar col-lg-2 col-md-35 col-sm-6 col-8" id="side_nav_content" >
+            <div style="position: fixed" class="sidebar col-lg-2 col-md-35 col-sm-6 col-8 fs-7" id="side_nav_content" >
                 <div class="d-block pb-2 w-100 pe-0 me-0 mb-4 bg-secondaryDark justify-content-end">
                     <div class="row pt-2 ps-3 pe-3 m-0">
                         <button class="btn d-md-none d-block close-btn py-0 px-2 text-white bg-danger" style="width: fit-content"><i
@@ -73,6 +73,7 @@
     ></script>
 <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://kit.fontawesome.com/6b61509af7.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -28,6 +28,7 @@ color: white;
 }
 .graph-container{
     height: 80%;
+    width: 100%;
 }
 .table-container{
     height: 100%;
@@ -90,7 +91,6 @@ color: white;
     #lolo-right{
         height: 300px !important;
         margin-top: 2rem !important;
-        padding: 0.25rem !important;
     }
     /* Lift In / Lift Off Ends */
 
@@ -102,7 +102,7 @@ color: white;
         padding: 0.25rem !important;
     }
     #storageYard-right{
-        height: 300px !important;
+        height: 400px !important;
         margin-top: 2rem !important;
     }
     /* Storage Yard Ends */
@@ -115,8 +115,15 @@ color: white;
         padding: 0.25rem !important;
     }
     #storageWarehouse-right{
-        height: 300px !important;
+        height: fit-content !important;
         margin-top: 2rem !important;
+    }
+    #storageWarehouseTable{
+        height: 400px !important;
+        margin-top: 2rem !important;
+    }
+    #storageWarehouseChart{
+        height: 400px !important;
     }
     /* Storage Warehouse Ends */
 
@@ -128,7 +135,7 @@ color: white;
         padding: 0.25rem !important;
     }
     #trucking-right{
-        height: 300px !important;
+        height: 400px !important;
         margin-top: 2rem !important;
     }
     /* Trucking Ends */
@@ -150,6 +157,7 @@ color: white;
     }
     #pluggingMonitoringChart{
         height: 300px !important;
+        margin-top: 2rem !important;
     }
     .table-fix-head{
         height: 85%;
@@ -165,7 +173,7 @@ color: white;
         padding: 0.25rem !important;
     }
     #stuffingStripping-right{
-        height: 300px !important;
+        height: 400px !important;
         margin-top: 2rem !important;
     }
     /* Stuffing & Stripping Ends */
