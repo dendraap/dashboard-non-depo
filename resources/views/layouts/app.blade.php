@@ -64,50 +64,49 @@
             </div>
         </div>
     </div>
-</body>
-<script defer src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-<script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"
-    ></script>
-<script src="{{asset('assets/js/bootstrap.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://kit.fontawesome.com/6b61509af7.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(".sidebar ul li").on('click', function () {
-        $(".sidebar ul li.active").removeClass('active');
-        $(this).addClass('active');
+    <script defer src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"
+        ></script>
+    <script src="{{asset('assets/js/bootstrap.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="https://kit.fontawesome.com/6b61509af7.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+            });
+
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+
         });
 
-    $('.open-btn').on('click', function () {
-        $('.sidebar').addClass('active');
 
-    });
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
 
+        });
 
-    $('.close-btn').on('click', function () {
-        $('.sidebar').removeClass('active');
+        const toggle = document.getElementById('sidebar-toggle');
+        toggle.onclick = function(){
+            toggle.classList.toggle('active')
+        }
+    </script>
+    <script>
+        var canvas = document.querySelector('canvas');
+        fitToContainer(canvas);
 
-    });
-
-    const toggle = document.getElementById('sidebar-toggle');
-    toggle.onclick = function(){
-        toggle.classList.toggle('active')
-    }
-</script>
-<script>
-    var canvas = document.querySelector('canvas');
-    fitToContainer(canvas);
-
-    function fitToContainer(canvas){
-        canvas.style.width ='100%';
-        canvas.style.height='100%';
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
-</script>
+        function fitToContainer(canvas){
+            canvas.style.width ='100%';
+            canvas.style.height='100%';
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+    </script>
+</body>
 </html>

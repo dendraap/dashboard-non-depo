@@ -563,12 +563,16 @@
                     07:00 - 07:00
                 </p>
                 <span style="width: 7%"></span>
-                <div class="input-group date" style="width: 50%">
-                    <input type="date" class="form-control flatpikr js-flatpikr-date" id="monitoringDate" name="date" placeholder="Tanggal" value="" bootstrap-datepicker="" data-date-end-date="0d" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <form action="#">
+                    <input type="date" id="monitoringDate" class="form-control" placeholder="Pilih Tanggal">
+                </form>
+                {{-- <div class="input-group date" style="width: 50%"> --}}
+
+                    {{-- <input type="date" class="form-control" id="monitoringDate" name="date" placeholder="Tanggal" value="" aria-label="Recipient's username"> --}}
                     {{-- <span class="input-group-text" id="basic-addon2">
                         <i class="fa-regular fa-calendar"></i>
                     </span> --}}
-                </div>
+                {{-- </div> --}}
             </div>
         </div>
         <section id="pluggingMonitoring" class="mb-4" style="width: 100%; height: 450px">
@@ -848,9 +852,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+    <script  src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         // Datepicker
-        flatpickr("input[type=date]");
+
+        config = {
+            enableTime: true,
+            altInput: true,
+            altFormat: "F j, Y",
+        }
+        flatpickr("input[type=date]", {});
     </script>
     <script>
         const monthNames = [
