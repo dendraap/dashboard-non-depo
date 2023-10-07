@@ -15,13 +15,9 @@
                             <div class="row w-100 m-0">
                                 <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50 w-100">
                                     <select id="liftInLiftOffFLeftMenu" class="form-select" aria-label="Default select example">
-                                        <option selected>Select Year</option>
-                                        <option value="[200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]">2023</option>
-                                        <option value="[182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]">2022</option>
-                                        <option value="[942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]">2021</option>
-                                        <option value="[120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]">2020</option>
-                                        <option value="[874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]">2019</option>
-                                        <option value="[[2092, 9385, 4712, 7512, 6723], [1293, 7487, 3123, 6244, 5094], [2019, 2020, 2021, 2022, 2023]]">Last 5 Year</option>
+                                        <option selected value="[[168],[110], [58], [3]]">Today</option>
+                                        <option value="[[112],[82], [22], [1.5]]">Yesterday</option>
+                                        <option value="[[87],[17], [67], [1]]">Two Days Ago</option>
                                     </select>
                                 </div>
                             </div>
@@ -35,7 +31,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="loloTotalOrder" class="h3 mb-0"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -45,7 +41,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="loloFinishOrder" class="h3 mb-0 text-success"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -56,7 +52,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="loloPendingOrder" class="h3 mb-0 text-danger"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -66,7 +62,8 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Service Time</p>
-                                <h3 class="h3 mb-0">3<span class="fs-6 fw-normal">/hour</span></h3>
+                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline"></h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
                     </div>
@@ -160,8 +157,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
-                                    <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
+                                <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
+                                    <table id="storageYardTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 2, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
                                                 <th scope="col">Owner</th>
@@ -171,11 +168,25 @@
                                                 <th scope="col">Total (hari)</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="">
+                                        <tbody class="overflow-auto">
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
                                                 <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">Elektronik</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">Elektronik</td>
+                                                <td class="text-center">1/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
@@ -251,33 +262,28 @@
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
+                                                <td class="text-center">Apel</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
-                                                <td class="text-center">14/09/2023</td>
-                                                <td class="text-center">26/09/2023</td>
-                                                <td class="text-center">7</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
-                                                <td class="text-center">14/09/2023</td>
-                                                <td class="text-center">26/09/2023</td>
-                                                <td class="text-center">7</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
-                                                <td class="text-center">14/09/2023</td>
-                                                <td class="text-center">26/09/2023</td>
-                                                <td class="text-center">7</td>
+                                                <td scope="row">ZZZZZ</td>
+                                                <td class="text-center">ZZZZ</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99</td>
                                             </tr>
                                         </tbody>
+                                        {{-- <tfoot class="align-middle text-center">
+                                            <tr>
+                                                <th>Owner</th>
+                                                <th>Item Catogory</th>
+                                                <th>Masuk</th>
+                                                <th>Keluar</th>
+                                                <th>Total (hari)</th>
+                                            </tr>
+                                        </tfoot> --}}
                                     </table>
                                 </div>
                             </div>
@@ -451,6 +457,9 @@
 
                                         </tbody>
                                     </table>
+                                    <script>
+                                        $('#sortTable').DataTable();
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -473,13 +482,9 @@
                             <div class="row w-100 m-0">
                                 <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50 w-100">
                                     <select id="truckingLeftMenu" class="form-select" aria-label="Default select example">
-                                        <option selected>Select Year</option>
-                                        <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
-                                        <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
-                                        <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
-                                        <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
-                                        <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
-                                        <option value="5year">Last 5 Year</option>
+                                        <option selected value="[[168],[110], [58]]">Today</option>
+                                        <option value="[[112],[82], [22]]">Yesterday</option>
+                                        <option value="[[87],[17], [67]]">Two Days Ago</option>
                                     </select>
                                 </div>
                             </div>
@@ -492,7 +497,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0 ">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 class="h3 mb-0">398</h3>
+                                <h3 id="truckingTotalOrder" class="h3 mb-0"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -502,7 +507,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 class="h3 mb-0">148</h3>
+                                <h3 id="truckingFinishOrder"  class="h3 mb-0"></h3>
                             </div>
                         </div>
                         <div class="mini-item mini-item-3 card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -513,7 +518,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 class="h3 mb-0">79</h3>
+                                <h3 id="truckingPendingOrder" class="h3 mb-0">79</h3>
                             </div>
                         </div>
 
@@ -549,30 +554,26 @@
             <h3 class="h3">Plugging & Monitoring</h3>
         </div>
         <div class="row p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100 mx-0">
-            <div class="col-6 d-flex flex-row justify-content-start m-0">
-                <button id="btnPlugging" class="btn btn-primary col-3 me-2">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex flex-row justify-content-start m-0">
+                <button id="btnPlugging" class="btn btn-primaryDark col-lg-4 col-md-4 col-sm-5 col-5 me-2">
                     Plugging
                 </button>
-                <button id="btnMonitoring" class="btn btn-primary col-3">
+                <button id="btnMonitoring" class="btn btn-primaryDark col-lg-4 col-md-4 col-sm-5 col-5">
                     Monitoring
                 </button>
             </div>
-            <div class="col-6 d-flex flex-row justify-content-end m-0 pe-3">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex flex-row justify-content-end m-0 pe-3">
                 <p class="fs-6 my-auto">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     07:00 - 07:00
                 </p>
                 <span style="width: 7%"></span>
-                <form action="#">
-                    <input type="date" id="monitoringDate" class="form-control" placeholder="Pilih Tanggal">
-                </form>
-                {{-- <div class="input-group date" style="width: 50%"> --}}
-
-                    {{-- <input type="date" class="form-control" id="monitoringDate" name="date" placeholder="Tanggal" value="" aria-label="Recipient's username"> --}}
-                    {{-- <span class="input-group-text" id="basic-addon2">
+                <div class="input-group w-50">
+                    <input type="text" id="month_select" name="month_select" class="form-control rounded-start-3" placeholder="Pilih Tanggal">
+                    <span class="input-group-text rounded-start-0 rounded-end-3">
                         <i class="fa-regular fa-calendar"></i>
-                    </span> --}}
-                {{-- </div> --}}
+                    </span>
+                  </div>
             </div>
         </div>
         <section id="pluggingMonitoring" class="mb-4" style="width: 100%; height: 450px">
@@ -651,11 +652,11 @@
                 </div>
                 <div id="pluggingMonitoring-right" class="col-lg-95 col-md-12 col-sm-12 col-12 h-100">
                     <div class="row h-100">
-                        <div id="pluggingMonitoringTable" class="col col-lg-6 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                        <div id="pluggingMonitoringTable" class="col col-lg-7 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
                             <div class="row shadow rounded-3 h-100 px-3">
-                                <div class="row pt-3 px-1 pe-3">
-                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-6 col-7 text-start fw-bold">Duration</h3>
-                                    <div class="col col-lg-5 col-md-5 col-sm-6 col-5 p-0">
+                                <div class="row pt-3 px-1 pe-0 m-0 ps-0 mb-3">
+                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
+                                    <div class="col col-lg-5 col-md-5 col-sm-12 col-12 p-0">
                                         <select id="owekk" class="form-select" aria-label="Default select example">
                                             <option selected>Select Year</option>
                                             <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
@@ -750,7 +751,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="pluggingMonitoringChart" class="col col-lg-6 col-md-12 col-sm-12 col-12 pb-1 pe-35 h-100">
+                        <div id="pluggingMonitoringChart" class="col col-lg-5 col-md-12 col-sm-12 col-12 pb-1 pe-35 h-100">
                             <div class="row shadow rounded-3 h-100 px-3">
                                 <div class="row pt-3 px-1 pe-3">
                                     <h3 class="h3 col-12 text-start fw-bold">Total Container Monitored</h3>
@@ -778,14 +779,10 @@
                         <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
                             <div class="row w-100 m-0">
                                 <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50 w-100">
-                                    <select id="iighk" class="form-select" aria-label="Default select example">
-                                        <option selected>Select Year</option>
-                                        <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
-                                        <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
-                                        <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
-                                        <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
-                                        <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
-                                        <option value="5year">Last 5 Year</option>
+                                    <select id="stuffingStrippingLeftMenu" class="form-select" aria-label="Default select example">
+                                        <option selected value="[[168],[110], [58]]">Today</option>
+                                        <option value="[[112],[82], [22]]">Yesterday</option>
+                                        <option value="[[87],[17], [67]]">Two Days Ago</option>
                                     </select>
                                 </div>
                             </div>
@@ -799,7 +796,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="stuffingStrippingTotalOrder" class="h3 mb-0"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -809,7 +806,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="stuffingStrippingFinishOrder" class="h3 mb-0"></h3>
                             </div>
                         </div>
                         <div class="mini-item mini-item-3 card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -820,7 +817,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 class="h3 mb-0">160</h3>
+                                <h3 id="stuffingStrippingPendingOrder" class="h3 mb-0"></h3>
                             </div>
                         </div>
                     </div>
@@ -849,665 +846,777 @@
         </section>
         {{-- Sesi Stuffing & Stripping Ends --}}
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
-    <script  src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-        // Datepicker
-
-        config = {
-            enableTime: true,
-            altInput: true,
-            altFormat: "F j, Y",
-        }
-        flatpickr("input[type=date]", {});
-    </script>
-    <script>
-        const monthNames = [
-            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-        ];
-        Chart.defaults.font.size = 12;
-        var numericMonths = <?php echo json_encode($months); ?>;
-        const monthLabels = numericMonths.map(monthNumber => monthNames[monthNumber - 1]);
-        const n = monthLabels.length;
-
-        function handleHover(evt, item, legend) {
-            legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
-                colors[index] = index === item.index || color.length === 9 ? color : color + '4D';
+    @push('script')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
+        {{-- <script src="https://raw.githubusercontent.com/flatpickr/flatpickr/master/src/plugins/monthSelect/index.ts"></script> --}}
+        <script>
+            // Default option
+            $.extend( $.fn.dataTable.defaults, {
+                searching: false,
+                paging: false,
+                responsive: true,
+                scrollCollapse: true,
+                fixedHeader:true,
+                scrollX: true,
+                scrollY: 300,
             });
-            legend.chart.update();
-        }
 
-        function handleLeave(evt, item, legend) {
-            legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
-                colors[index] = color.length === 9 ? color.slice(0, -2) : color;
+            new DataTable('#storageYardTableSort', {
+                ordering: [],
             });
-            legend.chart.update();
-        }
+        </script>
+        <script>
+            // Datepicker
+            // config = {
+            //     // altInput: true,
+            //     // mode: "year",
+            //     // dateFormat: "Y",
+            //     plugins: [
+            //         new monthSelectPlugin({
+            //             shorthand: true, //defaults to false
+            //             dateFormat: "m.y", //defaults to "F Y"
+            //             altFormat: "F Y", //defaults to "F Y"
+            //         })
+            //     ]
+            //     // altFormat: "Y",
+            //     // maxDate: new Date().fp_incr(0),
+            // }
 
-        const labelBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+            flatpickr("#month_select", {
+                altInput: true,
+                plugins: [
+                    new monthSelectPlugin({
+                        shorthand: true, //defaults to false
+                        dateFormat: "m.y", //defaults to "F Y"
+                        altFormat: "F Y", //defaults to "F Y"
+                    })
+                ]
+            });
 
-        // Lift In Lift Off Chart Start
-        const dataLolo = {
-            labels: labelBulan,
-            datasets: [
-                {
-                    label: 'Total Order',
-                    data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
-                    borderColor: 'rgba(255, 205, 210, 0.8)',
-                    backgroundColor:(context) => {
-                        const bgColor = [
-                            'rgba(39, 55, 77, 1)',
-                            'rgba(39, 55, 77, 0.6)',
-                            'rgba(39, 55, 77, 0.4)',
-                        ];
-                        if(!context.chart.chartArea){
-                            return;
-                        }
-                        const {ctx, data, chartArea: {top, bottom}} = context.chart;
-                        const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-                        gradientBg.addColorStop(0, bgColor[0])
-                        gradientBg.addColorStop(0.5, bgColor[1])
-                        gradientBg.addColorStop(1, bgColor[2])
-                        return gradientBg;
+            // flatpickr("input[type=date]");
+            // flatpickr("#monitoringDate", {
+            //     monthSelect: true,
+            //     dateFormat: "Y-m", // Format tanggal (tahun-bulan)
+            // });
+            // flatpickr("#monitoringDate", {
+            //     "plugins": [new monthSelectPlugin({
+            //         shorthand: true, //defaults to false
+            //         dateFormat: "m.y", //defaults to "F Y"
+            //         altFormat: "F Y", //defaults to "F Y"
+            //     })],
+            // });
+
+            // Plugging Monitoring
+            var pluggingBtn = document.getElementById('btnPlugging');
+            var monitoringBtn = document.getElementById('btnMonitoring');
+        </script>
+        <script>
+            const monthNames = [
+                'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+                'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+            ];
+            Chart.defaults.font.size = 12;
+            var numericMonths = <?php echo json_encode($months); ?>;
+            const monthLabels = numericMonths.map(monthNumber => monthNames[monthNumber - 1]);
+            const n = monthLabels.length;
+
+            function handleHover(evt, item, legend) {
+                legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
+                    colors[index] = index === item.index || color.length === 9 ? color : color + '4D';
+                });
+                legend.chart.update();
+            }
+
+            function handleLeave(evt, item, legend) {
+                legend.chart.data.datasets[0].backgroundColor.forEach((color, index, colors) => {
+                    colors[index] = color.length === 9 ? color.slice(0, -2) : color;
+                });
+                legend.chart.update();
+            }
+
+            const labelBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+
+            // Lift In Lift Off Chart Start
+            const liftInLiftOffFLeftMenuOption = document.getElementById('liftInLiftOffFLeftMenu');
+            var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+            document.getElementById('loloTotalOrder').textContent = selectedValue[0];
+            document.getElementById('loloFinishOrder').innerHTML = selectedValue[1];
+            document.getElementById('loloPendingOrder').innerHTML = selectedValue[2];
+            document.getElementById('loloServiceTime').innerHTML = selectedValue[3];
+
+            liftInLiftOffFLeftMenuOption.addEventListener('change', liftInLiftOffFLeftMenuTracker);
+
+            function liftInLiftOffFLeftMenuTracker() {
+                var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+
+                document.getElementById('loloTotalOrder').textContent = selectedValue[0];
+                document.getElementById('loloFinishOrder').innerHTML = selectedValue[1];
+                document.getElementById('loloPendingOrder').innerHTML = selectedValue[2];
+                document.getElementById('loloServiceTime').innerHTML = selectedValue[3];
+            };
+
+            const dataLolo = {
+                labels: labelBulan,
+                datasets: [
+                    {
+                        label: 'Total Order',
+                        data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
+                        borderColor: 'rgba(255, 205, 210, 0.8)',
+                        backgroundColor:(context) => {
+                            const bgColor = [
+                                'rgba(39, 55, 77, 1)',
+                                'rgba(39, 55, 77, 0.6)',
+                                'rgba(39, 55, 77, 0.4)',
+                            ];
+                            if(!context.chart.chartArea){
+                                return;
+                            }
+                            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+                            const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+                            gradientBg.addColorStop(0, bgColor[0])
+                            gradientBg.addColorStop(0.5, bgColor[1])
+                            gradientBg.addColorStop(1, bgColor[2])
+                            return gradientBg;
+                        },
+                        order: 1,
+                        borderRadius: 4,
+
                     },
-                    order: 1,
-                    borderRadius: 4,
+                    {
+                        label: 'Service Time',
+                        data: [100, 200, 300, 100, 200, 300, 100, 600, 288, 300, 670, 281],
+                        borderColor: 'rgba(39, 55, 77, 1)',
+                        backgroundColor: 'rgba(255,255,255, 1)',
+                        type: 'line',
+                        order: 0
+                    }
+                ]
+            };
 
+            const configLiftInLiftOff = {
+                type: 'bar',
+                data: dataLolo,
+                options: {
+                    responsive: true,
+                    aspectRatio: 1.3,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                            x: {
+                                beginAtZero: true,
+                            },
+                        },
+                    },
                 },
-                {
-                    label: 'Downtime',
-                    data: [100, 200, 300, 100, 200, 300, 100, 600, 288, 300, 670, 281],
-                    borderColor: 'rgba(39, 55, 77, 1)',
-                    backgroundColor: 'rgba(255,255,255, 1)',
-                    type: 'line',
-                    order: 0
+            };
+
+            const LiftInLiftOffChart = new Chart(document.getElementById('totalOrderVsDowntime'), configLiftInLiftOff)
+
+            const LiftInLiftOffOption = document.getElementById('liftInLiftOffRightMenu');
+            LiftInLiftOffOption.addEventListener('change', LiftInLiftOffTracker);
+
+            function LiftInLiftOffTracker() {
+                var selectedValue = JSON.parse(LiftInLiftOffOption.value);
+                var totalOrder = selectedValue[0];
+                var downtime = selectedValue[1];
+
+                var x = JSON.parse(JSON.stringify(selectedValue[0]).split(','));
+                var x2 = JSON.parse(JSON.stringify(selectedValue[1]).split(','));
+
+                if (selectedValue.length === 3) {
+                    var year = selectedValue[2];
+                    var y = JSON.parse(JSON.stringify(year).split(','));
+
+                    LiftInLiftOffChart.data.datasets[0].data = x;
+                    LiftInLiftOffChart.data.datasets[1].data = x2;
+                    LiftInLiftOffChart.data.labels = y;
+                } else {
+                    LiftInLiftOffChart.data.datasets[0].data = x;
+                    LiftInLiftOffChart.data.datasets[1].data = x2;
+                    LiftInLiftOffChart.data.labels = labelBulan;
                 }
-            ]
-        };
+                LiftInLiftOffChart.update();
 
-        const configLiftInLiftOff = {
-            type: 'bar',
-            data: dataLolo,
-            options: {
-                responsive: true,
-                aspectRatio: 1.3,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
+            }
+            // Lift In Lift Off Chart Ends
+
+
+            // Storage Yard Start
+            // Storage Yard Ends
+
+
+            // Storage Warehouse Start
+            const StorageWarehouseLabels = ['Sisa Luas', 'PT Suka Maju', 'PT Anugerah Dwitama', 'PT Pelita Jaya', 'PT Untung Bersama', 'PT Harapan Sentosa','PT Dala Tiga tbk', 'PT Jupiter Mineral', 'PT Dana Silika Primatama', 'PT Lestari Adhitama'];
+            const dataLuasStorageWarehouse = {
+                labels: StorageWarehouseLabels,
+                datasets: [{
+                    label: 'Area used',
+                    data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100],
+                    hoverOffset: 4
+                }]
+            };
+            const doughnutLabels = {
+                id: 'doughnutLabel',
+                beforeDatasetDraw(chart, args, pluginOptions) {
+                    const { ctx, data } = chart;
+
+                    ctx.save();
+                    const xCoor = chart.getDatasetMeta(0).data[0].x;
+                    const yCoor = chart.getDatasetMeta(0).data[0].y;
+
+                    ctx.font = 'bold 14px sans-serif';
+                    ctx.fillStyle = '#27374D';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(`${data.labels[0]}:`, xCoor, yCoor-10);
+                    ctx.fillText(`${data.datasets[0].data[0]}m2`, xCoor, yCoor+10);
+                },
+            };
+            const configDataLuasStorageWarehouse = {
+                type: 'doughnut',
+                data: dataLuasStorageWarehouse,
+                options: {
+                    responsive: true,
+                    aspectRatio: 1,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        labels: {
+                            render: (args) => {
+                                if (args.percentage < 7){
+                                    return '';
+                                };
+                                return args.percentage +'%';
+                            }
                         },
-                        x: {
-                            beginAtZero: true,
+                        legend: {
+                            display: false,
+                            position: 'bottom',
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                            x: {
+                                beginAtZero: true,
+                            },
                         },
                     },
                 },
-            },
-        };
+                plugins: [doughnutLabels]
+            };
 
-        const LiftInLiftOffChart = new Chart(document.getElementById('totalOrderVsDowntime'), configLiftInLiftOff)
+            const StorageWarehouseChart = new Chart(document.getElementById('LuasStorageWarehouse'), configDataLuasStorageWarehouse);
+            const StorageWarehouseOption = document.getElementById('storageWarehouseMiddleMenu');
+            StorageWarehouseOption.addEventListener('change', StorageWarehouseTracker);
 
-        const LiftInLiftOffOption = document.getElementById('liftInLiftOffRightMenu');
-        LiftInLiftOffOption.addEventListener('change', LiftInLiftOffTracker);
+            function StorageWarehouseTracker() {
+                var selectedValue = JSON.parse(StorageWarehouseOption.value);
 
-        function LiftInLiftOffTracker() {
-            var selectedValue = JSON.parse(LiftInLiftOffOption.value);
-            var totalOrder = selectedValue[0];
-            var downtime = selectedValue[1];
+                if (selectedValue.length === 2) {
+                    var totalOrder = selectedValue[0];
+                    var year = selectedValue[1];
 
-            var x = JSON.parse(JSON.stringify(selectedValue[0]).split(','));
-            var x2 = JSON.parse(JSON.stringify(selectedValue[1]).split(','));
-
-            if (selectedValue.length === 3) {
-                var year = selectedValue[2];
-                var y = JSON.parse(JSON.stringify(year).split(','));
-
-                LiftInLiftOffChart.data.datasets[0].data = x;
-                LiftInLiftOffChart.data.datasets[1].data = x2;
-                LiftInLiftOffChart.data.labels = y;
-            } else {
-                LiftInLiftOffChart.data.datasets[0].data = x;
-                LiftInLiftOffChart.data.datasets[1].data = x2;
-                LiftInLiftOffChart.data.labels = labelBulan;
-            }
-            LiftInLiftOffChart.update();
-
-        }
-        // Lift In Lift Off Chart Ends
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    var y = JSON.parse(JSON.stringify(year).split(','));
+                    StorageWarehouseChart.data.datasets[0].data = x;
+                    StorageWarehouseChart.data.labels = y;
+                } else {
+                    var totalOrder = selectedValue;
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    StorageWarehouseChart.data.datasets[0].data = x;
+                    StorageWarehouseChart.data.labels = StorageWarehouseLabels;
+                }
+                StorageWarehouseChart.update();
+            };
+            // Storage Warehouse Ends
 
 
-        // Storage Warehouse Start
-        const StorageWarehouseLabels = ['Sisa Luas', 'PT Suka Maju', 'PT Anugerah Dwitama', 'PT Pelita Jaya', 'PT Untung Bersama', 'PT Harapan Sentosa','PT Dala Tiga tbk', 'PT Jupiter Mineral', 'PT Dana Silika Primatama', 'PT Lestari Adhitama'];
-        const dataLuasStorageWarehouse = {
-            labels: StorageWarehouseLabels,
-            datasets: [{
-                label: 'My First Dataset',
-                data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100],
-                hoverOffset: 4
-            }]
-        };
-        const doughnutLabels = {
-            id: 'doughnutLabel',
-            beforeDatasetDraw(chart, args, pluginOptions) {
-                const { ctx, data } = chart;
+            // Trucking Chart Start
 
-                ctx.save();
-                const xCoor = chart.getDatasetMeta(0).data[0].x;
-                const yCoor = chart.getDatasetMeta(0).data[0].y;
+            const truckingLeftMenuOption = document.getElementById('truckingLeftMenu');
+            var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+            document.getElementById('truckingTotalOrder').textContent = selectedValue[0];
+            document.getElementById('truckingFinishOrder').innerHTML = selectedValue[1];
+            document.getElementById('truckingPendingOrder').innerHTML = selectedValue[2];
 
-                ctx.font = 'bold 14px sans-serif';
-                ctx.fillStyle = '#27374D';
-                ctx.textAlign = 'center';
-                ctx.fillText(`${data.labels[0]}:`, xCoor, yCoor-10);
-                ctx.fillText(`${data.datasets[0].data[0]}m2`, xCoor, yCoor+10);
-            },
-        };
-        const configDataLuasStorageWarehouse = {
-            type: 'doughnut',
-            data: dataLuasStorageWarehouse,
-            options: {
-                responsive: true,
-                aspectRatio: 1,
-                maintainAspectRatio: false,
-                plugins: {
-                    labels: {
-                        render: (args) => {
-                            if (args.percentage < 7){
-                                return '';
-                            };
-                            return args.percentage +'%';
+            truckingLeftMenuOption.addEventListener('change', truckingLeftMenuTracker);
+
+            function truckingLeftMenuTracker() {
+                var selectedValue = JSON.parse(truckingLeftMenuOption.value);
+
+                document.getElementById('truckingTotalOrder').textContent = selectedValue[0];
+                document.getElementById('truckingFinishOrder').innerHTML = selectedValue[1];
+                document.getElementById('truckingPendingOrder').innerHTML = selectedValue[2];
+            };
+
+            const dataTrucking = {
+                labels: labelBulan,
+                datasets: [
+                    {
+                        label: 'Total Order',
+                        data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
+                        borderColor:['rgba(39, 55, 77, 1)'],
+                        backgroundColor:(context) => {
+                            const bgColor = [
+                                'rgba(39, 55, 77, 1)',
+                                'rgba(39, 55, 77, 0.1)',
+                            ];
+                            if(!context.chart.chartArea){
+                                return;
+                            }
+                            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+                            const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+                            gradientBg.addColorStop(0, bgColor[0])
+                            gradientBg.addColorStop(1, bgColor[1])
+                            return gradientBg;
+                        },
+                        borderWidth: 3,
+                        fill: {
+                            target: {
+                                value: 0,
+                            },
                         }
                     },
-                    legend: {
-                        display: false,
-                        position: 'bottom',
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
+                ]
+            };
+
+            const configTrucking = {
+                type: 'line',
+                data: dataTrucking,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                            position: 'bottom',
                         },
-                        x: {
-                            beginAtZero: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                            x: {
+                                beginAtZero: true,
+                            },
                         },
                     },
                 },
-            },
-            plugins: [doughnutLabels]
-        };
+            };
 
-        const StorageWarehouseChart = new Chart(document.getElementById('LuasStorageWarehouse'), configDataLuasStorageWarehouse);
-        const StorageWarehouseOption = document.getElementById('storageWarehouseMiddleMenu');
-        StorageWarehouseOption.addEventListener('change', StorageWarehouseTracker);
+            const truckingChart = new Chart(document.getElementById('totalOrderTrucking'), configTrucking);
 
-        function StorageWarehouseTracker() {
-            var selectedValue = JSON.parse(StorageWarehouseOption.value);
+            const truckingOption = document.getElementById('truckingChartOption');
+            truckingOption.addEventListener('change', truckingTracker);
 
-            if (selectedValue.length === 2) {
-                var totalOrder = selectedValue[0];
-                var year = selectedValue[1];
+            function truckingTracker() {
+                var selectedValue = JSON.parse(truckingOption.value);
 
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                var y = JSON.parse(JSON.stringify(year).split(','));
-                StorageWarehouseChart.data.datasets[0].data = x;
-                StorageWarehouseChart.data.labels = y;
-            } else {
-                var totalOrder = selectedValue;
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                StorageWarehouseChart.data.datasets[0].data = x;
-                StorageWarehouseChart.data.labels = StorageWarehouseLabels;
+                if (selectedValue.length === 2) {
+                    var totalOrder = selectedValue[0];
+                    var year = selectedValue[1];
+
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    var y = JSON.parse(JSON.stringify(year).split(','));
+                    truckingChart.data.datasets[0].data = x;
+                    truckingChart.data.labels = y;
+                } else {
+                    var totalOrder = selectedValue;
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    truckingChart.data.datasets[0].data = x;
+                    truckingChart.data.labels = labelBulan;
+                }
+                truckingChart.update();
+
             }
-            StorageWarehouseChart.update();
-        };
-        // Storage Warehouse Ends
+            // Trucking Chart Ends
 
 
-        // Trucking Chart Start
-        const dataTrucking = {
-            labels: labelBulan,
-            datasets: [
-                {
-                    label: 'Total Order',
-                    data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
-                    borderColor:['rgba(39, 55, 77, 1)'],
-                    backgroundColor:(context) => {
-                        const bgColor = [
-                            'rgba(39, 55, 77, 1)',
-                            'rgba(39, 55, 77, 0.1)',
-                        ];
-                        if(!context.chart.chartArea){
-                            return;
+            // Plugging & Monitoring Start
+            const labelPluggingMonitoring = ['Shift 1', 'Shift 2', 'Shift 3'];
+
+            const dataPluggingMonitoring = {
+                labels: labelPluggingMonitoring,
+                datasets: [
+                    {
+                        label: 'Total Monitoring Tiap Shift',
+                        data:[120, 110, 115],
+                        backgroundColor:[
+                            'rgba(244, 143, 177, 0.6)',
+                            'rgba(206, 147, 216, 0.6)',
+                            'rgba(128, 222, 234, 0.6)',
+                        ],
+                        borderColor:[
+                            'rgba(244, 143, 177, 0.6)',
+                            'rgba(206, 147, 216, 0.6)',
+                            'rgba(128, 222, 234, 0.6)',
+                        ],
+                        borderRadius: 4,
+                        borderWidth: 3.5,
+                        fill: {
+                            target: {
+                                value: 0,
+                            },
                         }
-                        const {ctx, data, chartArea: {top, bottom}} = context.chart;
-                        const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-                        gradientBg.addColorStop(0, bgColor[0])
-                        gradientBg.addColorStop(1, bgColor[1])
-                        return gradientBg;
                     },
-                    borderWidth: 3,
-                    fill: {
-                        target: {
-                            value: 0,
+                ],
+            };
+            const configPluggingMonitoring = {
+                type: 'bar',
+                data: dataPluggingMonitoring,
+                options: {
+                    responsive: true,
+                    aspectRatio: 1.3,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                            position: 'bottom',
+                            onHover: handleHover,
+                            onLeave: handleLeave,
                         },
-                    }
-                },
-            ]
-        };
-
-        const configTrucking = {
-            type: 'line',
-            data: dataTrucking,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                        position: 'bottom',
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                        },
-                        x: {
-                            beginAtZero: true,
-                        },
-                    },
-                },
-            },
-        };
-
-        const truckingChart = new Chart(document.getElementById('totalOrderTrucking'), configTrucking);
-
-        const truckingOption = document.getElementById('truckingChartOption');
-        truckingOption.addEventListener('change', truckingTracker);
-
-        function truckingTracker() {
-            var selectedValue = JSON.parse(truckingOption.value);
-
-            if (selectedValue.length === 2) {
-                var totalOrder = selectedValue[0];
-                var year = selectedValue[1];
-
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                var y = JSON.parse(JSON.stringify(year).split(','));
-                truckingChart.data.datasets[0].data = x;
-                truckingChart.data.labels = y;
-            } else {
-                var totalOrder = selectedValue;
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                truckingChart.data.datasets[0].data = x;
-                truckingChart.data.labels = labelBulan;
-            }
-            truckingChart.update();
-
-        }
-        // Trucking Chart Ends
-
-
-        // Plugging & Monitoring Start
-        const labelPluggingMonitoring = ['Shift 1', 'Shift 2', 'Shift 3'];
-
-        const dataPluggingMonitoring = {
-            labels: labelPluggingMonitoring,
-            datasets: [
-                {
-                    label: 'Total Monitoring Tiap Shift',
-                    data:[120, 110, 115],
-                    backgroundColor:[
-                        'rgba(244, 143, 177, 0.6)',
-                        'rgba(206, 147, 216, 0.6)',
-                        'rgba(128, 222, 234, 0.6)',
-                    ],
-                    borderColor:[
-                        'rgba(244, 143, 177, 0.6)',
-                        'rgba(206, 147, 216, 0.6)',
-                        'rgba(128, 222, 234, 0.6)',
-                    ],
-                    borderRadius: 4,
-                    borderWidth: 3.5,
-                    fill: {
-                        target: {
-                            value: 0,
-                        },
-                    }
-                },
-            ],
-        };
-        const configPluggingMonitoring = {
-            type: 'bar',
-            data: dataPluggingMonitoring,
-            options: {
-                responsive: true,
-                aspectRatio: 1.3,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                        position: 'bottom',
-                        onHover: handleHover,
-                        onLeave: handleLeave,
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                        },
-                        x: {
-                            beginAtZero: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                            x: {
+                                beginAtZero: true,
+                            }
                         }
                     }
                 }
-            }
-        };
-        const pluggingMonitoringChart = new Chart(document.getElementById('totalMonitoringTiapShift'), configPluggingMonitoring);
-        // Plugging & Monitoring Ends
+            };
+            const pluggingMonitoringChart = new Chart(document.getElementById('totalMonitoringTiapShift'), configPluggingMonitoring);
+            // Plugging & Monitoring Ends
 
 
-        // Stuffing & Stripping Chart Start
-        const dataStuffingStripping = {
-            labels: labelBulan,
-            datasets: [
-                {
-                    label: 'Total Order',
-                    data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
-                    borderColor:['rgba(39, 55, 77, 1)'],
-                    backgroundColor:(context) => {
-                        const bgColor = [
-                            'rgba(39, 55, 77, 1)',
-                            'rgba(39, 55, 77, 0.1)',
-                        ];
-                        if(!context.chart.chartArea){
-                            return;
+            // Stuffing & Stripping Chart Start
+            const stuffingStrippingLeftMenuOption = document.getElementById('stuffingStrippingLeftMenu');
+            var selectedValue = JSON.parse(stuffingStrippingLeftMenuOption.value);
+            document.getElementById('stuffingStrippingTotalOrder').textContent = selectedValue[0];
+            document.getElementById('stuffingStrippingFinishOrder').innerHTML = selectedValue[1];
+            document.getElementById('stuffingStrippingPendingOrder').innerHTML = selectedValue[2];
+
+            stuffingStrippingLeftMenuOption.addEventListener('change', stuffingStrippingLeftMenuTracker);
+
+            function stuffingStrippingLeftMenuTracker() {
+                var selectedValue = JSON.parse(stuffingStrippingLeftMenuOption.value);
+
+                document.getElementById('stuffingStrippingTotalOrder').textContent = selectedValue[0];
+                document.getElementById('stuffingStrippingFinishOrder').innerHTML = selectedValue[1];
+                document.getElementById('stuffingStrippingPendingOrder').innerHTML = selectedValue[2];
+            };
+
+            const dataStuffingStripping = {
+                labels: labelBulan,
+                datasets: [
+                    {
+                        label: 'Total Order',
+                        data: [200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200],
+                        borderColor:['rgba(39, 55, 77, 1)'],
+                        backgroundColor:(context) => {
+                            const bgColor = [
+                                'rgba(39, 55, 77, 1)',
+                                'rgba(39, 55, 77, 0.1)',
+                            ];
+                            if(!context.chart.chartArea){
+                                return;
+                            }
+                            const {ctx, data, chartArea: {top, bottom}} = context.chart;
+                            const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+                            gradientBg.addColorStop(0, bgColor[0])
+                            gradientBg.addColorStop(1, bgColor[1])
+                            return gradientBg;
+                        },
+                        borderWidth: 3,
+                        fill: {
+                            target: {
+                                value: 0,
+                            },
                         }
-                        const {ctx, data, chartArea: {top, bottom}} = context.chart;
-                        const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-                        gradientBg.addColorStop(0, bgColor[0])
-                        gradientBg.addColorStop(1, bgColor[1])
-                        return gradientBg;
                     },
-                    borderWidth: 3,
-                    fill: {
-                        target: {
-                            value: 0,
-                        },
-                    }
-                },
-            ]
-        };
+                ]
+            };
 
-        const configStuffingStripping = {
-            type: 'line',
-            data: dataStuffingStripping,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                        position: 'bottom',
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
+            const configStuffingStripping = {
+                type: 'line',
+                data: dataStuffingStripping,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                            position: 'bottom',
                         },
-                        x: {
-                            beginAtZero: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                            },
+                            x: {
+                                beginAtZero: true,
+                            },
                         },
                     },
                 },
-            },
-        };
+            };
 
-        const stuffingStrippingChart = new Chart(document.getElementById('totalOrderStuffingStripping'), configStuffingStripping);
-        const stuffingStrippingOption = document.getElementById('stuffingStrippingRightMenu');
-        stuffingStrippingOption.addEventListener('change', stuffingStrippingTracker);
+            const stuffingStrippingChart = new Chart(document.getElementById('totalOrderStuffingStripping'), configStuffingStripping);
+            const stuffingStrippingOption = document.getElementById('stuffingStrippingRightMenu');
+            stuffingStrippingOption.addEventListener('change', stuffingStrippingTracker);
 
-        function stuffingStrippingTracker() {
-            var selectedValue = JSON.parse(stuffingStrippingOption.value);
+            function stuffingStrippingTracker() {
+                var selectedValue = JSON.parse(stuffingStrippingOption.value);
 
-            if (selectedValue.length === 2) {
-                var totalOrder = selectedValue[0];
-                var year = selectedValue[1];
+                if (selectedValue.length === 2) {
+                    var totalOrder = selectedValue[0];
+                    var year = selectedValue[1];
 
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                var y = JSON.parse(JSON.stringify(year).split(','));
-                stuffingStrippingChart.data.datasets[0].data = x;
-                stuffingStrippingChart.data.labels = y;
-            } else {
-                var totalOrder = selectedValue;
-                var x = JSON.parse(JSON.stringify(totalOrder).split(','));
-                stuffingStrippingChart.data.datasets[0].data = x;
-                stuffingStrippingChart.data.labels = labelBulan;
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    var y = JSON.parse(JSON.stringify(year).split(','));
+                    stuffingStrippingChart.data.datasets[0].data = x;
+                    stuffingStrippingChart.data.labels = y;
+                } else {
+                    var totalOrder = selectedValue;
+                    var x = JSON.parse(JSON.stringify(totalOrder).split(','));
+                    stuffingStrippingChart.data.datasets[0].data = x;
+                    stuffingStrippingChart.data.labels = labelBulan;
+                }
+                stuffingStrippingChart.update();
+
             }
-            stuffingStrippingChart.update();
+            // Stuffing & Stripping Chart Ends
 
-        }
-        // Stuffing & Stripping Chart Ends
+            // if(window.myCharts != undefined)
+            // window.myCharts.destroy();
+            // window.myCharts = {
+            //     chart1: chart1,
+            //     chart2: chart2,
+            //     chart3: chart3,
+            // };
 
-        // if(window.myCharts != undefined)
-        // window.myCharts.destroy();
-        // window.myCharts = {
-        //     chart1: chart1,
-        //     chart2: chart2,
-        //     chart3: chart3,
-        // };
+            // const ctx1 = document.getElementById('totalDamageChart');
+            // var chart1 = new Chart(ctx1, {
+            //     type: 'line',
+            //     data: {
+            //         labels: monthLabels,
+            //         datasets: [{
+            //             label: 'Total Damage',
+            //             data: <?php echo json_encode($amount); ?>,
+            //             borderWidth: 3,
+            //             backgroundColor:(context) => {
+            //                 const bgColor = [
+            //                     'rgba(39, 55, 77, 0.7)',
+            //                     'rgba(39, 55, 77, 0.4)',
+            //                     'rgba(39, 55, 77, 0.0)',
+            //                 ];
+            //                 if(!context.chart.chartArea){
+            //                     return;
+            //                 }
+            //                 const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            //                 const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+            //                 gradientBg.addColorStop(0, bgColor[0])
+            //                 gradientBg.addColorStop(0.5, bgColor[1])
+            //                 gradientBg.addColorStop(1, bgColor[2])
+            //                 return gradientBg;
+            //             },
+            //             borderColor:(context) => {
+            //                 const bgColor = [
+            //                     'rgba(39, 55, 77, 1)',
+            //                     'rgba(39, 55, 77, 0.8)',
+            //                     'rgba(39, 55, 77, 0.3)',
+            //                 ];
+            //                 if(!context.chart.chartArea){
+            //                     return;
+            //                 }
+            //                 const {ctx, data, chartArea: {top, bottom}} = context.chart;
+            //                 const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
+            //                 gradientBg.addColorStop(0, bgColor[2])
+            //                 gradientBg.addColorStop(0.5, bgColor[1])
+            //                 gradientBg.addColorStop(1, bgColor[0])
+            //                 return gradientBg;
+            //             },
+            //             tension: 0.4,
+            //             pointRadius: 0,
+            //             pointHitRadius: 10,
+            //             hoverPointRadius: 0,
+            //             fill: {
+            //                 target: {
+            //                     value: 9.33,
+            //                 },
+            //             }
+            //         }]
+            //     },
+            //     options: {
+            //         maintainAspectRatio: false,
+            //         plugins: {
+            //             legend: {
+            //                 display: false,
+            //                 position: 'bottom',
+            //             },
+            //         },
+            //         scales: {
+            //             y: {
+            //                 beginAtZero: true,
+            //             },
+            //             x: {
+            //                 beginAtZero: true,
+            //             },
+            //         }
+            //     }
+            // });
 
-        // const ctx1 = document.getElementById('totalDamageChart');
-        // var chart1 = new Chart(ctx1, {
-        //     type: 'line',
-        //     data: {
-        //         labels: monthLabels,
-        //         datasets: [{
-        //             label: 'Total Damage',
-        //             data: <?php echo json_encode($amount); ?>,
-        //             borderWidth: 3,
-        //             backgroundColor:(context) => {
-        //                 const bgColor = [
-        //                     'rgba(39, 55, 77, 0.7)',
-        //                     'rgba(39, 55, 77, 0.4)',
-        //                     'rgba(39, 55, 77, 0.0)',
-        //                 ];
-        //                 if(!context.chart.chartArea){
-        //                     return;
-        //                 }
-        //                 const {ctx, data, chartArea: {top, bottom}} = context.chart;
-        //                 const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-        //                 gradientBg.addColorStop(0, bgColor[0])
-        //                 gradientBg.addColorStop(0.5, bgColor[1])
-        //                 gradientBg.addColorStop(1, bgColor[2])
-        //                 return gradientBg;
-        //             },
-        //             borderColor:(context) => {
-        //                 const bgColor = [
-        //                     'rgba(39, 55, 77, 1)',
-        //                     'rgba(39, 55, 77, 0.8)',
-        //                     'rgba(39, 55, 77, 0.3)',
-        //                 ];
-        //                 if(!context.chart.chartArea){
-        //                     return;
-        //                 }
-        //                 const {ctx, data, chartArea: {top, bottom}} = context.chart;
-        //                 const gradientBg = ctx.createLinearGradient(0, top, 0, bottom);
-        //                 gradientBg.addColorStop(0, bgColor[2])
-        //                 gradientBg.addColorStop(0.5, bgColor[1])
-        //                 gradientBg.addColorStop(1, bgColor[0])
-        //                 return gradientBg;
-        //             },
-        //             tension: 0.4,
-        //             pointRadius: 0,
-        //             pointHitRadius: 10,
-        //             hoverPointRadius: 0,
-        //             fill: {
-        //                 target: {
-        //                     value: 9.33,
-        //                 },
-        //             }
-        //         }]
-        //     },
-        //     options: {
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             legend: {
-        //                 display: false,
-        //                 position: 'bottom',
-        //             },
-        //         },
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true,
-        //             },
-        //             x: {
-        //                 beginAtZero: true,
-        //             },
-        //         }
-        //     }
-        // });
+            // const ctx2 = document.getElementById('top10DamageLocation');
+            // var chart2 = new Chart(ctx2, {
+            //     type: 'bar',
+            //     data: {
+            //         labels: monthLabels,
+            //         datasets: [
+            //             {
+            //                 label: monthLabels,
+            //                 data: <?php echo json_encode($amount); ?>,
+            //                 borderWidth: 3.5,
+            //                 backgroundColor: [
+            //                     'rgba(255, 205, 210, 0.8)',
+            //                     'rgba(248, 187, 208, 0.8)',
+            //                     'rgba(225, 190, 231, 0.8)',
+            //                     'rgba(209, 196, 233, 0.8)',
+            //                     'rgba(187, 222, 251, 0.8)',
+            //                     'rgba(178, 235, 242, 0.8)',
+            //                     'rgba(200, 230, 201, 0.8)',
+            //                     'rgba(220, 237, 200, 0.8)',
+            //                     'rgba(255, 249, 196, 0.8)',
+            //                     'rgba(255, 224, 178, 0.8)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(255, 205, 210, 1)',
+            //                     'rgba(248, 187, 208, 1)',
+            //                     'rgba(225, 190, 231, 1)',
+            //                     'rgba(209, 196, 233, 1)',
+            //                     'rgba(187, 222, 251, 1)',
+            //                     'rgba(178, 235, 242, 1)',
+            //                     'rgba(200, 230, 201, 1)',
+            //                     'rgba(220, 237, 200, 1)',
+            //                     'rgba(255, 249, 196, 1)',
+            //                     'rgba(255, 224, 178, 1)'
+            //                 ],
+            //                 borderRadius: 4,
+            //                 tension: 0.5,
+            //                 pointRadius: 0,
+            //                 pointHitRadius: 10,
+            //                 hoverPointRadius: 0,
+            //                 fill: {
+            //                     target: {
+            //                         value: 9.33,
+            //                     },
+            //                 }
+            //             }
+            //         ]
+            //     },
+            //     options: {
+            //         indexAxis: 'y',
+            //         responsive: true,
+            //         aspectRatio: 1.3,
+            //         maintainAspectRatio: false,
+            //         plugins: {
+            //             legend: {
+            //                 display: false,
+            //                 position: 'right',
+            //                 onHover: handleHover,
+            //                 onLeave: handleLeave,
+            //             },
+            //         },
+            //         scales: {
+            //             y: {
+            //                 beginAtZero: true,
+            //             },
+            //             x: {
+            //                 beginAtZero: true,
+            //             },
+            //         }
+            //     }
+            // });
 
-        // const ctx2 = document.getElementById('top10DamageLocation');
-        // var chart2 = new Chart(ctx2, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: monthLabels,
-        //         datasets: [
-        //             {
-        //                 label: monthLabels,
-        //                 data: <?php echo json_encode($amount); ?>,
-        //                 borderWidth: 3.5,
-        //                 backgroundColor: [
-        //                     'rgba(255, 205, 210, 0.8)',
-        //                     'rgba(248, 187, 208, 0.8)',
-        //                     'rgba(225, 190, 231, 0.8)',
-        //                     'rgba(209, 196, 233, 0.8)',
-        //                     'rgba(187, 222, 251, 0.8)',
-        //                     'rgba(178, 235, 242, 0.8)',
-        //                     'rgba(200, 230, 201, 0.8)',
-        //                     'rgba(220, 237, 200, 0.8)',
-        //                     'rgba(255, 249, 196, 0.8)',
-        //                     'rgba(255, 224, 178, 0.8)'
-        //                 ],
-        //                 borderColor: [
-        //                     'rgba(255, 205, 210, 1)',
-        //                     'rgba(248, 187, 208, 1)',
-        //                     'rgba(225, 190, 231, 1)',
-        //                     'rgba(209, 196, 233, 1)',
-        //                     'rgba(187, 222, 251, 1)',
-        //                     'rgba(178, 235, 242, 1)',
-        //                     'rgba(200, 230, 201, 1)',
-        //                     'rgba(220, 237, 200, 1)',
-        //                     'rgba(255, 249, 196, 1)',
-        //                     'rgba(255, 224, 178, 1)'
-        //                 ],
-        //                 borderRadius: 4,
-        //                 tension: 0.5,
-        //                 pointRadius: 0,
-        //                 pointHitRadius: 10,
-        //                 hoverPointRadius: 0,
-        //                 fill: {
-        //                     target: {
-        //                         value: 9.33,
-        //                     },
-        //                 }
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         indexAxis: 'y',
-        //         responsive: true,
-        //         aspectRatio: 1.3,
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             legend: {
-        //                 display: false,
-        //                 position: 'right',
-        //                 onHover: handleHover,
-        //                 onLeave: handleLeave,
-        //             },
-        //         },
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true,
-        //             },
-        //             x: {
-        //                 beginAtZero: true,
-        //             },
-        //         }
-        //     }
-        // });
+            // const ctx3 = document.getElementById('top10DamageType');
+            // var chart3 = new Chart(ctx3, {
+            //     type: 'bar',
+            //     data: {
+            //         labels: monthLabels,
+            //         datasets: [
+            //             {
+            //                 label: monthLabels,
+            //                 data: <?php echo json_encode($amount); ?>,
+            //                 borderWidth: 3.5,
+            //                 backgroundColor: [
+            //                     'rgba(255, 205, 210, 0.8)',
+            //                     'rgba(248, 187, 208, 0.8)',
+            //                     'rgba(225, 190, 231, 0.8)',
+            //                     'rgba(209, 196, 233, 0.8)',
+            //                     'rgba(187, 222, 251, 0.8)',
+            //                     'rgba(178, 235, 242, 0.8)',
+            //                     'rgba(200, 230, 201, 0.8)',
+            //                     'rgba(220, 237, 200, 0.8)',
+            //                     'rgba(255, 249, 196, 0.8)',
+            //                     'rgba(255, 224, 178, 0.8)'
+            //                 ],
+            //                 borderColor: [
+            //                     'rgba(255, 205, 210, 1)',
+            //                     'rgba(248, 187, 208, 1)',
+            //                     'rgba(225, 190, 231, 1)',
+            //                     'rgba(209, 196, 233, 1)',
+            //                     'rgba(187, 222, 251, 1)',
+            //                     'rgba(178, 235, 242, 1)',
+            //                     'rgba(200, 230, 201, 1)',
+            //                     'rgba(220, 237, 200, 1)',
+            //                     'rgba(255, 249, 196, 1)',
+            //                     'rgba(255, 224, 178, 1)'
+            //                 ],
+            //                 borderRadius: 4,
+            //                 tension: 0.5,
+            //                 pointRadius: 0,
+            //                 pointHitRadius: 10,
+            //                 hoverPointRadius: 0,
+            //                 fill: {
+            //                     target: {
+            //                         value: 9.33,
+            //                     },
+            //                 }
+            //             }
+            //         ]
+            //     },
+            //     options: {
+            //         indexAxis: 'x',
+            //         responsive: true,
+            //         aspectRatio: 1.3,
+            //         maintainAspectRatio: false,
+            //         plugins: {
+            //             legend: {
+            //                 display: false,
+            //                 position: 'right',
+            //                 onHover: handleHover,
+            //                 onLeave: handleLeave,
+            //             },
+            //         },
+            //         scales: {
+            //             y: {
+            //                 beginAtZero: true,
+            //             },
+            //             x: {
+            //                 beginAtZero: true,
+            //             },
+            //         }
+            //     }
+            // });
+        </script>
+    @endpush
 
-        // const ctx3 = document.getElementById('top10DamageType');
-        // var chart3 = new Chart(ctx3, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: monthLabels,
-        //         datasets: [
-        //             {
-        //                 label: monthLabels,
-        //                 data: <?php echo json_encode($amount); ?>,
-        //                 borderWidth: 3.5,
-        //                 backgroundColor: [
-        //                     'rgba(255, 205, 210, 0.8)',
-        //                     'rgba(248, 187, 208, 0.8)',
-        //                     'rgba(225, 190, 231, 0.8)',
-        //                     'rgba(209, 196, 233, 0.8)',
-        //                     'rgba(187, 222, 251, 0.8)',
-        //                     'rgba(178, 235, 242, 0.8)',
-        //                     'rgba(200, 230, 201, 0.8)',
-        //                     'rgba(220, 237, 200, 0.8)',
-        //                     'rgba(255, 249, 196, 0.8)',
-        //                     'rgba(255, 224, 178, 0.8)'
-        //                 ],
-        //                 borderColor: [
-        //                     'rgba(255, 205, 210, 1)',
-        //                     'rgba(248, 187, 208, 1)',
-        //                     'rgba(225, 190, 231, 1)',
-        //                     'rgba(209, 196, 233, 1)',
-        //                     'rgba(187, 222, 251, 1)',
-        //                     'rgba(178, 235, 242, 1)',
-        //                     'rgba(200, 230, 201, 1)',
-        //                     'rgba(220, 237, 200, 1)',
-        //                     'rgba(255, 249, 196, 1)',
-        //                     'rgba(255, 224, 178, 1)'
-        //                 ],
-        //                 borderRadius: 4,
-        //                 tension: 0.5,
-        //                 pointRadius: 0,
-        //                 pointHitRadius: 10,
-        //                 hoverPointRadius: 0,
-        //                 fill: {
-        //                     target: {
-        //                         value: 9.33,
-        //                     },
-        //                 }
-        //             }
-        //         ]
-        //     },
-        //     options: {
-        //         indexAxis: 'x',
-        //         responsive: true,
-        //         aspectRatio: 1.3,
-        //         maintainAspectRatio: false,
-        //         plugins: {
-        //             legend: {
-        //                 display: false,
-        //                 position: 'right',
-        //                 onHover: handleHover,
-        //                 onLeave: handleLeave,
-        //             },
-        //         },
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true,
-        //             },
-        //             x: {
-        //                 beginAtZero: true,
-        //             },
-        //         }
-        //     }
-        // });
-    </script>
+    {{-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> --}}
 @endsection
