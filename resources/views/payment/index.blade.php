@@ -13,12 +13,11 @@
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
                             <div class="row w-100 m-0">
-                                <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50 w-100">
-                                    <select id="liftInLiftOffFLeftMenu" class="form-select" aria-label="Default select example">
-                                        <option selected value="[[168],[110], [58], [3]]">Today</option>
-                                        <option value="[[112],[82], [22], [1.5]]">Yesterday</option>
-                                        <option value="[[87],[17], [67], [1]]">Two Days Ago</option>
-                                    </select>
+                                <div class="input-group px-0">
+                                    <input type="text" id="lolo_month_select" name="lolo_month_select" class="form-control rounded-start-3" placeholder="Pilih Bulan">
+                                    <span class="input-group-text rounded-start-0 rounded-end-3">
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +30,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 id="loloTotalOrder" class="h3 mb-0"></h3>
+                                <h3 id="loloTotalOrder" class="h3 mb-0 text-primary"></h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -62,30 +61,73 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Service Time</p>
-                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline"></h3>
+                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple"></h3>
                                 <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="lolo-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
-                    <div class="row pt-3 px-3 shadow rounded-3 h-100">
-                        <div class="row justify-content-between mt-0 me-0 mb-3 ms-0 p-0">
-                            <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
-                            <div class="col col-lg-3 col-md-3 col-sm-12 col-12 p-0">
-                                <select id="liftInLiftOffRightMenu" class="form-select" aria-label="Default select example">
-                                    <option selected value="[[200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]]">2023</option>
-                                    <option value="[[182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123], [123, 12, 34, 423, 42, 23, 49, 741, 124, 56, 234, 79]]">2022</option>
-                                    <option value="[[942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874], [25, 230, 23, 345, 90, 200, 100, 400, 150, 250, 50, 100]]">2021</option>
-                                    <option value="[[120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857], [34, 553, 66, 28, 72, 234, 83, 93, 53, 74, 82, 83   ]]">2020</option>
-                                    <option value="[[874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198], [100, 75, 200, 100, 90, 200, 100, 400, 150, 250, 50, 100]]">2019</option>
-                                    <option value="[[2092, 9385, 4712, 7512, 6723], [1293, 7487, 3123, 6244, 5094], [2019, 2020, 2021, 2022, 2023]]">Last 5 Year</option>
-                                </select>
+                    <div class="row p-2 shadow rounded-3 h-100">
+                        <div class="col col-lg-85 col-md-12 col-sm-12 col-12 pt-3">
+                            <div class="graph-container text-primaryDark w-100">
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
+                                <canvas id="totalOrderVsDowntime"></canvas>
                             </div>
                         </div>
-                        <div class="graph-container text-primaryDark w-100">
-                            <canvas id="totalOrderVsDowntime"></canvas>
+                        <div class="col col-lg-35 col-md-12 col-sm-12 col-12">
+                            <div class="row justify-content-between mt-0 me-0 mb-1 ms-0 p-0">
+                                <div class="input-group px-0">
+                                    <input type="text" id="lolo_year_select" name="lolo_year_select" class="form-control rounded-start-3" placeholder="Pilih Tahun">
+                                    <span class="input-group-text rounded-start-0 rounded-end-3">
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.458374" width="70" height="70" rx="35" fill="#E1F5FE"/>
+                                    <path d="M35.7194 36.6259H31.8441C31.5872 36.6259 31.3407 36.7279 31.159 36.9096C30.9774 37.0913 30.8753 37.3377 30.8753 37.5947C30.8753 37.8516 30.9774 38.0981 31.159 38.2797C31.3407 38.4614 31.5872 38.5635 31.8441 38.5635H35.7194C35.9763 38.5635 36.2228 38.4614 36.4045 38.2797C36.5861 38.0981 36.6882 37.8516 36.6882 37.5947C36.6882 37.3377 36.5861 37.0913 36.4045 36.9096C36.2228 36.7279 35.9763 36.6259 35.7194 36.6259ZM39.5947 26.9376H38.4515C38.2516 26.3723 37.8817 25.8826 37.3926 25.5357C36.9035 25.1888 36.319 25.0017 35.7194 25H33.7818C33.1821 25.0017 32.5977 25.1888 32.1085 25.5357C31.6194 25.8826 31.2496 26.3723 31.0497 26.9376H29.9065C29.1356 26.9376 28.3964 27.2439 27.8513 27.7889C27.3062 28.334 27 29.0733 27 29.8441V41.47C27 42.2408 27.3062 42.9801 27.8513 43.5252C28.3964 44.0702 29.1356 44.3764 29.9065 44.3764H39.5947C40.3655 44.3764 41.1048 44.0702 41.6499 43.5252C42.1949 42.9801 42.5012 42.2408 42.5012 41.47V29.8441C42.5012 29.0733 42.1949 28.334 41.6499 27.7889C41.1048 27.2439 40.3655 26.9376 39.5947 26.9376ZM32.8129 27.9065C32.8129 27.6495 32.915 27.4031 33.0967 27.2214C33.2784 27.0397 33.5248 26.9376 33.7818 26.9376H35.7194C35.9763 26.9376 36.2228 27.0397 36.4045 27.2214C36.5861 27.4031 36.6882 27.6495 36.6882 27.9065V28.8753H32.8129V27.9065ZM40.5635 41.47C40.5635 41.7269 40.4614 41.9733 40.2797 42.155C40.0981 42.3367 39.8516 42.4388 39.5947 42.4388H29.9065C29.6495 42.4388 29.4031 42.3367 29.2214 42.155C29.0397 41.9733 28.9376 41.7269 28.9376 41.47V29.8441C28.9376 29.5872 29.0397 29.3407 29.2214 29.159C29.4031 28.9774 29.6495 28.8753 29.9065 28.8753H30.8753V29.8441C30.8753 30.1011 30.9774 30.3475 31.159 30.5292C31.3407 30.7109 31.5872 30.8129 31.8441 30.8129H37.657C37.914 30.8129 38.1604 30.7109 38.3421 30.5292C38.5238 30.3475 38.6259 30.1011 38.6259 29.8441V28.8753H39.5947C39.8516 28.8753 40.0981 28.9774 40.2797 29.159C40.4614 29.3407 40.5635 29.5872 40.5635 29.8441V41.47ZM37.657 32.7506H31.8441C31.5872 32.7506 31.3407 32.8526 31.159 33.0343C30.9774 33.216 30.8753 33.4625 30.8753 33.7194C30.8753 33.9763 30.9774 34.2228 31.159 34.4045C31.3407 34.5861 31.5872 34.6882 31.8441 34.6882H37.657C37.914 34.6882 38.1604 34.5861 38.3421 34.4045C38.5238 34.2228 38.6259 33.9763 38.6259 33.7194C38.6259 33.4625 38.5238 33.216 38.3421 33.0343C38.1604 32.8526 37.914 32.7506 37.657 32.7506Z" fill="#039BE5"/>
+                                    <path d="M35 52.4584C44.3888 52.4584 52 44.8471 52 35.4584C52 26.0695 44.3888 18.4584 35 18.4584C25.6112 18.4584 18 26.0695 18 35.4584C18 44.8471 25.6112 52.4584 35 52.4584Z" stroke="#039BE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div class="card-body ps-1 pe-0">
+                                    <p class="card-text m-0 fs-7">Average Total Order</p>
+                                    <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">53.6</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                    <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                                </svg>
+                                <div class="card-body ps-1 pe-0">
+                                    <p class="card-text m-0 fs-7">Highest Total Order</p>
+                                    <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.291687" width="70" height="70" rx="35" fill="#FFEBEE"/>
+                                    <path d="M36.7469 33.6183V24.1715C36.7469 23.9455 36.6571 23.7287 36.4973 23.5689C36.3375 23.4091 36.1208 23.3193 35.8948 23.3193H34.1905C33.9645 23.3193 33.7478 23.4091 33.588 23.5689C33.4282 23.7287 33.3384 23.9455 33.3384 24.1715V34.8965C33.3384 35.1224 33.4282 35.3391 33.5881 35.4989L38.9565 40.8674C39.1163 41.0271 39.333 41.1169 39.559 41.1169C39.7849 41.1169 40.0016 41.0271 40.1614 40.8674L41.2999 39.7289C41.4596 39.5691 41.5494 39.3524 41.5494 39.1265C41.5494 38.9005 41.4596 38.6838 41.2999 38.524L36.9932 34.2173C36.8355 34.0578 36.747 33.8426 36.7469 33.6183Z" fill="#E53935"/>
+                                    <path d="M48.7304 36.9535C48.4123 39.5181 47.3804 41.9418 45.7522 43.9487C44.124 45.9555 41.965 47.4648 39.521 48.3047C37.0771 49.1445 34.4463 49.2812 31.9285 48.6991C29.4106 48.117 27.1069 46.8395 25.2795 45.0122C23.4522 43.1848 22.1747 40.881 21.5926 38.3632C21.0105 35.8453 21.1472 33.2146 21.987 30.7707C22.8269 28.3267 24.3362 26.1677 26.343 24.5395C28.3499 22.9113 30.7736 21.8794 33.3382 21.5613V18.2917C30.1289 18.6143 27.0771 19.841 24.5373 21.8292C21.9975 23.8174 20.0741 26.4855 18.9905 29.5235C17.9069 32.5615 17.7077 35.8447 18.416 38.9914C19.1243 42.1381 20.711 45.0192 22.9917 47.3C25.2724 49.5807 28.1536 51.1674 31.3003 51.8757C34.447 52.584 37.7301 52.3848 40.7681 51.3012C43.8061 50.2176 46.4743 48.2942 48.4625 45.7544C50.4507 43.2146 51.6774 40.1628 52 36.9535H48.7304ZM42.0053 19.7054C40.3404 18.9531 38.5645 18.4757 36.7468 18.2917V21.5613C37.9963 21.7188 39.2182 22.048 40.3777 22.5396L42.0053 19.7054ZM46.1424 27.0849L48.992 25.4914C47.889 23.9113 46.5275 22.5285 44.9648 21.4011L43.3312 24.2456C44.3994 25.0525 45.3462 26.0087 46.1424 27.0849ZM47.8032 30.0631C48.2652 31.1775 48.577 32.3484 48.7304 33.5449H52C51.823 31.7914 51.3728 30.0763 50.6656 28.4619L47.8032 30.0631Z" fill="#E53935"/>
+                                </svg>
+                                <div class="card-body ps-2 pe-0">
+                                    <p class="card-text m-0 fs-7">Lowest Total Order</p>
+                                    <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">51</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.208313" width="70" height="70" rx="35" fill="#EDE7F6"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3581 25.9356H28.8182V29.0265H19.5455V19.7402H22.6364V23.241C26.0937 19.6155 30.0339 18.2083 35 18.2083C44.3888 18.2083 52 25.8195 52 35.2083C52 44.5972 44.3888 52.2083 35 52.2083C25.6112 52.2083 18 44.5972 18 35.2083H21.0909C21.0909 42.8901 27.3182 49.1174 35 49.1174C42.6818 49.1174 48.9091 42.8901 48.9091 35.2083C48.9091 27.5265 42.6818 21.2992 35 21.2992C30.6097 21.2992 27.3417 22.5223 24.3581 25.9356ZM36.5455 33.6629H42.7273V36.7538H33.4545V25.9356H36.5455V33.6629Z" fill="#5E35B1"/>
+                                </svg>
+                                <div class="card-body ps-2 pe-0">
+                                    <p class="card-text m-0 fs-7">Total Manpower</p>
+                                    <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -97,72 +139,86 @@
         <div class="row">
             <h3 class="h3">Storage Yard</h3>
         </div>
-        <section id="storageYard" class="mb-4" style="width: 100%; height: 500px">
+        <section id="storageYard" class="mb-4" style="width: 100%; height: 450px">
             <div class="row p-2 sub-menu h-100">
                 <div id="storageYard-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
-                        <div class="mini-item card px-3 d-flex flex-column align-items-start border-0 shadow rounded-3">
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <div class="progress-circle over50 p66">
+                                <span>66%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar"></div>
+                                   <div class="value-bar"></div>
+                                </div>
+                             </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-6">Total item</p>
-                                <h1 class="h1 mb-0">367</h1>
-                            </div>
-                            <div class="row m-0">
-                                <svg width="276" height="96" viewBox="0 0 276 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5 73.5C14.5 70.7386 16.7386 68.5 19.5 68.5H40.5C43.2614 68.5 45.5 70.7386 45.5 73.5V85.5H14.5V73.5Z" fill="#039BE5"/>
-                                    <path d="M50.5 61.5C50.5 58.7386 52.7386 56.5 55.5 56.5H76.5C79.2614 56.5 81.5 58.7386 81.5 61.5V85.5H50.5V61.5Z" fill="#039BE5"/>
-                                    <path d="M86.5 46.5C86.5 43.7386 88.7386 41.5 91.5 41.5H112.5C115.261 41.5 117.5 43.7386 117.5 46.5V85.5H86.5V46.5Z" fill="#039BE5"/>
-                                    <path d="M122.5 32.5C122.5 29.7386 124.739 27.5 127.5 27.5H148.5C151.261 27.5 153.5 29.7386 153.5 32.5V85.5H122.5V32.5Z" fill="#039BE5"/>
-                                    <path d="M158.5 15.5833C158.5 12.8219 160.739 10.5833 163.5 10.5833H184.5C187.261 10.5833 189.5 12.8219 189.5 15.5833V85.5H158.5V15.5833Z" fill="#039BE5"/>
-                                    <path d="M194.5 8.5C194.5 5.73858 196.739 3.5 199.5 3.5H220.5C223.261 3.5 225.5 5.73858 225.5 8.5V85.5H194.5V8.5Z" fill="#039BE5"/>
-                                    <path d="M230.5 32.5C230.5 29.7386 232.739 27.5 235.5 27.5H256.5C259.261 27.5 261.5 29.7386 261.5 32.5V85.5H230.5V32.5Z" fill="#039BE5"/>
-                                </svg>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
-                        <div class="mini-item card px-3 d-flex flex-column align-items-start border-0 shadow rounded-3">
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <div class="progress-circle over50 p66">
+                                <span>66%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar"></div>
+                                   <div class="value-bar"></div>
+                                </div>
+                             </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-6">Area of Each Item</p>
-                                <h1 class="h1 mb-0">789</h1>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
-                            <div class="row m-0">
-                                <svg width="276" height="96" viewBox="0 0 276 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5 73.3333C14.5 70.5719 16.7386 68.3333 19.5 68.3333H40.5C43.2614 68.3333 45.5 70.5719 45.5 73.3333V85.3333H14.5V73.3333Z" fill="#F4511E"/>
-                                    <path d="M50.5 61.3333C50.5 58.5719 52.7386 56.3333 55.5 56.3333H76.5C79.2614 56.3333 81.5 58.5719 81.5 61.3333V85.3333H50.5V61.3333Z" fill="#F4511E"/>
-                                    <path d="M86.5 46.3333C86.5 43.5719 88.7386 41.3333 91.5 41.3333H112.5C115.261 41.3333 117.5 43.5719 117.5 46.3333V85.3333H86.5V46.3333Z" fill="#F4511E"/>
-                                    <path d="M122.5 32.3333C122.5 29.5719 124.739 27.3333 127.5 27.3333H148.5C151.261 27.3333 153.5 29.5719 153.5 32.3333V85.3333H122.5V32.3333Z" fill="#F4511E"/>
-                                    <path d="M158.5 15.4167C158.5 12.6552 160.739 10.4167 163.5 10.4167H184.5C187.261 10.4167 189.5 12.6552 189.5 15.4167V85.3333H158.5V15.4167Z" fill="#F4511E"/>
-                                    <path d="M194.5 8.33331C194.5 5.57189 196.739 3.33331 199.5 3.33331H220.5C223.261 3.33331 225.5 5.57189 225.5 8.33331V85.3333H194.5V8.33331Z" fill="#F4511E"/>
-                                    <path d="M230.5 32.3333C230.5 29.5719 232.739 27.3333 235.5 27.3333H256.5C259.261 27.3333 261.5 29.5719 261.5 32.3333V85.3333H230.5V32.3333Z" fill="#F4511E"/>
-                                </svg>
+                        </div>
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <div class="progress-circle over50 p66">
+                                <span>66%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar"></div>
+                                   <div class="value-bar"></div>
+                                </div>
+                             </div>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
+                            </div>
+                        </div>
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <div class="progress-circle over50 p66">
+                                <span>66%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar"></div>
+                                   <div class="value-bar"></div>
+                                </div>
+                             </div>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="storageYard-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 h-100">
-                    <div class="row h-100">
-                        <div class="col pb-1 h-100">
-                            <div class="row shadow rounded-3 h-100 px-3">
-                                <div class="row pt-3 px-1 pe-0 m-0 ps-0">
-                                    <div class="row justify-content-between mt-0 me-0 mb-3 ms-0 p-0">
-                                        <h3 class="h3 col col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Record</h3>
-                                        <div class="col col-lg-3 col-md-3 col-sm-12 col-12 p-0">
-                                            <select id="wiwi" class="form-select" aria-label="Default select example">
-                                                <option selected>Select Year</option>
-                                                <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
-                                                <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
-                                                <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
-                                                <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
-                                                <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
-                                                <option value="5year">Last 5 Year</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                <div id="storageYard-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                    <div class="row pt-0 px-3 shadow rounded-3 h-100">
+                        <div class="col col-lg-4 col-md-12 col-sm-12 col-12 pt-3">
+                            <div class="graph-container text-primaryDark w-100">
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total TEUs</h3>
+                                <canvas id="LuasStorageWarehouse"></canvas>
+                            </div>
+                        </div>
+                        <div id="storageYardTable" class="col-lg-8 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                            <div class="row rounded-3 h-100 px-3">
+                                <div class="row pt-3 mt-0 me-0 mb-3 ms-0 p-0">
+                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
                                 </div>
                                 <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
-                                    <table id="storageYardTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 2, "asc" ]]'>
+                                    <table id="storageYardTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 1, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
                                                 <th scope="col">Owner</th>
-                                                <th scope="col">Item Catogory</th>
                                                 <th scope="col">Masuk</th>
                                                 <th scope="col">Keluar</th>
                                                 <th scope="col">Total (hari)</th>
@@ -171,119 +227,95 @@
                                         <tbody class="overflow-auto">
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">1/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Elektronik</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">PT Suka Maju</td>
-                                                <td class="text-center">Apel</td>
                                                 <td class="text-center">14/09/2023</td>
                                                 <td class="text-center">26/09/2023</td>
                                                 <td class="text-center">7</td>
                                             </tr>
                                             <tr>
                                                 <td scope="row">ZZZZZ</td>
-                                                <td class="text-center">ZZZZ</td>
                                                 <td class="text-center">99/09/2023</td>
                                                 <td class="text-center">99/09/2023</td>
                                                 <td class="text-center">99</td>
                                             </tr>
                                         </tbody>
-                                        {{-- <tfoot class="align-middle text-center">
-                                            <tr>
-                                                <th>Owner</th>
-                                                <th>Item Catogory</th>
-                                                <th>Masuk</th>
-                                                <th>Keluar</th>
-                                                <th>Total (hari)</th>
-                                            </tr>
-                                        </tfoot> --}}
                                     </table>
                                 </div>
                             </div>
@@ -299,167 +331,172 @@
         <div class="row">
             <h3 class="h3">Storage Warehouse</h3>
         </div>
-        <section id="storageWarehouse" class="mb-4" style="width: 100%; height: 500px">
+        <section id="storageWarehouse" class="mb-4" style="width: 100%; height: 450px">
             <div class="row p-2 sub-menu h-100">
                 <div id="storageWarehouse-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
-                    <div class="mini-item-container row g-2 justify-content-between h-100 w-100">
-                        <div class="mini-item card px-3 d-flex flex-column align-items-start border-0 shadow rounded-3">
+                    <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.458374" width="70" height="70" rx="35" fill="#E1F5FE"/>
+                                <path d="M35.7194 36.6259H31.8441C31.5872 36.6259 31.3407 36.7279 31.159 36.9096C30.9774 37.0913 30.8753 37.3377 30.8753 37.5947C30.8753 37.8516 30.9774 38.0981 31.159 38.2797C31.3407 38.4614 31.5872 38.5635 31.8441 38.5635H35.7194C35.9763 38.5635 36.2228 38.4614 36.4045 38.2797C36.5861 38.0981 36.6882 37.8516 36.6882 37.5947C36.6882 37.3377 36.5861 37.0913 36.4045 36.9096C36.2228 36.7279 35.9763 36.6259 35.7194 36.6259ZM39.5947 26.9376H38.4515C38.2516 26.3723 37.8817 25.8826 37.3926 25.5357C36.9035 25.1888 36.319 25.0017 35.7194 25H33.7818C33.1821 25.0017 32.5977 25.1888 32.1085 25.5357C31.6194 25.8826 31.2496 26.3723 31.0497 26.9376H29.9065C29.1356 26.9376 28.3964 27.2439 27.8513 27.7889C27.3062 28.334 27 29.0733 27 29.8441V41.47C27 42.2408 27.3062 42.9801 27.8513 43.5252C28.3964 44.0702 29.1356 44.3764 29.9065 44.3764H39.5947C40.3655 44.3764 41.1048 44.0702 41.6499 43.5252C42.1949 42.9801 42.5012 42.2408 42.5012 41.47V29.8441C42.5012 29.0733 42.1949 28.334 41.6499 27.7889C41.1048 27.2439 40.3655 26.9376 39.5947 26.9376ZM32.8129 27.9065C32.8129 27.6495 32.915 27.4031 33.0967 27.2214C33.2784 27.0397 33.5248 26.9376 33.7818 26.9376H35.7194C35.9763 26.9376 36.2228 27.0397 36.4045 27.2214C36.5861 27.4031 36.6882 27.6495 36.6882 27.9065V28.8753H32.8129V27.9065ZM40.5635 41.47C40.5635 41.7269 40.4614 41.9733 40.2797 42.155C40.0981 42.3367 39.8516 42.4388 39.5947 42.4388H29.9065C29.6495 42.4388 29.4031 42.3367 29.2214 42.155C29.0397 41.9733 28.9376 41.7269 28.9376 41.47V29.8441C28.9376 29.5872 29.0397 29.3407 29.2214 29.159C29.4031 28.9774 29.6495 28.8753 29.9065 28.8753H30.8753V29.8441C30.8753 30.1011 30.9774 30.3475 31.159 30.5292C31.3407 30.7109 31.5872 30.8129 31.8441 30.8129H37.657C37.914 30.8129 38.1604 30.7109 38.3421 30.5292C38.5238 30.3475 38.6259 30.1011 38.6259 29.8441V28.8753H39.5947C39.8516 28.8753 40.0981 28.9774 40.2797 29.159C40.4614 29.3407 40.5635 29.5872 40.5635 29.8441V41.47ZM37.657 32.7506H31.8441C31.5872 32.7506 31.3407 32.8526 31.159 33.0343C30.9774 33.216 30.8753 33.4625 30.8753 33.7194C30.8753 33.9763 30.9774 34.2228 31.159 34.4045C31.3407 34.5861 31.5872 34.6882 31.8441 34.6882H37.657C37.914 34.6882 38.1604 34.5861 38.3421 34.4045C38.5238 34.2228 38.6259 33.9763 38.6259 33.7194C38.6259 33.4625 38.5238 33.216 38.3421 33.0343C38.1604 32.8526 37.914 32.7506 37.657 32.7506Z" fill="#039BE5"/>
+                                <path d="M35 52.4584C44.3888 52.4584 52 44.8471 52 35.4584C52 26.0695 44.3888 18.4584 35 18.4584C25.6112 18.4584 18 26.0695 18 35.4584C18 44.8471 25.6112 52.4584 35 52.4584Z" stroke="#039BE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-6">Total Item</p>
-                                <h1 class="h1 mb-0">190</h1>
-                            </div>
-                            <div class="row m-0">
-                                <svg width="276" height="96" viewBox="0 0 276 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5 73.5C14.5 70.7386 16.7386 68.5 19.5 68.5H40.5C43.2614 68.5 45.5 70.7386 45.5 73.5V85.5H14.5V73.5Z" fill="#039BE5"/>
-                                    <path d="M50.5 61.5C50.5 58.7386 52.7386 56.5 55.5 56.5H76.5C79.2614 56.5 81.5 58.7386 81.5 61.5V85.5H50.5V61.5Z" fill="#039BE5"/>
-                                    <path d="M86.5 46.5C86.5 43.7386 88.7386 41.5 91.5 41.5H112.5C115.261 41.5 117.5 43.7386 117.5 46.5V85.5H86.5V46.5Z" fill="#039BE5"/>
-                                    <path d="M122.5 32.5C122.5 29.7386 124.739 27.5 127.5 27.5H148.5C151.261 27.5 153.5 29.7386 153.5 32.5V85.5H122.5V32.5Z" fill="#039BE5"/>
-                                    <path d="M158.5 15.5833C158.5 12.8219 160.739 10.5833 163.5 10.5833H184.5C187.261 10.5833 189.5 12.8219 189.5 15.5833V85.5H158.5V15.5833Z" fill="#039BE5"/>
-                                    <path d="M194.5 8.5C194.5 5.73858 196.739 3.5 199.5 3.5H220.5C223.261 3.5 225.5 5.73858 225.5 8.5V85.5H194.5V8.5Z" fill="#039BE5"/>
-                                    <path d="M230.5 32.5C230.5 29.7386 232.739 27.5 235.5 27.5H256.5C259.261 27.5 261.5 29.7386 261.5 32.5V85.5H230.5V32.5Z" fill="#039BE5"/>
-                                </svg>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 text-primary"></h3>
                             </div>
                         </div>
-                        <div class="mini-item card px-3 d-flex flex-column align-items-start border-0 shadow rounded-3">
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                            </svg>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-6">Total space</p>
-                                <h1 class="h1 mb-0">369 <span class="fs-7 align-top">m<sup>2</sup></span></h1>
+                                <p class="card-text m-0 fs-7">Used</p>
+                                <h3 id="swFinishOrder" class="h3 mb-0 text-success"></h3>
                             </div>
-                            <div class="row m-0">
-                                <svg width="276" height="96" viewBox="0 0 276 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.5 73.3333C14.5 70.5719 16.7386 68.3333 19.5 68.3333H40.5C43.2614 68.3333 45.5 70.5719 45.5 73.3333V85.3333H14.5V73.3333Z" fill="#F4511E"/>
-                                    <path d="M50.5 61.3333C50.5 58.5719 52.7386 56.3333 55.5 56.3333H76.5C79.2614 56.3333 81.5 58.5719 81.5 61.3333V85.3333H50.5V61.3333Z" fill="#F4511E"/>
-                                    <path d="M86.5 46.3333C86.5 43.5719 88.7386 41.3333 91.5 41.3333H112.5C115.261 41.3333 117.5 43.5719 117.5 46.3333V85.3333H86.5V46.3333Z" fill="#F4511E"/>
-                                    <path d="M122.5 32.3333C122.5 29.5719 124.739 27.3333 127.5 27.3333H148.5C151.261 27.3333 153.5 29.5719 153.5 32.3333V85.3333H122.5V32.3333Z" fill="#F4511E"/>
-                                    <path d="M158.5 15.4167C158.5 12.6552 160.739 10.4167 163.5 10.4167H184.5C187.261 10.4167 189.5 12.6552 189.5 15.4167V85.3333H158.5V15.4167Z" fill="#F4511E"/>
-                                    <path d="M194.5 8.33331C194.5 5.57189 196.739 3.33331 199.5 3.33331H220.5C223.261 3.33331 225.5 5.57189 225.5 8.33331V85.3333H194.5V8.33331Z" fill="#F4511E"/>
-                                    <path d="M230.5 32.3333C230.5 29.5719 232.739 27.3333 235.5 27.3333H256.5C259.261 27.3333 261.5 29.5719 261.5 32.3333V85.3333H230.5V32.3333Z" fill="#F4511E"/>
-                                </svg>
+                        </div>
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.291687" width="70" height="70" rx="35" fill="#FFEBEE"/>
+                                <path d="M36.7469 33.6183V24.1715C36.7469 23.9455 36.6571 23.7287 36.4973 23.5689C36.3375 23.4091 36.1208 23.3193 35.8948 23.3193H34.1905C33.9645 23.3193 33.7478 23.4091 33.588 23.5689C33.4282 23.7287 33.3384 23.9455 33.3384 24.1715V34.8965C33.3384 35.1224 33.4282 35.3391 33.5881 35.4989L38.9565 40.8674C39.1163 41.0271 39.333 41.1169 39.559 41.1169C39.7849 41.1169 40.0016 41.0271 40.1614 40.8674L41.2999 39.7289C41.4596 39.5691 41.5494 39.3524 41.5494 39.1265C41.5494 38.9005 41.4596 38.6838 41.2999 38.524L36.9932 34.2173C36.8355 34.0578 36.747 33.8426 36.7469 33.6183Z" fill="#E53935"/>
+                                <path d="M48.7304 36.9535C48.4123 39.5181 47.3804 41.9418 45.7522 43.9487C44.124 45.9555 41.965 47.4648 39.521 48.3047C37.0771 49.1445 34.4463 49.2812 31.9285 48.6991C29.4106 48.117 27.1069 46.8395 25.2795 45.0122C23.4522 43.1848 22.1747 40.881 21.5926 38.3632C21.0105 35.8453 21.1472 33.2146 21.987 30.7707C22.8269 28.3267 24.3362 26.1677 26.343 24.5395C28.3499 22.9113 30.7736 21.8794 33.3382 21.5613V18.2917C30.1289 18.6143 27.0771 19.841 24.5373 21.8292C21.9975 23.8174 20.0741 26.4855 18.9905 29.5235C17.9069 32.5615 17.7077 35.8447 18.416 38.9914C19.1243 42.1381 20.711 45.0192 22.9917 47.3C25.2724 49.5807 28.1536 51.1674 31.3003 51.8757C34.447 52.584 37.7301 52.3848 40.7681 51.3012C43.8061 50.2176 46.4743 48.2942 48.4625 45.7544C50.4507 43.2146 51.6774 40.1628 52 36.9535H48.7304ZM42.0053 19.7054C40.3404 18.9531 38.5645 18.4757 36.7468 18.2917V21.5613C37.9963 21.7188 39.2182 22.048 40.3777 22.5396L42.0053 19.7054ZM46.1424 27.0849L48.992 25.4914C47.889 23.9113 46.5275 22.5285 44.9648 21.4011L43.3312 24.2456C44.3994 25.0525 45.3462 26.0087 46.1424 27.0849ZM47.8032 30.0631C48.2652 31.1775 48.577 32.3484 48.7304 33.5449H52C51.823 31.7914 51.3728 30.0763 50.6656 28.4619L47.8032 30.0631Z" fill="#E53935"/>
+                            </svg>
+                            <div class="card-body ps-2 pe-0">
+                                <p class="card-text m-0 fs-7">Max</p>
+                                <h3 id="wsPendingOrder" class="h3 mb-0 text-danger"></h3>
+                            </div>
+                        </div>
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.291687" width="70" height="70" rx="35" fill="#FFEBEE"/>
+                                <path d="M36.7469 33.6183V24.1715C36.7469 23.9455 36.6571 23.7287 36.4973 23.5689C36.3375 23.4091 36.1208 23.3193 35.8948 23.3193H34.1905C33.9645 23.3193 33.7478 23.4091 33.588 23.5689C33.4282 23.7287 33.3384 23.9455 33.3384 24.1715V34.8965C33.3384 35.1224 33.4282 35.3391 33.5881 35.4989L38.9565 40.8674C39.1163 41.0271 39.333 41.1169 39.559 41.1169C39.7849 41.1169 40.0016 41.0271 40.1614 40.8674L41.2999 39.7289C41.4596 39.5691 41.5494 39.3524 41.5494 39.1265C41.5494 38.9005 41.4596 38.6838 41.2999 38.524L36.9932 34.2173C36.8355 34.0578 36.747 33.8426 36.7469 33.6183Z" fill="#E53935"/>
+                                <path d="M48.7304 36.9535C48.4123 39.5181 47.3804 41.9418 45.7522 43.9487C44.124 45.9555 41.965 47.4648 39.521 48.3047C37.0771 49.1445 34.4463 49.2812 31.9285 48.6991C29.4106 48.117 27.1069 46.8395 25.2795 45.0122C23.4522 43.1848 22.1747 40.881 21.5926 38.3632C21.0105 35.8453 21.1472 33.2146 21.987 30.7707C22.8269 28.3267 24.3362 26.1677 26.343 24.5395C28.3499 22.9113 30.7736 21.8794 33.3382 21.5613V18.2917C30.1289 18.6143 27.0771 19.841 24.5373 21.8292C21.9975 23.8174 20.0741 26.4855 18.9905 29.5235C17.9069 32.5615 17.7077 35.8447 18.416 38.9914C19.1243 42.1381 20.711 45.0192 22.9917 47.3C25.2724 49.5807 28.1536 51.1674 31.3003 51.8757C34.447 52.584 37.7301 52.3848 40.7681 51.3012C43.8061 50.2176 46.4743 48.2942 48.4625 45.7544C50.4507 43.2146 51.6774 40.1628 52 36.9535H48.7304ZM42.0053 19.7054C40.3404 18.9531 38.5645 18.4757 36.7468 18.2917V21.5613C37.9963 21.7188 39.2182 22.048 40.3777 22.5396L42.0053 19.7054ZM46.1424 27.0849L48.992 25.4914C47.889 23.9113 46.5275 22.5285 44.9648 21.4011L43.3312 24.2456C44.3994 25.0525 45.3462 26.0087 46.1424 27.0849ZM47.8032 30.0631C48.2652 31.1775 48.577 32.3484 48.7304 33.5449H52C51.823 31.7914 51.3728 30.0763 50.6656 28.4619L47.8032 30.0631Z" fill="#E53935"/>
+                            </svg>
+                            <div class="card-body ps-2 pe-0">
+                                <p class="card-text m-0 fs-7">Max</p>
+                                <h3 id="wsPendingOrder" class="h3 mb-0 text-danger"></h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="storageWarehouse-right" class="col-lg-95 col-md-12 col-sm-12 col-12 h-100">
-                    <div class="row h-100">
-                        <div id="storageWarehouseChart" class="col-lg-6 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
-                            <div class="row shadow rounded-3 h-100 px-3">
-                                <div class="row pt-3 mt-0 me-0 mb-3 ms-0 ps-0">
-                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Area Used</h3>
-                                    <div class="col col-lg-5 col-md-5 col-sm-12 col-12 p-0">
-                                        <select id="storageWarehouseMiddleMenu" class="form-select" aria-label="Default select example">
-                                            <option selected value="[200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100]">2023</option>
-                                            <option value="[182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123]">2022</option>
-                                            <option value="[942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273]">2021</option>
-                                            <option value="[120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87]">2020</option>
-                                            <option value="[874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875]">2019</option>
-                                            <option value="[[2092, 9385, 4712, 7512, 6723], [2019, 2020, 2021, 2022, 2023]]">Last 5 Year</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="graph-container row text-primaryDark" style="width: 100%">
-                                    <canvas id="LuasStorageWarehouse"></canvas>
-                                </div>
+                <div id="storageWarehouse-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                    <div class="row pt-0 px-3 shadow rounded-3 h-100">
+                        <div class="col col-lg-4 col-md-12 col-sm-12 col-12 pt-3">
+                            <div class="graph-container text-primaryDark w-100">
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Dimensions</h3>
+                                <canvas id="LuasStorageWarehouse"></canvas>
                             </div>
                         </div>
-                        <div id="storageWarehouseTable" class="col-lg-6 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
-                            <div class="row shadow rounded-3 h-100 px-3">
+                        <div id="storageWarehouseTable" class="col-lg-8 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                            <div class="row rounded-3 h-100 px-3">
                                 <div class="row pt-3 mt-0 me-0 mb-3 ms-0 p-0">
                                     <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
-                                    <div class="col col-lg-5 col-md-5 col-sm-12 col-12 p-0">
-                                        <select id="wowok" class="form-select" aria-label="Default select example">
-                                            <option selected>Select Year</option>
-                                            <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
-                                            <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
-                                            <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
-                                            <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
-                                            <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
-                                            <option value="5year">Last 5 Year</option>
-                                        </select>
-                                    </div>
                                 </div>
-                                <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
-                                    <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
+                                <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
+                                    <table id="storageWarehouseTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 1, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
-                                                <th scope="col">No Container</th>
-                                                <th scope="col">Lama Plugging</th>
+                                                <th scope="col">Owner</th>
+                                                <th scope="col">Masuk</th>
+                                                <th scope="col">Keluar</th>
+                                                <th scope="col">Total (hari)</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="">
+                                        <tbody class="overflow-auto">
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">1/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
                                             </tr>
                                             <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
+                                                <td scope="row">ZZZZZ</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99</td>
                                             </tr>
-                                            <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">HKLO9070</td>
-                                                <td class="text-center">07:30 - 16:00 (510 Menit)</td>
-                                            </tr>
-
                                         </tbody>
                                     </table>
-                                    <script>
-                                        $('#sortTable').DataTable();
-                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -553,29 +590,6 @@
         <div class="row">
             <h3 class="h3">Plugging & Monitoring</h3>
         </div>
-        <div class="row p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100 mx-0">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex flex-row justify-content-start m-0">
-                <button id="btnPlugging" class="btn btn-primaryDark col-lg-4 col-md-4 col-sm-5 col-5 me-2">
-                    Plugging
-                </button>
-                <button id="btnMonitoring" class="btn btn-primaryDark col-lg-4 col-md-4 col-sm-5 col-5">
-                    Monitoring
-                </button>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex flex-row justify-content-end m-0 pe-3">
-                <p class="fs-6 my-auto">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    07:00 - 07:00
-                </p>
-                <span style="width: 7%"></span>
-                <div class="input-group w-50">
-                    <input type="text" id="month_select" name="month_select" class="form-control rounded-start-3" placeholder="Pilih Tanggal">
-                    <span class="input-group-text rounded-start-0 rounded-end-3">
-                        <i class="fa-regular fa-calendar"></i>
-                    </span>
-                  </div>
-            </div>
-        </div>
         <section id="pluggingMonitoring" class="mb-4" style="width: 100%; height: 450px">
             <div class="row p-2 sub-menu h-100">
                 <div id="pluggingMonitoring-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
@@ -652,31 +666,20 @@
                 </div>
                 <div id="pluggingMonitoring-right" class="col-lg-95 col-md-12 col-sm-12 col-12 h-100">
                     <div class="row h-100">
-                        <div id="pluggingMonitoringTable" class="col col-lg-7 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                        <div id="pluggingMonitoringTable" class="col-lg-7 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
                             <div class="row shadow rounded-3 h-100 px-3">
-                                <div class="row pt-3 px-1 pe-0 m-0 ps-0 mb-3">
+                                <div class="row pt-3 mt-0 me-0 mb-3 ms-0 p-0">
                                     <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
-                                    <div class="col col-lg-5 col-md-5 col-sm-12 col-12 p-0">
-                                        <select id="owekk" class="form-select" aria-label="Default select example">
-                                            <option selected>Select Year</option>
-                                            <option value="200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200">2023</option>
-                                            <option value="182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123">2022</option>
-                                            <option value="942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874">2021</option>
-                                            <option value="120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857">2020</option>
-                                            <option value="874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198">2019</option>
-                                            <option value="5year">Last 5 Year</option>
-                                        </select>
-                                    </div>
                                 </div>
-                                <div class="graph-container m-0 row text-primaryDark border rounded-3 overflow-scroll" style="border-color: #9DB2BF !important">
-                                    <table class="table table-fix-head table-responsive table-primaryDark table-striped table-hover">
+                                <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
+                                    <table id="pluggingMonitoringeTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 1, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
                                                 <th scope="col">No Container</th>
                                                 <th scope="col">Lama Plugging</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="">
+                                        <tbody class="overflow-auto">
                                             <tr>
                                                 <td scope="row">HKLO9070</td>
                                                 <td class="text-center">07:30 - 16:00 (510 Menit)</td>
@@ -745,7 +748,6 @@
                                                 <td scope="row">HKLO9070</td>
                                                 <td class="text-center">07:30 - 16:00 (510 Menit)</td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -773,17 +775,16 @@
             <h3 class="h3">Stuffing & Stripping</h3>
         </div>
         <section id="stuffingStripping" class="mb-4" style="width: 100%">
-            <div class="row p-2 sub-menu h-100">
+            <div class="row p-2 sub-menu" style="height: inherit">
                 <div id="stuffingStripping-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
                             <div class="row w-100 m-0">
-                                <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50 w-100">
-                                    <select id="stuffingStrippingLeftMenu" class="form-select" aria-label="Default select example">
-                                        <option selected value="[[168],[110], [58]]">Today</option>
-                                        <option value="[[112],[82], [22]]">Yesterday</option>
-                                        <option value="[[87],[17], [67]]">Two Days Ago</option>
-                                    </select>
+                                <div class="input-group px-0">
+                                    <input type="text" id="lolo_month_select" name="lolo_month_select" class="form-control rounded-start-3" placeholder="Pilih Bulan">
+                                    <span class="input-group-text rounded-start-0 rounded-end-3">
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -796,7 +797,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 id="stuffingStrippingTotalOrder" class="h3 mb-0"></h3>
+                                <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -806,10 +807,10 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 id="stuffingStrippingFinishOrder" class="h3 mb-0"></h3>
+                                <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
                             </div>
                         </div>
-                        <div class="mini-item mini-item-3 card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
                             <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect y="0.291687" width="70" height="70" rx="35" fill="#FFEBEE"/>
                                 <path d="M36.7469 33.6183V24.1715C36.7469 23.9455 36.6571 23.7287 36.4973 23.5689C36.3375 23.4091 36.1208 23.3193 35.8948 23.3193H34.1905C33.9645 23.3193 33.7478 23.4091 33.588 23.5689C33.4282 23.7287 33.3384 23.9455 33.3384 24.1715V34.8965C33.3384 35.1224 33.4282 35.3391 33.5881 35.4989L38.9565 40.8674C39.1163 41.0271 39.333 41.1169 39.559 41.1169C39.7849 41.1169 40.0016 41.0271 40.1614 40.8674L41.2999 39.7289C41.4596 39.5691 41.5494 39.3524 41.5494 39.1265C41.5494 38.9005 41.4596 38.6838 41.2999 38.524L36.9932 34.2173C36.8355 34.0578 36.747 33.8426 36.7469 33.6183Z" fill="#E53935"/>
@@ -817,28 +818,131 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 id="stuffingStrippingPendingOrder" class="h3 mb-0"></h3>
+                                <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">123</h3>
+                            </div>
+                        </div>
+                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.208313" width="70" height="70" rx="35" fill="#EDE7F6"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3581 25.9356H28.8182V29.0265H19.5455V19.7402H22.6364V23.241C26.0937 19.6155 30.0339 18.2083 35 18.2083C44.3888 18.2083 52 25.8195 52 35.2083C52 44.5972 44.3888 52.2083 35 52.2083C25.6112 52.2083 18 44.5972 18 35.2083H21.0909C21.0909 42.8901 27.3182 49.1174 35 49.1174C42.6818 49.1174 48.9091 42.8901 48.9091 35.2083C48.9091 27.5265 42.6818 21.2992 35 21.2992C30.6097 21.2992 27.3417 22.5223 24.3581 25.9356ZM36.5455 33.6629H42.7273V36.7538H33.4545V25.9356H36.5455V33.6629Z" fill="#5E35B1"/>
+                            </svg>
+                            <div class="card-body ps-2 pe-0">
+                                <p class="card-text m-0 fs-7">Service Time</p>
+                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
+                                <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="stuffingStripping-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
-                    <div class="row pt-3 px-3 shadow rounded-3 h-100">
-                        <div class="row justify-content-between mt-0 me-0 mb-3 ms-0 p-0">
-                            <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
-                            <div class="col col-lg-3 col-md-3 col-sm-12 col-12 p-0">
-                                <select id="stuffingStrippingRightMenu" class="form-select" aria-label="Default select example">
-                                    <option selected value="[200, 150, 400, 200, 180, 400, 200, 800, 300, 700, 100, 200]">2023</option>
-                                    <option value="[182, 713, 283, 85, 78, 192, 495, 193, 631, 531, 123, 123]">2022</option>
-                                    <option value="[942, 123, 34, 93, 72, 94, 17, 844, 154, 987, 273, 874]">2021</option>
-                                    <option value="[120, 753, 758, 947, 364, 346, 187, 799, 78, 874, 87, 857]">2020</option>
-                                    <option value="[874, 87, 875, 167, 238, 984, 174, 179, 875, 985, 875, 198]">2019</option>
-                                    <option value="[[2092, 9385, 4712, 7512, 6723], [2019, 2020, 2021, 2022, 2023]]">Last 5 Year</option>
-                                </select>
+                    <div class="row p-2 shadow rounded-3 h-100">
+                        <div class="col col-lg-85 col-md-12 col-sm-12 col-12 pt-3">
+                            <div class="graph-container text-primaryDark w-100">
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
+                                <canvas id="totalOrderStuffingStripping"></canvas>
                             </div>
                         </div>
-                        <div class="graph-container text-primaryDark w-100">
-                            <canvas id="totalOrderStuffingStripping"></canvas>
+                        <div class="col col-lg-35 col-md-12 col-sm-12 col-12">
+                            <div class="row justify-content-between mt-0 me-0 mb-1 ms-0 p-0">
+                                <div class="input-group px-0">
+                                    <input type="text" id="lolo_year_select" name="lolo_year_select" class="form-control rounded-start-3" placeholder="Pilih Tahun">
+                                    <span class="input-group-text rounded-start-0 rounded-end-3">
+                                        <i class="fa-regular fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.458374" width="70" height="70" rx="35" fill="#E1F5FE"/>
+                                    <path d="M35.7194 36.6259H31.8441C31.5872 36.6259 31.3407 36.7279 31.159 36.9096C30.9774 37.0913 30.8753 37.3377 30.8753 37.5947C30.8753 37.8516 30.9774 38.0981 31.159 38.2797C31.3407 38.4614 31.5872 38.5635 31.8441 38.5635H35.7194C35.9763 38.5635 36.2228 38.4614 36.4045 38.2797C36.5861 38.0981 36.6882 37.8516 36.6882 37.5947C36.6882 37.3377 36.5861 37.0913 36.4045 36.9096C36.2228 36.7279 35.9763 36.6259 35.7194 36.6259ZM39.5947 26.9376H38.4515C38.2516 26.3723 37.8817 25.8826 37.3926 25.5357C36.9035 25.1888 36.319 25.0017 35.7194 25H33.7818C33.1821 25.0017 32.5977 25.1888 32.1085 25.5357C31.6194 25.8826 31.2496 26.3723 31.0497 26.9376H29.9065C29.1356 26.9376 28.3964 27.2439 27.8513 27.7889C27.3062 28.334 27 29.0733 27 29.8441V41.47C27 42.2408 27.3062 42.9801 27.8513 43.5252C28.3964 44.0702 29.1356 44.3764 29.9065 44.3764H39.5947C40.3655 44.3764 41.1048 44.0702 41.6499 43.5252C42.1949 42.9801 42.5012 42.2408 42.5012 41.47V29.8441C42.5012 29.0733 42.1949 28.334 41.6499 27.7889C41.1048 27.2439 40.3655 26.9376 39.5947 26.9376ZM32.8129 27.9065C32.8129 27.6495 32.915 27.4031 33.0967 27.2214C33.2784 27.0397 33.5248 26.9376 33.7818 26.9376H35.7194C35.9763 26.9376 36.2228 27.0397 36.4045 27.2214C36.5861 27.4031 36.6882 27.6495 36.6882 27.9065V28.8753H32.8129V27.9065ZM40.5635 41.47C40.5635 41.7269 40.4614 41.9733 40.2797 42.155C40.0981 42.3367 39.8516 42.4388 39.5947 42.4388H29.9065C29.6495 42.4388 29.4031 42.3367 29.2214 42.155C29.0397 41.9733 28.9376 41.7269 28.9376 41.47V29.8441C28.9376 29.5872 29.0397 29.3407 29.2214 29.159C29.4031 28.9774 29.6495 28.8753 29.9065 28.8753H30.8753V29.8441C30.8753 30.1011 30.9774 30.3475 31.159 30.5292C31.3407 30.7109 31.5872 30.8129 31.8441 30.8129H37.657C37.914 30.8129 38.1604 30.7109 38.3421 30.5292C38.5238 30.3475 38.6259 30.1011 38.6259 29.8441V28.8753H39.5947C39.8516 28.8753 40.0981 28.9774 40.2797 29.159C40.4614 29.3407 40.5635 29.5872 40.5635 29.8441V41.47ZM37.657 32.7506H31.8441C31.5872 32.7506 31.3407 32.8526 31.159 33.0343C30.9774 33.216 30.8753 33.4625 30.8753 33.7194C30.8753 33.9763 30.9774 34.2228 31.159 34.4045C31.3407 34.5861 31.5872 34.6882 31.8441 34.6882H37.657C37.914 34.6882 38.1604 34.5861 38.3421 34.4045C38.5238 34.2228 38.6259 33.9763 38.6259 33.7194C38.6259 33.4625 38.5238 33.216 38.3421 33.0343C38.1604 32.8526 37.914 32.7506 37.657 32.7506Z" fill="#039BE5"/>
+                                    <path d="M35 52.4584C44.3888 52.4584 52 44.8471 52 35.4584C52 26.0695 44.3888 18.4584 35 18.4584C25.6112 18.4584 18 26.0695 18 35.4584C18 44.8471 25.6112 52.4584 35 52.4584Z" stroke="#039BE5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div class="card-body ps-1 pe-0">
+                                    <p class="card-text m-0 fs-7">Average Total Order</p>
+                                    <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">53.6</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                    <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                                </svg>
+                                <div class="card-body ps-1 pe-0">
+                                    <p class="card-text m-0 fs-7">Highest Total Order</p>
+                                    <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.291687" width="70" height="70" rx="35" fill="#FFEBEE"/>
+                                    <path d="M36.7469 33.6183V24.1715C36.7469 23.9455 36.6571 23.7287 36.4973 23.5689C36.3375 23.4091 36.1208 23.3193 35.8948 23.3193H34.1905C33.9645 23.3193 33.7478 23.4091 33.588 23.5689C33.4282 23.7287 33.3384 23.9455 33.3384 24.1715V34.8965C33.3384 35.1224 33.4282 35.3391 33.5881 35.4989L38.9565 40.8674C39.1163 41.0271 39.333 41.1169 39.559 41.1169C39.7849 41.1169 40.0016 41.0271 40.1614 40.8674L41.2999 39.7289C41.4596 39.5691 41.5494 39.3524 41.5494 39.1265C41.5494 38.9005 41.4596 38.6838 41.2999 38.524L36.9932 34.2173C36.8355 34.0578 36.747 33.8426 36.7469 33.6183Z" fill="#E53935"/>
+                                    <path d="M48.7304 36.9535C48.4123 39.5181 47.3804 41.9418 45.7522 43.9487C44.124 45.9555 41.965 47.4648 39.521 48.3047C37.0771 49.1445 34.4463 49.2812 31.9285 48.6991C29.4106 48.117 27.1069 46.8395 25.2795 45.0122C23.4522 43.1848 22.1747 40.881 21.5926 38.3632C21.0105 35.8453 21.1472 33.2146 21.987 30.7707C22.8269 28.3267 24.3362 26.1677 26.343 24.5395C28.3499 22.9113 30.7736 21.8794 33.3382 21.5613V18.2917C30.1289 18.6143 27.0771 19.841 24.5373 21.8292C21.9975 23.8174 20.0741 26.4855 18.9905 29.5235C17.9069 32.5615 17.7077 35.8447 18.416 38.9914C19.1243 42.1381 20.711 45.0192 22.9917 47.3C25.2724 49.5807 28.1536 51.1674 31.3003 51.8757C34.447 52.584 37.7301 52.3848 40.7681 51.3012C43.8061 50.2176 46.4743 48.2942 48.4625 45.7544C50.4507 43.2146 51.6774 40.1628 52 36.9535H48.7304ZM42.0053 19.7054C40.3404 18.9531 38.5645 18.4757 36.7468 18.2917V21.5613C37.9963 21.7188 39.2182 22.048 40.3777 22.5396L42.0053 19.7054ZM46.1424 27.0849L48.992 25.4914C47.889 23.9113 46.5275 22.5285 44.9648 21.4011L43.3312 24.2456C44.3994 25.0525 45.3462 26.0087 46.1424 27.0849ZM47.8032 30.0631C48.2652 31.1775 48.577 32.3484 48.7304 33.5449H52C51.823 31.7914 51.3728 30.0763 50.6656 28.4619L47.8032 30.0631Z" fill="#E53935"/>
+                                </svg>
+                                <div class="card-body ps-2 pe-0">
+                                    <p class="card-text m-0 fs-7">Lowest Total Order</p>
+                                    <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">51</h3>
+                                </div>
+                            </div>
+                            <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect y="0.208313" width="70" height="70" rx="35" fill="#EDE7F6"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.3581 25.9356H28.8182V29.0265H19.5455V19.7402H22.6364V23.241C26.0937 19.6155 30.0339 18.2083 35 18.2083C44.3888 18.2083 52 25.8195 52 35.2083C52 44.5972 44.3888 52.2083 35 52.2083C25.6112 52.2083 18 44.5972 18 35.2083H21.0909C21.0909 42.8901 27.3182 49.1174 35 49.1174C42.6818 49.1174 48.9091 42.8901 48.9091 35.2083C48.9091 27.5265 42.6818 21.2992 35 21.2992C30.6097 21.2992 27.3417 22.5223 24.3581 25.9356ZM36.5455 33.6629H42.7273V36.7538H33.4545V25.9356H36.5455V33.6629Z" fill="#5E35B1"/>
+                                </svg>
+                                <div class="card-body ps-2 pe-0">
+                                    <p class="card-text m-0 fs-7">Total Manpower</p>
+                                    <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between w-100 gx-2 mt-2">
+                    <div class="col-3">
+                        <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3 bg-primaryDark text-white">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                            </svg>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Top Principals</p>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3 bg-primaryDark text-white">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                            </svg>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Top Forwarder</p>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3 bg-primaryDark text-white">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                            </svg>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Top Shipper</p>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3 bg-primaryDark text-white">
+                            <svg width="45" height="45" viewBox="0 0 70 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="0.375" width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                <path d="M35 18.375C25.6111 18.375 18 25.9861 18 35.375C18 44.7639 25.6111 52.375 35 52.375C44.3889 52.375 52 44.7639 52 35.375C52 25.9861 44.3889 18.375 35 18.375ZM35 21.6653C42.5768 21.6653 48.7097 27.797 48.7097 35.375C48.7097 42.9518 42.578 49.0847 35 49.0847C27.4232 49.0847 21.2903 42.953 21.2903 35.375C21.2903 27.7982 27.422 21.6653 35 21.6653ZM44.6108 30.5949L43.066 29.0376C42.746 28.7151 42.2252 28.713 41.9027 29.033L32.2132 38.6446L28.1146 34.5127C27.7947 34.1901 27.2738 34.188 26.9513 34.5079L25.394 36.0527C25.0715 36.3727 25.0693 36.8935 25.3893 37.2161L31.6122 43.4893C31.9321 43.8119 32.4529 43.814 32.7755 43.494L44.6062 31.7583C44.9286 31.4383 44.9307 30.9174 44.6108 30.5949Z" fill="#43A047"/>
+                            </svg>
+                            <div class="card-body ps-1 pe-0">
+                                <p class="card-text m-0 fs-7">Top Cargo</p>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -864,7 +968,15 @@
                 scrollY: 300,
             });
 
-            new DataTable('#storageYardTableSort', {
+            let storageYardTable = new DataTable('#storageYardTableSort', {
+                ordering: [],
+            });
+
+            let storageWarehouseTable = new DataTable('#storageWarehouseTableSort', {
+                ordering: [],
+            });
+
+            let pluggingMonitoringTable = new DataTable('#pluggingMonitoringeTableSort', {
                 ordering: [],
             });
         </script>
@@ -885,13 +997,24 @@
             //     // maxDate: new Date().fp_incr(0),
             // }
 
-            flatpickr("#month_select", {
+            var loloMonth = flatpickr("#lolo_month_select", {
                 altInput: true,
                 plugins: [
                     new monthSelectPlugin({
                         shorthand: true, //defaults to false
                         dateFormat: "m.y", //defaults to "F Y"
                         altFormat: "F Y", //defaults to "F Y"
+                    })
+                ]
+            });
+
+            flatpickr("#lolo_year_select", {
+                altInput: true,
+                plugins: [
+                    new monthSelectPlugin({
+                        shorthand: true, //defaults to false
+                        dateFormat: "y", //defaults to "F Y"
+                        altFormat: "Y", //defaults to "F Y"
                     })
                 ]
             });
@@ -908,10 +1031,11 @@
             //         altFormat: "F Y", //defaults to "F Y"
             //     })],
             // });
-
-            // Plugging Monitoring
-            var pluggingBtn = document.getElementById('btnPlugging');
-            var monitoringBtn = document.getElementById('btnMonitoring');
+            // function getMonths() {
+            //     var month = new Date($('#lolo_month_select').val());
+            //     console.log(month);
+            //     return month;
+            // }
         </script>
         <script>
             const monthNames = [
@@ -941,22 +1065,58 @@
 
             // Lift In Lift Off Chart Start
             const liftInLiftOffFLeftMenuOption = document.getElementById('liftInLiftOffFLeftMenu');
-            var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
-            document.getElementById('loloTotalOrder').textContent = selectedValue[0];
-            document.getElementById('loloFinishOrder').innerHTML = selectedValue[1];
-            document.getElementById('loloPendingOrder').innerHTML = selectedValue[2];
-            document.getElementById('loloServiceTime').innerHTML = selectedValue[3];
+            // var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+            document.getElementById('loloTotalOrder').textContent = 168;
+            document.getElementById('loloFinishOrder').innerHTML = 110;
+            document.getElementById('loloPendingOrder').innerHTML = 58;
+            document.getElementById('loloServiceTime').innerHTML = 3;
+            // (function() {
+            //     $('#lolo_month_select').on('click', function(){
+            //         var date = new Date($('#date-input').val());
+            //         day = date.getDate();
+            //         month = date.getMonth() + 1;
+            //         year = date.getFullYear();
+            //         alert([day, month, year].join('/'));
+            //     });
+            // })();
 
-            liftInLiftOffFLeftMenuOption.addEventListener('change', liftInLiftOffFLeftMenuTracker);
+            // Mendapatkan elemen datepicker
+            var loloMonthDatepicker = document.getElementById("lolo_month_select");
 
-            function liftInLiftOffFLeftMenuTracker() {
-                var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+            loloMonthDatepicker.addEventListener("change", function() {
+                // Mengambil nilai datepicker saat nilai berubah
+                var selectedDate = loloMonthDatepicker.value;
+                var dateObject= new Date(selectedDate);
+                var selectMonth = dateObject.getMonth()+1;
+                console.log(selectMonth);
 
-                document.getElementById('loloTotalOrder').textContent = selectedValue[0];
-                document.getElementById('loloFinishOrder').innerHTML = selectedValue[1];
-                document.getElementById('loloPendingOrder').innerHTML = selectedValue[2];
-                document.getElementById('loloServiceTime').innerHTML = selectedValue[3];
-            };
+                if (selectMonth % 2 == 0){
+                    document.getElementById('loloTotalOrder').textContent = 112;
+                    document.getElementById('loloFinishOrder').innerHTML = 82;
+                    document.getElementById('loloPendingOrder').innerHTML = 22;
+                    document.getElementById('loloServiceTime').innerHTML = 1.5;
+                } else  {
+                    document.getElementById('loloTotalOrder').textContent = 87;
+                    document.getElementById('loloFinishOrder').innerHTML = 17;
+                    document.getElementById('loloPendingOrder').innerHTML = 67;
+                    document.getElementById('loloServiceTime').innerHTML = 1;
+                }
+
+                // Menampilkan nilai datepicker di dalam elemen p
+                // var selectedDateElement = document.getElementById("selectedDate");
+                // selectedDateElement.textContent = "Selected Date: " + selectedDate;
+            });
+
+            // liftInLiftOffFLeftMenuOption.addEventListener('change', liftInLiftOffFLeftMenuTracker);
+
+            // function liftInLiftOffFLeftMenuTracker() {
+            //     var selectedValue = JSON.parse(liftInLiftOffFLeftMenuOption.value);
+
+            //     document.getElementById('loloTotalOrder').textContent = selectedValue[0];
+            //     document.getElementById('loloFinishOrder').innerHTML = selectedValue[1];
+            //     document.getElementById('loloPendingOrder').innerHTML = selectedValue[2];
+            //     document.getElementById('loloServiceTime').innerHTML = selectedValue[3];
+            // };
 
             const dataLolo = {
                 labels: labelBulan,
