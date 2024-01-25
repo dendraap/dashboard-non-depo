@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="row">
+
         {{-- Sesi Lift In / Lif Off Start --}}
         <div class="row mb-2 border-bottom">
             <h3 class="h3 d-inline">Lift On / Lift Off
@@ -8,7 +10,6 @@
                     <i class="animate-icon fa-solid fa-chevron-down"></i>
                 </span>
             </h3>
-
         </div>
         <section id="liftInLiftOff" class="mb-4 animate-icon" style="width: 100%">
             <div class="row p-2 sub-menu h-100">
@@ -16,9 +17,8 @@
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
                             <div class="row w-100 m-0">
-                                @csrf
                                 <div class="input-group px-0">
-                                    <input type="text" id="lolo_month_select" name="lolo_month_select" class="form-control rounded-start-3" placeholder="Pilih Bulan">
+                                    <input type="text" id="lolo_month_select" name="lolo_month_select" class="form-control rounded-start-3" placeholder="Pilih Bulan" value="">
                                     <span class="input-group-text rounded-start-0 rounded-end-3">
                                         <i class="fa-regular fa-calendar"></i>
                                     </span>
@@ -34,7 +34,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">{{$loloTotalOrder}}</h3>
+                                <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -44,7 +44,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 id="loloFinishOrder" class="h3 mb-0 text-success">{{$loloFinishOrder}}</h3>
+                                <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -55,7 +55,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">{{$loloPendingOrder}}</h3>
+                                <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -65,7 +65,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Service Time</p>
-                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">{{$loloServiceTimeValue}}</h3>
+                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">2</h3>
                                 <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
@@ -77,6 +77,7 @@
                             <div class="graph-container text-primaryDark w-100">
                                 <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
                                 <div id="totalOrderVsDowntime">
+
                                 </div>
                             </div>
                         </div>
@@ -84,9 +85,11 @@
                             <div class="row justify-content-between mt-0 me-0 mb-1 ms-0 p-0">
                                 <div class="input-group px-0">
                                     <select name="lolo_year_select" id="lolo_year_select" class="form-control rounded-start-3">
-                                        @foreach ($year_lolo as $selectYear )
-                                            <option value="{{$selectYear->year}}" {{ $loop->last ? ' selected' : '' }}>{{$selectYear->year}}</option>
-                                        @endforeach
+                                        <option value="">2019</option>
+                                        <option value="">2020</option>
+                                        <option value="">2021</option>
+                                        <option value="">2022</option>
+                                        <option value="">2023</option>
                                     </select>
                                     <span class="input-group-text rounded-start-0 rounded-end-3">
                                         <i class="fa-regular fa-calendar"></i>
@@ -103,7 +106,7 @@
                                         </svg>
                                         <div class="card-body ps-1 pe-0">
                                             <p class="card-text m-0 fs-7">Average Total Order</p>
-                                            <h3 id="loloAvgTotalOrder" class="h3 mb-0 text-primary">{{$loloAverageTotalOrder}}</h3>
+                                            <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">53.6</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +119,7 @@
                                         </svg>
                                         <div class="card-body ps-1 pe-0">
                                             <p class="card-text m-0 fs-7">Highest Total Order</p>
-                                            <h3 id="loloHighestTotalOrder" class="h3 mb-0 text-success">{{$loloHighestTotalOrder}}</h3>
+                                            <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +132,7 @@
                                         </svg>
                                         <div class="card-body ps-2 pe-0">
                                             <p class="card-text m-0 fs-7">Lowest Total Order</p>
-                                            <h3 id="loloLowestTotalOrder" class="h3 mb-0 text-danger">{{$loloLowestTotalOrder}}</h3>
+                                            <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">51</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -140,8 +143,8 @@
                                             <path d="M35 24.5806C31.3669 24.5806 28.4194 27.5282 28.4194 31.1613C28.4194 34.7944 31.3669 37.7419 35 37.7419C38.6331 37.7419 41.5806 34.7944 41.5806 31.1613C41.5806 27.5282 38.6331 24.5806 35 24.5806ZM35 34.4516C33.1835 34.4516 31.7097 32.9778 31.7097 31.1613C31.7097 29.3448 33.1835 27.871 35 27.871C36.8165 27.871 38.2903 29.3448 38.2903 31.1613C38.2903 32.9778 36.8165 34.4516 35 34.4516ZM35 18C25.6089 18 18 25.6089 18 35C18 44.3911 25.6089 52 35 52C44.3911 52 52 44.3911 52 35C52 25.6089 44.3911 18 35 18ZM35 48.7097C31.5931 48.7097 28.481 47.4552 26.0819 45.3919C27.1032 43.8153 28.8512 42.746 30.8528 42.6843C32.2786 43.123 33.6359 43.3423 35 43.3423C36.3641 43.3423 37.7214 43.1298 39.1472 42.6843C41.1488 42.7528 42.8968 43.8153 43.9181 45.3919C41.519 47.4552 38.4069 48.7097 35 48.7097ZM46.1528 42.9448C44.4802 40.7923 41.896 39.3871 38.9484 39.3871C38.2492 39.3871 37.1661 40.0452 35 40.0452C32.8407 40.0452 31.7508 39.3871 31.0516 39.3871C28.1109 39.3871 25.5266 40.7923 23.8472 42.9448C22.2431 40.7032 21.2903 37.9613 21.2903 35C21.2903 27.4391 27.4391 21.2903 35 21.2903C42.5609 21.2903 48.7097 27.4391 48.7097 35C48.7097 37.9613 47.7569 40.7032 46.1528 42.9448Z" fill="#673AB7"/>
                                         </svg>
                                         <div class="card-body ps-2 pe-0">
-                                            <p class="card-text m-0 fs-7">Average Service Time</p>
-                                            <h3 id="loloAvgServiceTime" class="h3 mb-0 d-inline text-purple">{{$loloAverageServiceTime}}</h3>
+                                            <p class="card-text m-0 fs-7">Total Manpower</p>
+                                            <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -164,10 +167,10 @@
                 </h3>
             </div>
             <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50">
-                <select name="syCategory" id="syCategory" class="form-select rounded-start-3">
-                    @foreach ($syType as $type )
-                        <option value="{{$type->storage_type}}">{{$type->storage_type}}</option>
-                    @endforeach
+                <select id="syCategory" class="form-select" aria-label="Default select example">
+                    <option selected value="TEUs">TEUs</option>
+                    <option value="dimensions">Dimensions</option>
+                    <option value="volume">Volume</option>
                 </select>
             </div>
         </div>
@@ -176,55 +179,35 @@
                 <div id="storageYard-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            @if ($syRemainsPercent>50)
-                                <div id="syRemainsPercentCon" class="progress-cir-circle progress-cir-circle-success p{{$syRemainsPercent}} over50">
-                                    <span id="syRemainsPercent">{{$syRemainsPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                       <div class="first50-bar-success"></div>
-                                       <div class="value-bar value-bar-success"></div>
-                                    </div>
-                                 </div>
-                            @else
-                                <div id="syRemainsPercentCon" class="progress-cir-circle progress-cir-circle-success p{{$syRemainsPercent}}">
-                                    <span id="syRemainsPercent">{{$syRemainsPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                       <div class="first50-bar-success"></div>
-                                       <div class="value-bar value-bar-success"></div>
-                                    </div>
-                                 </div>
-                            @endif
+                            <div class="progress-circle progress-circle-success p47">
+                                <span>47%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar-success"></div>
+                                   <div class="value-bar value-bar-success"></div>
+                                </div>
+                             </div>
                             <div class="col-9 card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Remains</p>
-                                <h3 id="syRemains" class="h3 mb-0 d-inline text-success">{{$syRemains}}</h3>
-                                <p class="syType fs-6 fw-normal d-inline">TEUs</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-success">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TEUs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            @if ($syUsedPercent>50)
-                                <div id="syUsedPercentCon" class="progress-cir-circle progress-cir-circle-primary over50 p{{$syUsedPercent}}">
-                                    <span id="syUsedPercent">{{$syUsedPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-primary"></div>
-                                    <div class="value-bar value-bar-primary"></div>
-                                    </div>
+                            <div class="progress-circle progress-circle-primary over50 p53">
+                                <span>53%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar-primary"></div>
+                                   <div class="value-bar value-bar-primary"></div>
                                 </div>
-                            @else
-                                <div id="syUsedPercentCon" class="progress-cir-circle progress-cir-circle-primary p{{$syUsedPercent}}">
-                                    <span id="syUsedPercent">{{$syUsedPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-primary"></div>
-                                    <div class="value-bar value-bar-primary"></div>
-                                    </div>
-                                </div>
-                            @endif
+                             </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">Used</p>
-                                <h3 id="syUsed" class="h3 mb-0 d-inline text-primary">{{$syUsed}}</h3>
-                                <p class="syType fs-6 fw-normal d-inline">TUEs</p>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TUEs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <div class="progress-cir-circle progress-cir-circle-warning over50 p100">
+                            <div class="progress-circle progress-circle-warning over50 p100">
                                 <span>100%</span>
                                 <div class="left-half-clipper">
                                    <div class="first50-bar-warning"></div>
@@ -232,9 +215,9 @@
                                 </div>
                              </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">MAX</p>
-                                <h3 id="syMax" class="h3 mb-0 d-inline text-warning">{{$syMax}}</h3>
-                                <p class="syType fs-6 fw-normal d-inline">TUEs</p>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-warning">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TUEs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -244,7 +227,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Customer</p>
-                                <h3 id="syTotalCustomer" class="h3 mb-0 d-inline text-purple">{{$syTotalCustomer}}</h3>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-purple">103</h3>
                             </div>
                         </div>
                     </div>
@@ -253,7 +236,7 @@
                     <div class="row pt-0 px-3 shadow rounded-3 h-100">
                         <div class="col col-lg-5 col-md-12 col-sm-12 col-12 pt-3">
                             <div class="graph-container text-primaryDark w-100">
-                                <h3 id="syH3" class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total TEUs</h3>
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total TEUs</h3>
                                 <div id="LuasStorageYard">
 
                                 </div>
@@ -265,7 +248,7 @@
                                     <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
                                 </div>
                                 <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
-                                    <table id="storageYardTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 2, "desc" ], [3, "desc"]]'>
+                                    <table id="storageYardTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 1, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
                                                 <th scope="col">Owner</th>
@@ -275,7 +258,96 @@
                                             </tr>
                                         </thead>
                                         <tbody class="overflow-auto">
-                                            {{-- Isi tabel ada di javascript --}}
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">1/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">ZZZZZ</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -298,10 +370,9 @@
                 </h3>
             </div>
             <div class="col col-lg-3 col-md-3 col-sm-4 col-5 p-0 h-50">
-                <select name="swCategory" id="swCategory" class="form-select rounded-start-3">
-                    @foreach ($swType as $type )
-                        <option value="{{$type->storage_type}}">{{$type->storage_type}}</option>
-                    @endforeach
+                <select id="swCategory" class="form-select" aria-label="Default select example">
+                    <option selected value="dimensions">Dimensions</option>
+                    <option value="volume">Volume</option>
                 </select>
             </div>
         </div>
@@ -310,55 +381,35 @@
                 <div id="storageWarehouse-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
                     <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            @if ($swRemainsPercent>50)
-                                <div id="swRemainsPercentCon" class="progress-cir-circle progress-cir-circle-success p{{$swRemainsPercent}} over50">
-                                    <span id="swRemainsPercent">{{$swRemainsPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-success"></div>
-                                    <div class="value-bar value-bar-success"></div>
-                                    </div>
+                            <div class="progress-circle progress-circle-success p47">
+                                <span>47%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar-success"></div>
+                                   <div class="value-bar value-bar-success"></div>
                                 </div>
-                            @else
-                                <div id="swRemainsPercentCon" class="progress-cir-circle progress-cir-circle-success p{{$swRemainsPercent}}">
-                                    <span id="swRemainsPercent">{{$swRemainsPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-success"></div>
-                                    <div class="value-bar value-bar-success"></div>
-                                    </div>
-                                </div>
-                            @endif
+                             </div>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Remains</p>
-                                <h3 id="swRemains" class="h3 mb-0 d-inline text-success">{{$swRemains}}</h3>
-                                <p class="swType fs-6 fw-normal d-inline">m2</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-success">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TEUs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            @if ($swUsedPercent>50)
-                                <div id="swUsedPercentCon" class="progress-cir-circle progress-cir-circle-primary p{{$swUsedPercent}} over50">
-                                    <span id="swUsedPercent">{{$swUsedPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-primary"></div>
-                                    <div class="value-bar value-bar-primary"></div>
-                                    </div>
+                            <div class="progress-circle progress-circle-primary over50 p53">
+                                <span>53%</span>
+                                <div class="left-half-clipper">
+                                   <div class="first50-bar-primary"></div>
+                                   <div class="value-bar value-bar-primary"></div>
                                 </div>
-                            @else
-                                <div id="swUsedPercentCon" class="progress-cir-circle progress-cir-circle-primary p{{$swUsedPercent}}">
-                                    <span id="swUsedPercent">{{$swUsedPercent}}%</span>
-                                    <div class="left-half-clipper">
-                                    <div class="first50-bar-primary"></div>
-                                    <div class="value-bar value-bar-primary"></div>
-                                    </div>
-                                </div>
-                            @endif
+                             </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">Used</p>
-                                <h3 id="swUsed" class="h3 mb-0 d-inline text-primary">{{$swUsed}}</h3>
-                                <p class="swType fs-6 fw-normal d-inline">m2</p>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-primary">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TUEs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <div class="progress-cir-circle progress-cir-circle-warning over50 p100">
+                            <div class="progress-circle progress-circle-warning over50 p100">
                                 <span>100%</span>
                                 <div class="left-half-clipper">
                                    <div class="first50-bar-warning"></div>
@@ -366,9 +417,9 @@
                                 </div>
                              </div>
                             <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">MAX</p>
-                                <h3 id="swMax" class="h3 mb-0 d-inline text-warning">{{$swMax}}</h3>
-                                <p class="swType fs-6 fw-normal d-inline">m2w</p>
+                                <p class="card-text m-0 fs-7">Remains</p>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-warning">103</h3>
+                                <p class="fs-6 fw-normal d-inline">TUEs</p>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -378,7 +429,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Customer</p>
-                                <h3 id="swTotalCustomer" class="h3 mb-0 d-inline text-purple">{{$swTotalCustomer}}</h3>
+                                <h3 id="swTotalOrder" class="h3 mb-0 d-inline text-purple">103</h3>
                             </div>
                         </div>
                     </div>
@@ -387,7 +438,7 @@
                     <div class="row pt-0 px-3 shadow rounded-3 h-100">
                         <div class="col col-lg-5 col-md-12 col-sm-12 col-12 pt-3">
                             <div class="graph-container text-primaryDark w-100">
-                                <h3 id="swStorageType" class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Dimension</h3>
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Dimensions</h3>
                                 <div id="LuasStorageWarehouse">
 
                                 </div>
@@ -399,7 +450,7 @@
                                     <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
                                 </div>
                                 <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
-                                    <table id="storageWarehouseTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100"  data-order='[[ 2, "desc" ], [3, "desc"]]'>
+                                    <table id="storageWarehouseTableSort" class="table table-fix-head table-responsive table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 1, "asc" ]]'>
                                         <thead class="align-middle text-center">
                                             <tr>
                                                 <th scope="col">Owner</th>
@@ -409,7 +460,96 @@
                                             </tr>
                                         </thead>
                                         <tbody class="overflow-auto">
-                                            {{-- Isi tabel ada di javascript --}}
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">1/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">PT Suka Maju</td>
+                                                <td class="text-center">14/09/2023</td>
+                                                <td class="text-center">26/09/2023</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="row">ZZZZZ</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99/09/2023</td>
+                                                <td class="text-center">99</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -453,7 +593,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 id="truckingTotalOrder" class="h3 mb-0 text-primary">{{$loloTotalOrder}}</h3>
+                                <h3 id="truckingTotalOrder" class="h3 mb-0 text-primary">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -463,7 +603,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 id="truckingFinishOrder" class="h3 mb-0 text-success">{{$truckingFinishOrder}}</h3>
+                                <h3 id="truckingFinishOrder" class="h3 mb-0 text-success">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -474,7 +614,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 id="truckingPendingOrder" class="h3 mb-0 text-danger">{{$truckingPendingOrder}}</h3>
+                                <h3 id="truckingPendingOrder" class="h3 mb-0 text-danger">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -484,7 +624,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Service Time</p>
-                                <h3 id="truckingServiceTime" class="h3 mb-0 d-inline text-purple">{{$truckingServiceTimeValue}}</h3>
+                                <h3 id="truckingServiceTime" class="h3 mb-0 d-inline text-purple">1</h3>
                                 <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
@@ -504,10 +644,13 @@
                             <div class="row justify-content-between mt-0 me-0 mb-1 ms-0 p-0">
                                 <div class="input-group px-0">
                                     <select name="trucking_year_select" id="trucking_year_select" class="form-control rounded-start-3">
-                                        @foreach ($year_trucking as $selectYear )
-                                            <option value="{{$selectYear->year}}" {{ $loop->last ? ' selected' : '' }}>{{$selectYear->year}}</option>
-                                        @endforeach
+                                        <option value="">2019</option>
+                                        <option value="">2020</option>
+                                        <option value="">2021</option>
+                                        <option value="">2022</option>
+                                        <option value="">2023</option>
                                     </select>
+                                    {{-- <input type="text" id="lolo_year_select" name="lolo_year_select" class="form-control rounded-start-3" placeholder="Pilih Tahun"> --}}
                                     <span class="input-group-text rounded-start-0 rounded-end-3">
                                         <i class="fa-regular fa-calendar"></i>
                                     </span>
@@ -521,7 +664,7 @@
                                 </svg>
                                 <div class="card-body ps-1 pe-0">
                                     <p class="card-text m-0 fs-7">Average Total Order</p>
-                                    <h3 id="truckingAvgTotalOrder" class="h3 mb-0 text-primary">{{$truckingAverageTotalOrder}}</h3>
+                                    <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">53.6</h3>
                                 </div>
                             </div>
                             <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
@@ -532,7 +675,7 @@
                                 </svg>
                                 <div class="card-body ps-1 pe-0">
                                     <p class="card-text m-0 fs-7">Highest Total Order</p>
-                                    <h3 id="truckingHighestTotalOrder" class="h3 mb-0 text-success">{{$truckingHighestTotalOrder}}</h3>
+                                    <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
                                 </div>
                             </div>
                             <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
@@ -543,7 +686,7 @@
                                 </svg>
                                 <div class="card-body ps-2 pe-0">
                                     <p class="card-text m-0 fs-7">Lowest Total Order</p>
-                                    <h3 id="truckingLowestTotalOrder" class="h3 mb-0 text-danger">{{$truckingLowestTotalOrder}}</h3>
+                                    <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">51</h3>
                                 </div>
                             </div>
                             <div class="mini-item card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
@@ -552,8 +695,8 @@
                                     <path d="M35 24.5806C31.3669 24.5806 28.4194 27.5282 28.4194 31.1613C28.4194 34.7944 31.3669 37.7419 35 37.7419C38.6331 37.7419 41.5806 34.7944 41.5806 31.1613C41.5806 27.5282 38.6331 24.5806 35 24.5806ZM35 34.4516C33.1835 34.4516 31.7097 32.9778 31.7097 31.1613C31.7097 29.3448 33.1835 27.871 35 27.871C36.8165 27.871 38.2903 29.3448 38.2903 31.1613C38.2903 32.9778 36.8165 34.4516 35 34.4516ZM35 18C25.6089 18 18 25.6089 18 35C18 44.3911 25.6089 52 35 52C44.3911 52 52 44.3911 52 35C52 25.6089 44.3911 18 35 18ZM35 48.7097C31.5931 48.7097 28.481 47.4552 26.0819 45.3919C27.1032 43.8153 28.8512 42.746 30.8528 42.6843C32.2786 43.123 33.6359 43.3423 35 43.3423C36.3641 43.3423 37.7214 43.1298 39.1472 42.6843C41.1488 42.7528 42.8968 43.8153 43.9181 45.3919C41.519 47.4552 38.4069 48.7097 35 48.7097ZM46.1528 42.9448C44.4802 40.7923 41.896 39.3871 38.9484 39.3871C38.2492 39.3871 37.1661 40.0452 35 40.0452C32.8407 40.0452 31.7508 39.3871 31.0516 39.3871C28.1109 39.3871 25.5266 40.7923 23.8472 42.9448C22.2431 40.7032 21.2903 37.9613 21.2903 35C21.2903 27.4391 27.4391 21.2903 35 21.2903C42.5609 21.2903 48.7097 27.4391 48.7097 35C48.7097 37.9613 47.7569 40.7032 46.1528 42.9448Z" fill="#673AB7"/>
                                 </svg>
                                 <div class="card-body ps-2 pe-0">
-                                    <p class="card-text m-0 fs-7">Average Service Time</p>
-                                    <h3 id="truckingAvgServiceTime" class="h3 mb-0 d-inline text-purple">{{$truckingAverageServiceTime}}</h3>
+                                    <p class="card-text m-0 fs-7">Total Manpower</p>
+                                    <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
                                 </div>
                             </div>
                         </div>
@@ -595,7 +738,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Plug</p>
-                                <h3 class="h3 mb-0">{{$totalPlug}}</h3>
+                                <h3 class="h3 mb-0">160</h3>
                             </div>
                         </div>
                         <div class="shift mini-item card px-3 d-flex flex-row align-items-center border-0 shadow rounded-3">
@@ -607,7 +750,7 @@
                                 <p class="card-text m-0 fs-7">Monitor Shift 1</p>
                                 <p class="card-text m-0 fs-7">07:00 - 15:00</p>
                                 <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <h4 class="h4 mb-0">{{$pmShift1}}</h4>
+                                    <h4 class="h4 mb-0">121</h4>
                                     <div class="d-flex flow-row justify-content-end align-items-center">
                                         <i class="fa-solid fa-circle-arrow-up fa-xs" style="color: #198754;"></i><p class="me-2 mb-0 text-middle fs-7 text-success">2</p>
                                         <i class="fa-solid fa-circle-arrow-down fa-xs" style="color: #dc3545;"></i><p class="mb-0 text-middle fs-7 text-danger">2</p></span>
@@ -624,7 +767,7 @@
                                 <p class="card-text m-0 fs-7">Monitor Shift 2</p>
                                 <p class="card-text m-0 fs-7">15:00 - 23:00</p>
                                 <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <h4 class="h4 mb-0">{{$pmShift2}}</h4>
+                                    <h4 class="h4 mb-0">121</h4>
                                     <div class="d-flex flow-row justify-content-end align-items-center">
                                         <i class="fa-solid fa-circle-arrow-up fa-xs" style="color: #198754;"></i><p class="me-2 mb-0 text-middle fs-7 text-success">2</p>
                                         <i class="fa-solid fa-circle-arrow-down fa-xs" style="color: #dc3545;"></i><p class="me-0 mb-0 text-middle fs-7 text-danger">2</p></span>
@@ -641,7 +784,7 @@
                                 <p class="card-text m-0 fs-7">Monitor Shift 3</p>
                                 <p class="card-text m-0 fs-7">23:00 - 07:00</p>
                                 <div class="d-flex flex-row justify-content-between align-items-center">
-                                    <h4 class="h4 mb-0">{{$pmShift3}}</h4>
+                                    <h4 class="h4 mb-0">121</h4>
                                     <div class="d-flex flow-row justify-content-end align-items-center">
                                         <i class="fa-solid fa-circle-arrow-up fa-xs" style="color: #198754;"></i><p class="me-2 mb-0 text-middle fs-7 text-success">2</p>
                                         <i class="fa-solid fa-circle-arrow-down fa-xs" style="color: #dc3545;"></i><p class="me-0 mb-0 text-middle fs-7 text-danger">2</p></span>
@@ -790,7 +933,7 @@
 
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Total Order</p>
-                                <h3 id="ssTotalOrder" class="h3 mb-0 text-primary">{{$ssTotalOrder}}</h3>
+                                <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -800,7 +943,7 @@
                             </svg>
                             <div class="card-body ps-1 pe-0">
                                 <p class="card-text m-0 fs-7">Finish Order</p>
-                                <h3 id="ssFinishOrder" class="h3 mb-0 text-success">{{$ssFinishOrder}}</h3>
+                                <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -811,7 +954,7 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Pending Order</p>
-                                <h3 id="ssPendingOrder" class="h3 mb-0 text-danger">{{$ssPendingOrder}}</h3>
+                                <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">123</h3>
                             </div>
                         </div>
                         <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
@@ -821,129 +964,89 @@
                             </svg>
                             <div class="card-body ps-2 pe-0">
                                 <p class="card-text m-0 fs-7">Service Time</p>
-                                <h3 id="ssServiceTime" class="h3 mb-0 d-inline text-purple">{{$ssServiceTimeValue}}</h3>
+                                <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
                                 <p class="fs-6 fw-normal d-inline">/hour</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="stuffingStripping-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100" style="height: 450px !important;">
-                    <div class="row h-100">
-                        <div id="stuffingStrippingTable" class="col-lg-12 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
-                            <div class="row shadow rounded-3 h-100 px-3">
-                                <div class="row pt-3 mt-0 me-0 mb-3 ms-0 p-0">
-                                    <h3 class="h3 col col-lg-7 col-md-7 col-sm-12 col-12 text-start fw-bold">Duration</h3>
-                                </div>
-                                <div class="graph-container m-0 px-0 row text-primaryDark border rounded-3 overflow-hidden" style="border-color: #9DB2BF !important">
-                                    <table id="stuffingStrippingTableSort" class="table table-fix-head table-responsive table-condensed table-primaryDark table-striped table-hover responsive  w-100" data-order='[[ 0, "desc" ]]'>
-                                        <thead class="align-middle text-center">
-                                            <tr>
-                                                <th scope="col" class="text-center">Order No.</th>
-                                                <th scope="col" class="text-center">Total Container</th>
-                                                <th scope="col" class="text-center">Finish Container</th>
-                                                <th scope="col" class="text-center">Pending Container</th>
-                                                <th scope="col" class="text-center">Progress</th>
-                                                <th scope="col" class="text-center">Start Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="overflow-auto">
-                                            @foreach ($ssData as $ssDurationTable )
-                                                <tr>
-                                                    <td id="ssDataId" scope="row" class="text-center py-0">{{$ssDurationTable->id}}</td>
-                                                    <td id="ssDataTotal" class="text-center py-0">{{$ssDurationTable->total}}</td>
-                                                    <td id="ssDataFinishOrder" class="text-center py-0">{{$ssDurationTable->finishOrder}}</td>
-                                                    <td id="ssDataPendingOrder" class="text-center py-0">{{$ssDurationTable->pendingOrder}}</td>
-                                                    <td class="text-center py-0 my-3">
-                                                        <div class="d-flex flex-row align-items-center h-100 w-100">
-                                                            <div class="progress col-6" style="height: 19%" role="progressbar" aria-label="Success example" aria-valuenow={{$ssDurationTable->persen}} aria-valuemin="0" aria-valuemax="100">
-                                                                <div class="progress-bar h-100" style="width: {{$ssDurationTable->persen}}%"></div>
-                                                            </div>
-                                                            <div id="ssDataPersen" class="col-6">
-                                                                {{$ssDurationTable->persen}}%
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td id="ssDataStartDate" class="text-center">{{$ssDurationTable->start_date}}</td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                <div id="stuffingStripping-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100">
+                    <div class="row p-2 shadow rounded-3 h-100">
+                        <div class="col col-lg-85 col-md-12 col-sm-12 col-12 pt-3">
+                            <div class="graph-container text-primaryDark w-100">
+                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
+                                <div id="totalOrderStuffingStripping">
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row p-2 sub-menu" style="height: inherit">
-                <div id="stuffingStripping-left" class="col col-lg-25 col-md-12 col-sm-12 col-12 ps-2 pe-1 container" >
-                    <div class="mini-item-container row g-2 d-flex justify-content-between h-100 w-100">
-                        <div class="mini-item card p-0 d-flex flex-row align-items-center justify-content-between border-0 mb-2 w-100">
-                            <div class="row w-100 m-0">
+                        <div class="col col-lg-35 col-md-12 col-sm-12 col-12">
+                            <div class="row justify-content-between mt-0 me-0 mb-2 ms-0 p-0">
                                 <div class="input-group px-0">
                                     <select name="ss_year_select" id="ss_year_select" class="form-control rounded-start-3">
-                                        @foreach ($year_ss as $selectYear )
-                                            <option value="{{$selectYear->year}}" {{ $loop->last ? ' selected' : '' }}>{{$selectYear->year}}</option>
-                                        @endforeach
+                                        <option value="">2019</option>
+                                        <option value="">2020</option>
+                                        <option value="">2021</option>
+                                        <option value="">2022</option>
+                                        <option value="">2023</option>
                                     </select>
+                                    {{-- <input type="text" id="lolo_year_select" name="lolo_year_select" class="form-control rounded-start-3" placeholder="Pilih Tahun"> --}}
                                     <span class="input-group-text rounded-start-0 rounded-end-3">
                                         <i class="fa-regular fa-calendar"></i>
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="70" height="70" rx="35" fill="#E1F5FE"/>
-                                <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#0D6EFD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M30.7028 34.8915L33.0547 37.3492L35.8652 34.1507L39.0285 37.3845L44.5555 30.4582L42.721 29L38.8404 33.8332L35.7476 30.6816L33.0547 33.8684L30.8087 31.5165L26.34 35.9499L28.0099 37.6197L30.7028 34.8915ZM25.999 39.4895V41.1358H44.8142V39.4895H25.999Z" fill="#0D6EFD"/>
-                            </svg>
-                            <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">Average Total Order</p>
-                                <h3 id="ssAverageTotalOrder" class="h3 mb-0 text-primary">{{$ssAverageTotalOrder}}</h3>
-                            </div>
-                        </div>
-                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="70" height="70" rx="35" fill="#E8F5E9"/>
-                                <path d="M43.7179 30.5295L35.7751 38.4724L31.5389 34.2362L25.1846 40.5905M38.9522 30H44.1945V35.2952" stroke="#198754" stroke-width="2.1181" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#198754" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <div class="card-body ps-1 pe-0">
-                                <p class="card-text m-0 fs-7">Highest Total Order</p>
-                                <h3 id="ssHighestTotalOrder" class="h3 mb-0 text-success">{{$ssHighestTotalOrder}}</h3>
-                            </div>
-                        </div>
-                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="70" height="70" rx="35" fill="#FFEBEE"/>
-                                <path d="M36.3371 39.4806C36.3371 38.8441 36.8532 38.328 37.4897 38.328H40.0746L35.4806 33.7339L32.6073 36.6073C32.3911 36.8234 32.098 36.9448 31.7923 36.9448C31.4866 36.9448 31.1934 36.8234 30.9772 36.6073L25.3376 30.9676C24.8875 30.5175 24.8875 29.7877 25.3376 29.3376C25.7877 28.8875 26.5175 28.8875 26.9676 29.3376L31.7923 34.1623L34.6656 31.2889C34.8817 31.0727 35.1749 30.9513 35.4806 30.9513C35.7863 30.9513 36.0795 31.0727 36.2956 31.2889L41.7047 36.698V34.1131C41.7047 34.0335 41.7128 33.9558 41.7281 33.8808C41.8356 33.3556 42.3003 32.9605 42.8573 32.9605C43.4939 32.9605 44.0099 33.4765 44.0099 34.1131V39.4806C44.0099 40.1172 43.4939 40.6332 42.8573 40.6332H37.4897C36.8532 40.6332 36.3371 40.1172 36.3371 39.4806Z" fill="#DC3545"/>
-                                <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#DC3545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <div class="card-body ps-2 pe-0">
-                                <p class="card-text m-0 fs-7">Lowest Total Order</p>
-                                <h3 id="ssLowestTotalOrder" class="h3 mb-0 text-danger">{{$ssLowestTotalOrder}}</h3>
-                            </div>
-                        </div>
-                        <div class="mini-item card px-3 d-flex flex-row justify-content-between align-items-center border-0 shadow rounded-3">
-                            <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="70" height="70" rx="35" fill="#EDE7F6"/>
-                                <path d="M35 24.5806C31.3669 24.5806 28.4194 27.5282 28.4194 31.1613C28.4194 34.7944 31.3669 37.7419 35 37.7419C38.6331 37.7419 41.5806 34.7944 41.5806 31.1613C41.5806 27.5282 38.6331 24.5806 35 24.5806ZM35 34.4516C33.1835 34.4516 31.7097 32.9778 31.7097 31.1613C31.7097 29.3448 33.1835 27.871 35 27.871C36.8165 27.871 38.2903 29.3448 38.2903 31.1613C38.2903 32.9778 36.8165 34.4516 35 34.4516ZM35 18C25.6089 18 18 25.6089 18 35C18 44.3911 25.6089 52 35 52C44.3911 52 52 44.3911 52 35C52 25.6089 44.3911 18 35 18ZM35 48.7097C31.5931 48.7097 28.481 47.4552 26.0819 45.3919C27.1032 43.8153 28.8512 42.746 30.8528 42.6843C32.2786 43.123 33.6359 43.3423 35 43.3423C36.3641 43.3423 37.7214 43.1298 39.1472 42.6843C41.1488 42.7528 42.8968 43.8153 43.9181 45.3919C41.519 47.4552 38.4069 48.7097 35 48.7097ZM46.1528 42.9448C44.4802 40.7923 41.896 39.3871 38.9484 39.3871C38.2492 39.3871 37.1661 40.0452 35 40.0452C32.8407 40.0452 31.7508 39.3871 31.0516 39.3871C28.1109 39.3871 25.5266 40.7923 23.8472 42.9448C22.2431 40.7032 21.2903 37.9613 21.2903 35C21.2903 27.4391 27.4391 21.2903 35 21.2903C42.5609 21.2903 48.7097 27.4391 48.7097 35C48.7097 37.9613 47.7569 40.7032 46.1528 42.9448Z" fill="#673AB7"/>
-                            </svg>
-                            <div class="card-body ps-2 pe-0">
-                                <p class="card-text m-0 fs-7">Average Service Time</p>
-                                <h3 id="ssAvgServiceTime" class="h3 mb-0 d-inline text-purple">{{$ssAverageServiceTime}}</h3>
-                                <p class="fs-6 fw-normal d-inline">/hour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="stuffingStripping-right" class="col-lg-95 col-md-12 col-sm-12 col-12 pe-35 pb-1 h-100" style="height: 450px !important">
-                    <div class="row p-2 shadow rounded-3 h-100">
-                        <div class="col col-lg-12 col-md-12 col-sm-12 col-12 pt-3">
-                            <div class="graph-container text-primaryDark w-100">
-                                <h3 class="h3 col-lg-9 col-md-9 col-sm-12 col-12 text-start fw-bold">Total Order</h3>
-                                <div id="totalOrderStuffingStripping">
-
+                            <div class="row justify-content-between w-110 gx-2 mt-2">
+                                <div class="col col-lg-12 col-md-6 col-sm-12 col-12">
+                                    <div class="mini-item-special card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                        <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="70" height="70" rx="35" fill="#E1F5FE"/>
+                                            <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#0D6EFD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M30.7028 34.8915L33.0547 37.3492L35.8652 34.1507L39.0285 37.3845L44.5555 30.4582L42.721 29L38.8404 33.8332L35.7476 30.6816L33.0547 33.8684L30.8087 31.5165L26.34 35.9499L28.0099 37.6197L30.7028 34.8915ZM25.999 39.4895V41.1358H44.8142V39.4895H25.999Z" fill="#0D6EFD"/>
+                                        </svg>
+                                        <div class="card-body ps-1 pe-0">
+                                            <p class="card-text m-0 fs-7">Average Total Order</p>
+                                            <h3 id="loloTotalOrder" class="h3 mb-0 text-primary">53.6</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-12 col-md-6 col-sm-12 col-12">
+                                    <div class="mini-item-special card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                        <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="70" height="70" rx="35" fill="#E8F5E9"/>
+                                            <path d="M43.7179 30.5295L35.7751 38.4724L31.5389 34.2362L25.1846 40.5905M38.9522 30H44.1945V35.2952" stroke="#198754" stroke-width="2.1181" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#198754" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <div class="card-body ps-1 pe-0">
+                                            <p class="card-text m-0 fs-7">Highest Total Order</p>
+                                            <h3 id="loloFinishOrder" class="h3 mb-0 text-success">123</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-12 col-md-6 col-sm-12 col-12">
+                                    <div class="mini-item-special card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                        <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="70" height="70" rx="35" fill="#FFEBEE"/>
+                                            <path d="M36.3371 39.4806C36.3371 38.8441 36.8532 38.328 37.4897 38.328H40.0746L35.4806 33.7339L32.6073 36.6073C32.3911 36.8234 32.098 36.9448 31.7923 36.9448C31.4866 36.9448 31.1934 36.8234 30.9772 36.6073L25.3376 30.9676C24.8875 30.5175 24.8875 29.7877 25.3376 29.3376C25.7877 28.8875 26.5175 28.8875 26.9676 29.3376L31.7923 34.1623L34.6656 31.2889C34.8817 31.0727 35.1749 30.9513 35.4806 30.9513C35.7863 30.9513 36.0795 31.0727 36.2956 31.2889L41.7047 36.698V34.1131C41.7047 34.0335 41.7128 33.9558 41.7281 33.8808C41.8356 33.3556 42.3003 32.9605 42.8573 32.9605C43.4939 32.9605 44.0099 33.4765 44.0099 34.1131V39.4806C44.0099 40.1172 43.4939 40.6332 42.8573 40.6332H37.4897C36.8532 40.6332 36.3371 40.1172 36.3371 39.4806Z" fill="#DC3545"/>
+                                            <path d="M35 52C44.3888 52 52 44.3888 52 35C52 25.6112 44.3888 18 35 18C25.6112 18 18 25.6112 18 35C18 44.3888 25.6112 52 35 52Z" stroke="#DC3545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <div class="card-body ps-2 pe-0">
+                                            <p class="card-text m-0 fs-7">Lowest Total Order</p>
+                                            <h3 id="loloPendingOrder" class="h3 mb-0 text-danger">51</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col col-lg-12 col-md-6 col-sm-12 col-12">
+                                    <div class="mini-item-special card px-3 mb-2 d-flex flex-row justify-content-between align-items-center border-1 rounded-3">
+                                        <svg width="45" height="45" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="70" height="70" rx="35" fill="#EDE7F6"/>
+                                            <path d="M35 24.5806C31.3669 24.5806 28.4194 27.5282 28.4194 31.1613C28.4194 34.7944 31.3669 37.7419 35 37.7419C38.6331 37.7419 41.5806 34.7944 41.5806 31.1613C41.5806 27.5282 38.6331 24.5806 35 24.5806ZM35 34.4516C33.1835 34.4516 31.7097 32.9778 31.7097 31.1613C31.7097 29.3448 33.1835 27.871 35 27.871C36.8165 27.871 38.2903 29.3448 38.2903 31.1613C38.2903 32.9778 36.8165 34.4516 35 34.4516ZM35 18C25.6089 18 18 25.6089 18 35C18 44.3911 25.6089 52 35 52C44.3911 52 52 44.3911 52 35C52 25.6089 44.3911 18 35 18ZM35 48.7097C31.5931 48.7097 28.481 47.4552 26.0819 45.3919C27.1032 43.8153 28.8512 42.746 30.8528 42.6843C32.2786 43.123 33.6359 43.3423 35 43.3423C36.3641 43.3423 37.7214 43.1298 39.1472 42.6843C41.1488 42.7528 42.8968 43.8153 43.9181 45.3919C41.519 47.4552 38.4069 48.7097 35 48.7097ZM46.1528 42.9448C44.4802 40.7923 41.896 39.3871 38.9484 39.3871C38.2492 39.3871 37.1661 40.0452 35 40.0452C32.8407 40.0452 31.7508 39.3871 31.0516 39.3871C28.1109 39.3871 25.5266 40.7923 23.8472 42.9448C22.2431 40.7032 21.2903 37.9613 21.2903 35C21.2903 27.4391 27.4391 21.2903 35 21.2903C42.5609 21.2903 48.7097 27.4391 48.7097 35C48.7097 37.9613 47.7569 40.7032 46.1528 42.9448Z" fill="#673AB7"/>
+                                        </svg>
+                                        <div class="card-body ps-2 pe-0">
+                                            <p class="card-text m-0 fs-7">Total Manpower</p>
+                                            <h3 id="loloServiceTime" class="h3 mb-0 d-inline text-purple">3</h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -964,7 +1067,7 @@
                             </svg>
                             <div class="card-body ps-3 pe-0">
                                 <p class="card-text m-0 fs-7">Top Principals</p>
-                                <h6 id="ssTopPrincipal" class="h6 mb-0">{{$ssTopPrincipal}}</h6>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
                             </div>
                         </div>
                     </div>
@@ -982,7 +1085,7 @@
                             </svg>
                             <div class="card-body ps-3 pe-0">
                                 <p class="card-text m-0 fs-7">Top Forwarder</p>
-                                <h6 id="ssTopForwarder" class="h6 mb-0">{{$ssTopForwarder}}</h6>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
                             </div>
                         </div>
                     </div>
@@ -1000,7 +1103,7 @@
                             </svg>
                             <div class="card-body ps-3 pe-0">
                                 <p class="card-text m-0 fs-7">Top Shipper</p>
-                                <h6 id="ssTopShipper" class="h6 mb-0">{{$ssTopShipper}}</h6>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
                             </div>
                         </div>
                     </div>
@@ -1018,7 +1121,7 @@
                             </svg>
                             <div class="card-body ps-3 pe-0">
                                 <p class="card-text m-0 fs-7">Top Cargo</p>
-                                <h6 id="ssTopCargo" class="h6 mb-0">{{$ssTopCargo}}</h6>
+                                <h6 id="loloFinishOrder" class="h6 mb-0">WANHAI</h6>
                             </div>
                         </div>
                     </div>
@@ -1034,6 +1137,35 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>
 
+        {{-- Datatables Start --}}
+        <script>
+            // Default option
+            $.extend( $.fn.dataTable.defaults, {
+                searching: false,
+                paging: false,
+                responsive: true,
+                scrollCollapse: true,
+                fixedHeader:true,
+                scrollX: true,
+                scrollY: 300,
+            });
+
+            let storageYardTable = new DataTable('#storageYardTableSort', {
+                ordering: [],
+            });
+
+            let storageWarehouseTable = new DataTable('#storageWarehouseTableSort', {
+                ordering: [],
+            });
+
+            let pluggingMonitoringTable = new DataTable('#pluggingMonitoringeTableSort', {
+                ordering: [],
+            });
+        </script>
+        {{-- Datatables Ends --}}
+
+
+        {{-- Datepicker Start --}}
         <script>
             // Mendapatkan tanggal saat ini
             const today = new Date();
@@ -1047,6 +1179,7 @@
             // Format tanggal ke dalam bentuk "YYYY-MM-DD"
             const formattedDate = lastMonth.toISOString().split('T')[0];
 
+
             // Default value select month START
             document.getElementById("lolo_month_select").value = formattedDate;
             document.getElementById("trucking_month_select").value = formattedDate;
@@ -1054,347 +1187,197 @@
             document.getElementById("ss_month_select").value = formattedDate;
             // Default value select month END
 
-            // Default option
-            $.extend( $.fn.dataTable.defaults, {
-                searching: false,
-                paging: false,
-                responsive: true,
-                scrollCollapse: true,
-                fixedHeader:true,
-                scrollX: true,
-                scrollY: 220,
+
+            // Datepicker untuk Lift On/Lift Off dengan plugin selectMonth
+            const loloMonthSelect = flatpickr("#lolo_month_select", {
+                altInput: true,
+                altFormat: "F Y",
+                dateFormat: "Y-m",
+                plugins: [new monthSelectPlugin({
+                    shorthand: true,
+                    dateFormat: "Y-m"
+                })],
+                selectedDate: lastMonth,
+                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
             });
 
-            let pluggingMonitoringTable = new DataTable('#pluggingMonitoringeTableSort', {
-                ordering: [],
+            // Datepicker untuk Trucking dengan plugin selectMonth
+            const truckingMonthSelect = flatpickr("#trucking_month_select", {
+                altInput: true,
+                altFormat: "F Y",
+                dateFormat: "Y-m",
+                plugins: [new monthSelectPlugin({
+                    shorthand: true,
+                    dateFormat: "Y-m"
+                })],
+                selectedDate: lastMonth,
+                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
             });
 
-
-            // SY Chart Start
-            var syChartDataTotalStr = @json($syChartTotal);
-            var syChartDataTotal = syChartDataTotalStr.map(function(str) {
-                return parseInt(str, 10);
+            // Datepicker untuk Plugging & Monitoring dengan plugin selectMonth
+            const pmMonthSelect = flatpickr("#pm_month_select", {
+                altInput: true,
+                altFormat: "F Y",
+                dateFormat: "Y-m",
+                plugins: [new monthSelectPlugin({
+                    shorthand: true,
+                    dateFormat: "Y-m"
+                })],
+                selectedDate: lastMonth,
+                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
             });
-            syChartDataTotal.unshift(@json($syRemains));
-            var syChartLabel = @json($syChartLabel);
-            syChartLabel.unshift('Remains');
-            var syOptions = {
-                series: syChartDataTotal,
-                labels: syChartLabel,
-                plotOptions: {
-                    pie: {
-                        donut: {
-                            labels: {
-                                show: true,
-                                total: {
-                                    show: true,
-                                    label: 'Remains:',
-                                    formatter: () => (@json($syRemains)) + ' TEUs'
-                                }
-                            }
-                        }
-                    }
-                },
-                chart: {
-                    type: 'donut',
-                    height: 'auto',
-                    width: '100%',
-                    toolbar: {
-                        show: true,
-                        offsetX: 0,
-                        offsetY: 0,
-                        tools: {
-                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false,
-                            customIcons: []
-                        },
-                    },
-                },
-                responsive: [{
-                    breakpoint: 480,
-                }],
-                legend: {
-                    show: false,
-                    position: 'bottom'
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    y: {
-                        formatter: function (y) {
-                        if (typeof y !== "undefined") {
-                            return y.toFixed(0) + " points";
-                        }
-                        return y;
-                        }
-                    }
-                }
-            };
-            var syChart = new ApexCharts(document.querySelector("#LuasStorageYard"), syOptions);
-            syChart.render();
-            // SY Chart Ends
 
-            // Storage Yard Select Type Starts
-            var syTable = $("#storageYardTableSort")
-            var syData = @json($syData); // Mengambil return dari controller metode GET
-            syData.forEach(function (item) { // Gati NULL dengan 'Belum'
-                if (item.keluar === null) {
-                    item.keluar = 'Belum';
+            // Datepicker untuk Stuffing/Stripping dengan plugin selectMonth
+            const ssMonthSelect = flatpickr("#ss_month_select", {
+                altInput: true,
+                altFormat: "F Y",
+                dateFormat: "Y-m",
+                plugins: [new monthSelectPlugin({
+                    shorthand: true,
+                    dateFormat: "Y-m"
+                })],
+                selectedDate: lastMonth,
+                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
+            });
+        </script>
+        {{-- Datepicker Ends --}}
+
+
+        {{-- Hide/Show Section Start --}}
+        <script>
+            // LoLo Start
+            document.getElementById('loloHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("liftInLiftOff");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
                 }
             });
-            var syTable = $('#storageYardTableSort').DataTable({ // Perubahan di Storage Yard dari Select Option
-                data: syData,
-                columns: [
-                    { data: 'owner', className: 'text-center py-0' },
-                    { data: 'masuk', className: 'text-right py-0' },
-                    { data: 'keluar', className: 'text-center py-0' },
-                    { data: 'total', className: 'text-center py-0' }
-                ]
-            });
-            $(document).ready(function(){
-                $('#syCategory').change(function(event){
-                    var selectedType = $(this).val();
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { sySelectedType: selectedType },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#syUsed').text(response.syUsed);
-                            $('.syType').text(response.syType);
-                            $('#syTotalCustomer').text(response.syTotalCustomer);
-                            $('#syMax').text(response.syMax);
-                            $('#syRemains').text(response.syRemains);
-                            $('#syRemainsPercent').text(response.syRemainsPercent+'%');
-                            $('#syUsedPercent').text(response.syUsedPercent+'%');
-                            $('#syH3').text('Total '+response.syStorageType);
-                            $('#syRemainsPercentCon').removeClass(function (index, className) {
-                                return (className.match(/(^|\s)p\d+/g) || []).join(' ');
-                            }).addClass('p' + response.syRemainsPercent);
-                            $('#syUsedPercentCon').removeClass(function (index, className) {
-                                return (className.match(/(^|\s)p\d+/g) || []).join(' ');
-                            }).addClass('p' + response.syUsedPercent);
-
-                            if (response.syRemainsPercent > 50){
-                                $('#syRemainsPercentCon').addClass('over50');
-                            } else {
-                                $('#syRemainsPercentCon').removeClass('over50');
-                            }
-                            if (response.syUsedPercent > 50){
-                                $('#syUsedPercentCon').addClass('over50');
-                            } else {
-                                $('#syUsedPercentCon').removeClass('over50');
-                            }
+            // LoLo Ends
 
 
-                            // Table
-                            syTable.clear().draw();
-                            response.syData.forEach(function (syData) {
-                                if (syData.keluar === null) {
-                                    syData.keluar = 'Belum';
-                                }
-                                syTable.row.add(syData).draw(false);
-                            });
-
-                            // Chart
-                            syChartDataTotal = response.syChartTotal.map(function(str) {
-                                return parseInt(str, 10);
-                            });
-                            syChartDataTotal.unshift(response.syRemains);
-                            response.syChartLabel.unshift('Remains');
-                            syOptions.series = syChartDataTotal;
-                            syOptions.labels = response.syChartLabel;
-                            syOptions.plotOptions.pie.donut.labels.total.formatter = () => response.syRemains + ' ' + response.syType;
-                            syChart.updateOptions(syOptions);
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    })
-                })
-            })
-            // Storage Yard Select Type Ends
-
-
-            // SW Chart Start
-            var swChartDataTotalStr = @json($swChartTotal);
-            var swChartDataTotal = swChartDataTotalStr.map(function(str) {
-                return parseInt(str, 10);
-            });
-            swChartDataTotal.unshift(@json($swRemains));
-            var swChartLabel = @json($swChartLabel);
-            swChartLabel.unshift('Remains');
-            var swOptions = {
-                series: swChartDataTotal,
-                labels: swChartLabel,
-                plotOptions: {
-                    pie: {
-                        donut: {
-                            labels: {
-                                show: true,
-                                total: {
-                                    show: true,
-                                    label: 'Remains:',
-                                    formatter: () => (@json($swRemains)) + ' m2'
-                                }
-                            }
-                        }
-                    }
-                },
-                chart: {
-                    type: 'donut',
-                    height: 'auto',
-                    width: '100%',
-                    toolbar: {
-                        show: true,
-                        offsetX: 0,
-                        offsetY: 0,
-                        tools: {
-                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false,
-                            customIcons: []
-                        },
-                    },
-                },
-                responsive: [{
-                    breakpoint: 480,
-                }],
-                legend: {
-                    show: false,
-                    position: 'bottom'
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    y: {
-                        formatter: function (y) {
-                        if (typeof y !== "undefined") {
-                            return y.toFixed(0) + " points";
-                        }
-                        return y;
-                        }
-                    }
-                }
-            };
-            var swChart = new ApexCharts(document.querySelector("#LuasStorageWarehouse"), swOptions);
-            swChart.render();
-            // SW Chart Ends
-
-            // Storage Warehouse Select Type Starts
-            var swTable = $("#storageWarehouseTableSort");
-            var swData = @json($swData); // Mengambil return dari controller metode GET
-            swData.forEach(function (item) { // Ganti NULL dengan 'Belum'
-                if (item.keluar === null) {
-                    item.keluar = 'Belum';
+            // SY Start
+            document.getElementById('syHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("storageYard");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
                 }
             });
-            var swTable = $('#storageWarehouseTableSort').DataTable({ // Perubahan di Storage Yard dari Select Option
-                data: swData,
-                columns: [
-                    { data: 'owner', className: 'text-center py-0' },
-                    { data: 'masuk', className: 'text-right py-0' },
-                    { data: 'keluar', className: 'text-center py-0' },
-                    { data: 'total', className: 'text-center py-0' }
-                ]
+            // SY Ends
+
+
+            // SW Start
+            document.getElementById('swHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("storageWarehouse");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
             });
-            $(document).ready(function(){
-                $('#swCategory').change(function(event){
-                    var selectedType = $(this).val();
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { swSelectedType: selectedType },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#swUsed').text(response.swUsed);
-                            $('.swType').text(response.swType);
-                            $('#swTotalCustomer').text(response.swTotalCustomer);
-                            $('#swMax').text(response.swMax);
-                            $('#swRemains').text(response.swRemains);
-                            $('#swRemainsPercent').text(response.swRemainsPercent+'%');
-                            $('#swUsedPercent').text(response.swUsedPercent+'%');
-                            $('#swStorageType').text('Total '+response.swStorageType)
-                            $('#swRemainsPercentCon').removeClass(function (index, className) {
-                                return (className.match(/(^|\s)p\d+/g) || []).join(' ');
-                            }).addClass('p' + response.swRemainsPercent);
-                            $('#swUsedPercentCon').removeClass(function (index, className) {
-                                    return (className.match(/(^|\s)p\d+/g) || []).join(' ');
-                                }).addClass('p' + response.swUsedPercent);
-                            if (response.swRemainsPercent > 50){
-                                $('#swRemainsPercentCon').addClass('over50');
-                            } else {
-                                $('#swRemainsPercentCon').removeClass('over50');
-                            }
-                            if (response.swUsedPercent > 50){
-                                $('#swUsedPercentCon').addClass('over50');
-                            } else {
-                                $('#swUsedPercentCon').removeClass('over50');
-                            }
+            // SW Ends
 
-                            // Table
-                            swTable.clear().draw();
-                            response.swData.forEach(function (swData) {
-                                if (swData.keluar === null) {
-                                    swData.keluar = 'Belum';
-                                }
-                                swTable.row.add(swData).draw(false);
-                            });
 
-                            swChartDataTotal = response.swChartTotal.map(function(str) {
-                                return parseInt(str, 10);
-                            });
-
-                            // Chart
-                            swChartDataTotal.unshift(response.swRemains);
-                            response.swChartLabel.unshift('Remains');
-                            swOptions.series = swChartDataTotal;
-                            swOptions.labels = response.swChartLabel;
-                            swOptions.plotOptions.pie.donut.labels.total.formatter = () => response.swRemains + ' ' + response.swType;
-                            swChart.updateOptions(swOptions);
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    })
-                })
-            })
-            // Storage Warehouse Select Type Ends
-
-            // Lolo Chart Start
-            var loloTotalOrderChart = @json($loloTotalOrderChart);
-            var loloServiceTimeOrderChartStr = @json($loloServiceTimeOrderChart);
-            var loloServiceTimeOrderChart = loloServiceTimeOrderChartStr.map(function(str) {
-                return parseInt(str, 10);
+            // Trucking Start
+            document.getElementById('truckingHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("trucking");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
             });
-            var loloOptions = {
+            // Trucking Ends
+
+
+            // PM Start
+            document.getElementById('PMHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("pluggingMonitoring");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            });
+            // PM Ends
+
+
+            // SS Start
+            document.getElementById('SSHideShow').addEventListener('click', function() {
+                var icon = this.querySelector('h3 span i.fa-chevron-down');
+                icon.classList.toggle('fa-rotate-180');
+                var x = document.getElementById("stuffingStripping");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            });
+            // SS Ends
+        </script>
+        {{-- Hide/Show Section Start --}}
+
+
+        {{-- Auto Enable and Disable Shift Pluggin & Monitoring Start --}}
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const divs = document.querySelectorAll('.shift'); // Ambil semua elemen dengan class 'shift'
+                let activeIndex = 0;
+
+                function toggleColors() {
+                    // Ganti kelas 'dark' dan 'bright' pada elemen 'shift' saat ini
+                    if (activeIndex == 0){
+                        divs[0].classList.add('shift-active');
+                        divs[1].classList.remove('shift-active');
+                        divs[2].classList.remove('shift-active');
+                    } else if (activeIndex == 1){
+                        divs[1].classList.add('shift-active');
+                        divs[0].classList.remove('shift-active');
+                        divs[2].classList.remove('shift-active');
+                    } else {
+                        divs[2].classList.add('shift-active');
+                        divs[0].classList.remove('shift-active');
+                        divs[1].classList.remove('shift-active');
+                    }
+
+                    // Perbarui indeks elemen yang aktif
+                    activeIndex = (activeIndex + 1) % divs.length;
+                }
+
+                // Atur interval untuk memanggil toggleColors setiap 2 detik (2000ms)
+                setInterval(toggleColors, 3000);
+            });
+        </script>
+        {{-- Auto Enable and Disable Shift Pluggin & Monitoring Start --}}
+
+
+        {{-- Chart dengan ApexChart START --}}
+        <script>
+            // {{-- Lolo Chart Start --}}
+            var options = {
                 series: [
                     {
                         name: 'Total Order',
                         type: 'column',
-                        data: loloTotalOrderChart
+                        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
                     },
                     {
                         name: 'Service Time',
                         type: 'line',
-                        data: loloServiceTimeOrderChart
+                        data: [12, 8, 20, 23, 10, 18, 30, 19, 40, 21, 24]
                     }
                 ],
                 chart: {
@@ -1438,6 +1421,9 @@
                         stops: [0, 100, 100]
                     },
                 },
+                labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+                '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+                ],
                 markers: {
                     size: 0
                 },
@@ -1446,9 +1432,7 @@
                     horizontalAlign: 'left'
                 },
                 xaxis: {
-                    categories:['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July',
-                        'Aug', 'Sep', 'Okt', 'Nov', 'Des'
-                    ],
+                    type: 'datetime'
                 },
                 tooltip: {
                     shared: true,
@@ -1464,425 +1448,215 @@
                 }
             };
 
-            var loloChart = new ApexCharts(document.querySelector("#totalOrderVsDowntime"), loloOptions);
-            loloChart.render();
-            // LoLo Chart Ends
-
-            // Datepicker untuk Lift On/Lift Off dengan plugin selectMonth
-            var loloMinDate = <?php echo json_encode($min_date_lolo[0]->year_and_month); ?>;
-            const loloMonthSelect = flatpickr("#lolo_month_select", {
-                altInput: true,
-                altFormat: "F Y",
-                dateFormat: "Y-m",
-                plugins: [new monthSelectPlugin({
-                    shorthand: true,
-                    dateFormat: "Y-m"
-                })],
-                minDate: loloMinDate,
-                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
-                onValueUpdate: function(selectedDates, dateStr, instance) {
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { loloSelectMonth: dateStr },
-                        dataType: 'json',
-                        success: function(response) {
-                            // alert(response.loloPendingOrder);
-                            $('#loloTotalOrder').text(response.loloTotalOrder);
-                            $('#loloFinishOrder').text(response.loloFinishOrder);
-                            $('#loloPendingOrder').text(response.loloPendingOrder);
-                            $('#loloServiceTime').text(response.loloServiceTimeValue)
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    });
-                },
-            });
-
-            // Yearpicker untuk Lift On/Lift Off
-            $(document).ready(function(){
-                $('#lolo_year_select').change(function(event){
-                    var selectedType = $(this).val();
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { loloSelectedYear: selectedType },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#loloAvgTotalOrder').text(response.loloAverageTotalOrder);
-                            $('#loloHighestTotalOrder').text(response.loloHighestTotalOrder);
-                            $('#loloLowestTotalOrder').text(response.loloLowestTotalOrder);
-                            $('#loloAvgServiceTime').text(response.loloAverageServiceTime);
-
-                            // Chart
-                            loloOptions.series[0].data = response.loloTotalOrderChart;
-                            loloOptions.series[1].data = response.loloServiceTimeOrderChart;
-                            loloChart.updateOptions(loloOptions);
-
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    })
-                })
-            })
+            var chart = new ApexCharts(document.querySelector("#totalOrderVsDowntime"), options);
+            chart.render();
+            // {{-- LoLo Chart Ends --}}
 
 
-
-              // Trucking Chart Start
-              var truckingTotalOrderChart = @json($truckingTotalOrderChart);
-              var truckingOptions = {
-                series: [
-                    {
-                        name: 'TEAM A',
-                        type: 'area',
-                        data: truckingTotalOrderChart
-                    },
-                ],
-                chart: {
-                    stacked: false,
-                    toolbar: {
-                        show: true,
-                        offsetX: 0,
-                        offsetY: 0,
-                        tools: {
-                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false,
-                            customIcons: []
-                        },
-                    },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                stroke: {
-                    width: 5,
-                    curve: 'smooth'
-                },
-                fill: {
-                    opacity: 1,
-                    type: "gradient",
-                    gradient: {
-                        inverseColors: true,
-                        shade: 'light',
-                        type: "vertical",
-                        opacityFrom: 1,
-                        opacityTo: 0.3,
-                        stops: 100,
-                    },
-                },
-                markers: {
-                    size: 5
-                },
-                legend: {
-                    position: 'top',
-                    horizontalAlign: 'left'
-                },
-                xaxis: {
-                    categories:['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July',
-                        'Aug', 'Sep', 'Okt', 'Nov', 'Des'
-                    ],
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    y: {
-                        formatter: function (y) {
-                        if (typeof y !== "undefined") {
-                            return y.toFixed(0) + " points";
-                        }
-                        return y;
-                        }
-                    }
-                }
-            };
-
-            var truckingChart = new ApexCharts(document.querySelector("#totalOrderTrucking"), truckingOptions);
-            truckingChart.render();
-            // Trucking Chart Ends
-
-            // Datepicker untuk Trucking dengan plugin selectMonth
-            var truckingMinDate = <?php echo json_encode($min_date_trucking[0]->year_and_month); ?>;
-            const truckingMonthSelect = flatpickr("#trucking_month_select", {
-                altInput: true,
-                altFormat: "F Y",
-                dateFormat: "Y-m",
-                plugins: [new monthSelectPlugin({
-                    shorthand: true,
-                    dateFormat: "Y-m"
-                })],
-                minDate: truckingMinDate,
-                maxDate: lastMonth,
-                onValueUpdate: function(selectedDates, dateStr, instace){
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { truckingSelectMonth: dateStr },
-                        dataType: 'json',
-                        success: function(response) {
-                            // alert(response.loloPendingOrder);
-                            $('#truckingTotalOrder').text(response.truckingTotalOrder);
-                            $('#truckingFinishOrder').text(response.truckingFinishOrder);
-                            $('#truckingPendingOrder').text(response.truckingPendingOrder);
-                            $('#truckingServiceTime').text(response.truckingServiceTime)
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    })
-                }
-            });
-
-            // // Yearpicker untuk Trucking
-            $(document).ready(function(){
-                $('#trucking_year_select').change(function(event){
-                    var selectedType = $(this).val();
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { truckingSelectedYear: selectedType },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#truckingAvgTotalOrder').text(response.truckingAverageTotalOrder);
-                            $('#truckingHighestTotalOrder').text(response.truckingHighestTotalOrder);
-                            $('#truckingLowestTotalOrder').text(response.truckingLowestTotalOrder);
-                            $('#truckingAvgServiceTime').text(response.truckingAverageServiceTime);
-
-                            // Chart
-                            truckingOptions.series[0].data = response.truckingTotalOrderChart;
-                            truckingChart.updateOptions(truckingOptions);
-
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
-                        }
-                    })
-                })
-            })
-
-            // Datepicker untuk Plugging & Monitoring dengan plugin selectMonth
-            var pmMinDate = <?php echo json_encode($min_date_pm[0]->year_and_month); ?>;
-            const pmMonthSelect = flatpickr("#pm_month_select", {
-                altInput: true,
-                altFormat: "F Y",
-                dateFormat: "Y-m",
-                plugins: [new monthSelectPlugin({
-                    shorthand: true,
-                    dateFormat: "Y-m"
-                })],
-                // selectedDate: lastMonth,
-                minDate: pmMinDate,
-                maxDate: lastMonth, // Membatasi bulan maksimal hingga bulan saat ini
-                // onChange: function (selectedDates, dateStr, instance) {
-                //     // Saat tanggal dipilih, simpan dalam variabel
-                //     pm_selectedMonth = dateStr;
-                // },
-            });
-
-
-            // SS Chart Start
-            var ssTotalOrderChart = @json($ssTotalOrderChart);
-            var ssOptions = {
-                series: [
-                    {
-                        name: 'TEAM A',
-                        type: 'area',
-                        data: ssTotalOrderChart
-                    },
-                ],
-                chart: {
-                    stacked: false,
-                    height: "100%",
-                    toolbar: {
-                        show: true,
-                        offsetX: 0,
-                        offsetY: 0,
-                        tools: {
-                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
-                            selection: false,
-                            zoom: false,
-                            zoomin: false,
-                            zoomout: false,
-                            pan: false,
-                            reset: false,
-                            customIcons: []
-                        },
-                    },
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                stroke: {
-                    width: 5,
-                    curve: 'smooth'
-                },
-                fill: {
-                    opacity: 1,
-                    type: "gradient",
-                    gradient: {
-                        inverseColors: true,
-                        shade: 'light',
-                        type: "vertical",
-                        opacityFrom: 1,
-                        opacityTo: 0.3,
-                        stops: 100,
-                    },
-                },
-                markers: {
-                    size: 5
-                },
-                legend: {
-                    position: 'top',
-                    horizontalAlign: 'left'
-                },
-                xaxis: {
-                    categories:['Jan', 'Feb', 'March', 'Apr', 'May', 'June', 'July',
-                        'Aug', 'Sep', 'Okt', 'Nov', 'Des'
-                    ],
-                },
-                tooltip: {
-                    shared: true,
-                    intersect: false,
-                    y: {
-                        formatter: function (y) {
-                        if (typeof y !== "undefined") {
-                            return y.toFixed(0) + " points";
-                        }
-                        return y;
-                        }
-                    }
-                }
-            };
-
-            var ssChart = new ApexCharts(document.querySelector("#totalOrderStuffingStripping"), ssOptions);
-            ssChart.render();
-            // SS Chart Ends
-
-            // Datepicker untuk Stuffing/Stripping dengan plugin selectMonth
-            var ssMinDate = <?php echo json_encode($min_date_ss[0]->year_and_month); ?>;
-            var ssTable = $('#stuffingStrippingTableSort');
-            var ssData = @json($ssData); // Mengambil return dari controller metode GET
-            var ssTable = $('#stuffingStrippingTableSort').DataTable({ // Perubahan di Stuffing Stripping dari Datepicker
-                data: ssData,
-                columns: [
-                    { data: 'id', className: 'text-center py-0' },
-                    { data: 'total', className: 'text-center py-0' },
-                    { data: 'finishOrder', className: 'text-center py-0' },
-                    { data: 'pendingOrder', className: 'text-center py-0' },
-                    {
-                        data: 'persen',
-                        className: 'text-center py-0',
-                        render: function (data, type, row) {
-                            if (type === 'display') {
-                                return '<div class="d-flex flex-row align-items-center h-100 w-100">'+
-                                    '<div class="progress col-6" style="height: 19%" role="progressbar" aria-label="Success example" aria-valuenow="' + data + '" aria-valuemin="0" aria-valuemax="100">' +
-                                    '<div class="progress-bar h-100" style="width: ' + data + '%"></div>' +
-                                    '</div>' +
-                                    '<div class="col-6">' + data + '%' +
-                                    '</div>' +
-                                    '</div>';
+            // {{-- SY Chart Start --}}
+            var LoLoOptions = {
+                series: [44, 55, 41, 17, 15,44, 55, 40, 16, 14,43, 54, 40, 16, 14,42, 52, 39, 15, 13],
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Remains:',
+                                    formatter: () => '103 TEUs'
+                                }
                             }
-                            return data;
                         }
+                    }
+                },
+                chart: {
+                    type: 'donut',
+                    height: 'auto',
+                    width: '100%',
+                    toolbar: {
+                        show: true,
+                        offsetX: 0,
+                        offsetY: 0,
+                        tools: {
+                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
+                            selection: false,
+                            zoom: false,
+                            zoomin: false,
+                            zoomout: false,
+                            pan: false,
+                            reset: false,
+                            customIcons: []
+                        },
                     },
-                    { data: 'start_date', className: 'text-center py-0'}
-                ]
-            });
-            const ssMonthSelect = flatpickr("#ss_month_select", {
-                altInput: true,
-                altFormat: "F Y",
-                dateFormat: "Y-m",
-                plugins: [new monthSelectPlugin({
-                    shorthand: true,
-                    dateFormat: "Y-m"
-                })],
-                minDate: ssMinDate,
-                maxDate: lastMonth,
-                onValueUpdate: function(selectedDates, dateStr, instance){
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { ssSelectMonth: dateStr },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#ssTotalOrder').text(response.ssTotalOrder);
-                            $('#ssFinishOrder').text(response.ssFinishOrder);
-                            $('#ssPendingOrder').text(response.ssPendingOrder);
-                            $('#ssServiceTime').text(response.ssServiceTime);
-                            ssTable.clear().draw();
-                            response.ssData.forEach(function (ssData) {
-                                ssTable.row.add(ssData).draw(false);
-                            });
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
+
+                },
+                responsive: [{
+                    breakpoint: 480,
+                }],
+                legend: {
+                    show: false,
+                    position: 'bottom'
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    y: {
+                        formatter: function (y) {
+                        if (typeof y !== "undefined") {
+                            return y.toFixed(0) + " points";
                         }
-                    });
+                        return y;
+                        }
+                    }
                 }
-            });
+            };
+            var chart = new ApexCharts(document.querySelector("#LuasStorageYard"), LoLoOptions);
+            chart.render();
+            // {{-- SY Chart Ends --}}
 
-            // // Yearpicker untuk SS
-            $(document).ready(function(){
-                $('#ss_year_select').change(function(event){
-                    var selectedType = $(this).val();
-                    $.ajax({
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        type: "POST",
-                        url: '{{ route('paymentJSON') }}',
-                        data: { ssSelectedYear: selectedType },
-                        dataType: 'json',
-                        success: function(response) {
-                            $('#ssAverageTotalOrder').text(response.ssAverageTotalOrder);
-                            $('#ssHighestTotalOrder').text(response.ssHighestTotalOrder);
-                            $('#ssLowestTotalOrder').text(response.ssLowestTotalOrder);
-                            $('#ssAvgServiceTime').text(response.ssAverageServiceTime);
-                            $('#ssTopPrincipal').text(response.ssTopPrincipal);
-                            $('#ssTopForwarder').text(response.ssTopForwarder);
-                            $('#ssTopShipper').text(response.ssTopShipper);
-                            $('#ssTopCargo').text(response.ssTopCargo);
 
-                            // Chart
-                            ssOptions.series[0].data = response.ssTotalOrderChart;
-                            ssChart.updateOptions(ssOptions);
-
-                        },
-                        error: function(error) {
-                            console.log("Kesalahan:", error);
-                            alert('Terjadi kesalahan');
+            // {{-- SW Chart Start --}}
+            var SwOptions = {
+                series: [44, 55, 41, 17, 15,44, 55, 40, 16, 14,43, 54, 40, 16, 14,42, 52, 39, 15, 13],
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Remains:',
+                                    formatter: () => '103 TEUs'
+                                }
+                            }
                         }
-                    })
-                })
-            })
+                    }
+                },
+                chart: {
+                    type: 'donut',
+                    height: 'auto',
+                    width: '100%',
+                    toolbar: {
+                        show: true,
+                        offsetX: 0,
+                        offsetY: 0,
+                        tools: {
+                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
+                            selection: false,
+                            zoom: false,
+                            zoomin: false,
+                            zoomout: false,
+                            pan: false,
+                            reset: false,
+                            customIcons: []
+                        },
+                    },
+                },
+                responsive: [{
+                    breakpoint: 480,
+                }],
+                legend: {
+                    show: false,
+                    position: 'bottom'
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    y: {
+                        formatter: function (y) {
+                        if (typeof y !== "undefined") {
+                            return y.toFixed(0) + " points";
+                        }
+                        return y;
+                        }
+                    }
+                }
+            };
+            var chart = new ApexCharts(document.querySelector("#LuasStorageWarehouse"), SwOptions);
+            chart.render();
+            // {{-- SW Chart Ends --}}
 
-            // PM Chart Start
+
+            // {{-- Trucking Chart Start --}}
+            var truckingOptions = {
+                series: [
+                    {
+                        name: 'TEAM A',
+                        type: 'area',
+                        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+                    },
+                ],
+                chart: {
+                    stacked: false,
+                    toolbar: {
+                        show: true,
+                        offsetX: 0,
+                        offsetY: 0,
+                        tools: {
+                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
+                            selection: false,
+                            zoom: false,
+                            zoomin: false,
+                            zoomout: false,
+                            pan: false,
+                            reset: false,
+                            customIcons: []
+                        },
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 5,
+                    curve: 'smooth'
+                },
+                fill: {
+                    opacity: 1,
+                    type: "gradient",
+                    gradient: {
+                        inverseColors: true,
+                        shade: 'light',
+                        type: "vertical",
+                        opacityFrom: 1,
+                        opacityTo: 0.3,
+                        stops: 100,
+                    },
+                },
+                labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+                '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+                ],
+                markers: {
+                    size: 5
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'left'
+                },
+                xaxis: {
+                    type: 'datetime'
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    y: {
+                        formatter: function (y) {
+                        if (typeof y !== "undefined") {
+                            return y.toFixed(0) + " points";
+                        }
+                        return y;
+                        }
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#totalOrderTrucking"), truckingOptions);
+            chart.render();
+            // {{-- Trucking Chart Ends --}}
+
+
+            // {{-- PM Chart Start --}}
             var PmOptions = {
                 series: [
                     {
@@ -1966,12 +1740,88 @@
                 }
             };
 
-            var pmChart = new ApexCharts(document.querySelector("#totalMonitoringTiapShift"), PmOptions);
-            pmChart.render();
-            // PM Chart Ends
+            var chart = new ApexCharts(document.querySelector("#totalMonitoringTiapShift"), PmOptions);
+            chart.render();
+            // {{-- PM Chart Ends --}}
 
+
+            // {{-- SS Chart Start --}}
+            var SsOptions = {
+                series: [
+                    {
+                        name: 'TEAM A',
+                        type: 'area',
+                        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30]
+                    },
+                ],
+                chart: {
+                    stacked: false,
+                    toolbar: {
+                        show: true,
+                        offsetX: 0,
+                        offsetY: 0,
+                        tools: {
+                            download: `<svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 128 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>`,
+                            selection: false,
+                            zoom: false,
+                            zoomin: false,
+                            zoomout: false,
+                            pan: false,
+                            reset: false,
+                            customIcons: []
+                        },
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                stroke: {
+                    width: 5,
+                    curve: 'smooth'
+                },
+                fill: {
+                    opacity: 1,
+                    type: "gradient",
+                    gradient: {
+                        inverseColors: true,
+                        shade: 'light',
+                        type: "vertical",
+                        opacityFrom: 1,
+                        opacityTo: 0.3,
+                        stops: 100,
+                    },
+                },
+                labels: ['01/01/2003', '02/01/2003', '03/01/2003', '04/01/2003', '05/01/2003', '06/01/2003', '07/01/2003',
+                '08/01/2003', '09/01/2003', '10/01/2003', '11/01/2003'
+                ],
+                markers: {
+                    size: 5
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'left'
+                },
+                xaxis: {
+                    type: 'datetime'
+                },
+                tooltip: {
+                    shared: true,
+                    intersect: false,
+                    y: {
+                        formatter: function (y) {
+                        if (typeof y !== "undefined") {
+                            return y.toFixed(0) + " points";
+                        }
+                        return y;
+                        }
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#totalOrderStuffingStripping"), SsOptions);
+            chart.render();
+            // {{-- SS Chart Ends --}}
         </script>
-        <script src="{{asset('assets/js/hide-show-payment-index.js')}}"></script>
-        <script src="{{asset('assets/js/enable-disable-pm-payment-index.js')}}"></script>
+        {{-- Chart dengan ApexChart ENDS --}}
     @endpush
 @endsection

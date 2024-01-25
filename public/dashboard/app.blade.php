@@ -85,6 +85,7 @@
     <script src="https://kit.fontawesome.com/6b61509af7.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    {{-- <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/fh-3.4.0/r-2.5.0/sc-2.2.0/datatables.min.js"></script> --}}
     @stack('script')
     <script>
         // Sidebar
@@ -109,5 +110,16 @@
             toggle.classList.toggle('active')
         }
     </script>
+    {{-- <script>
+        var canvas = document.querySelector('canvas');
+        fitToContainer(canvas);
+
+        function fitToContainer(canvas){
+            canvas.style.width ='100%';
+            canvas.style.height='100%';
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+    </script> --}}
 </body>
 </html>
